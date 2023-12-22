@@ -335,7 +335,7 @@
      <sensor name="camera" type="camera">
         <pose>0.036 0 0.157 0 0 0</pose>
         <always_on>true</always_on>
-        <visualize>true</visualize>
+        <visualize>false</visualize>
         <update_rate>30</update_rate>
         <camera name="picam">
           <horizontal_fov>1.085595</horizontal_fov>
@@ -540,7 +540,7 @@
 
 <link name="servo_garra1">
       <inertial>
-        <pose>0.083 -0.005 0.092 0 0 0</pose>
+        <pose>0.043 0.0015 0.092 0 0 -1.57</pose>
         <inertia>
           <ixx>0</ixx>
           <ixy>0</ixy>
@@ -552,7 +552,7 @@
         <mass>0.001</mass>
       </inertial>
       <collision name="servo_garra1_collision">
-        <pose>00.083 -0.005 0.092 0 0 0</pose>
+        <pose>0.043 0.0015 0.092 0 0 -1.57</pose>
         <geometry>
           <mesh>
             <uri>model://insperbot/meshes/garra/servo_garra1.stl</uri>
@@ -622,9 +622,10 @@
 
 
 
-<!-- este link da garra está "afundando" o robô.. -->
+<!-- este link da garra está "afundando" o robô se colocado em rotacao, mantendo fixo nao da problema
+verificar se ao colocar o link no urdf ira funcionar.... -->
 
-<!-- <link name="garra1garrabraco1">
+<link name="garra1garrabraco1">
       <inertial>
         <pose>0.083 -0.005 0.092 0 0 0</pose>
         <inertia>
@@ -635,10 +636,10 @@
           <iyz>0</iyz>
           <izz>2.0712558e-05</izz>
         </inertia>
-        <mass>2.8498940e-03</mass>
+        <mass>0.001</mass>
       </inertial>
       <collision name="garra1garrabraco1">
-        <pose>00.083 -0.005 0.092 0 0 0</pose>
+        <pose>0.043 0.0015 0.092 0 0 -1.57</pose>
         <geometry>
           <mesh>
             <uri>model://insperbot/meshes/garra/arm.stl</uri>
@@ -659,11 +660,11 @@
     <joint name="garra1garrabraco1_joint" type="revolute">
       <parent>servo_garra1</parent>
       <child>garra1garrabraco1</child>
-      <pose>0.083 -0.005 0.092 0 0 0</pose>
+      <pose>0.043 0.0015 0.092 0 0 -1.57</pose>
       <axis>
-        <xyz>0 1 0</xyz>
+        <xyz>1 0 0</xyz>
       </axis>
-    </joint> -->
+    </joint>
 
 
 
@@ -781,6 +782,7 @@
       <update_rate>30</update_rate>
       <joint_name>wheel_left_joint</joint_name>
       <joint_name>wheel_right_joint</joint_name>
+      <joint_name>garra1garrabraco1_joint</joint_name>
     </plugin>      
   </model>
 </sdf>
