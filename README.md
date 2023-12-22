@@ -1,2 +1,2 @@
 # my_simulation
-alt1
+lt1
