@@ -267,9 +267,10 @@
       </geometry>
     </collision>
   </link>
-  <joint name="joint1" type="revolute">
+  <joint name="joint1" type="fixed">
     <origin rpy="0 0 0" xyz="0.083 -0.005 0.092"/>
-    <limit effort="1" lower="-1.50" upper="1.5" velocity="0.1"/>
+    <!-- <limit effort="1" lower="-1.50" upper="1.5" velocity="0.1"/> -->
+    <limit lower="-1.50" upper="1.5" velocity="0.1"/>
     <parent link="servo_garra1_link"/>
     <child link="garra1garrabraco1"/>
     <axis xyz="1.0 0.0 0.0"/>
