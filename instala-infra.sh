@@ -46,8 +46,10 @@ source ~/.bashrc
 sudo apt install -y python3-colcon-common-extensions
 mkdir -p ~/colcon_ws/src
 cd ~/colcon_ws/src
-git clone -b humble-devel https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
-git clone -b humble-devel https://github.com/ROBOTIS-GIT/turtlebot3_manipulation.git
+git clone https://github.com/rbcuenca/my_simulation
+git clone https://github.com/rbcuenca/insperbot
+# git clone -b humble-devel https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+# git clone -b humble-devel https://github.com/ROBOTIS-GIT/turtlebot3_manipulation.git
 # git clone -b humble-devel https://github.com/ROBOTIS-GIT/turtlebot3.git 
 # git clone -b humble-devel https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git 
 # git clone -b humble-devel https://github.com/ROBOTIS-GIT/DynamixelSDK.git 
