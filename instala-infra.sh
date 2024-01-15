@@ -62,6 +62,7 @@ alias update="sudo apt update && sudo apt upgrade -y && sudo apt autoremove"
 ###########################################
 ### variaveis relacionadas ao ROS2 Humble
 source /opt/ros/humble/setup.bash
+source /usr/share/gazebo/setup.sh
 source ~/colcon_ws/install/setup.bash
 export ROS_DOMAIN_ID=30 #TURTLEBOT3
 export TURTLEBOT3_MODEL=burger_insper
