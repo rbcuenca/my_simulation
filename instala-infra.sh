@@ -17,11 +17,31 @@ locale  # verify settings
 sudo apt install software-properties-common -y
 sudo add-apt-repository universe -y
 sudo apt update && sudo apt install curl -y
+sudo apt install maven -y
+sudo apt install git -y 
+sudo apt-get install libcanberra-gtk-module -y
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
 # Instalacao do repositorio e chaves do ROS
 sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
 sudo apt update && sudo apt upgrade -y
+
+# Instalacao Quartus, Modelsim, Drivers Cyclone V e JTagConfig
+cd ~/
+git clone https://github.com/powerline/fonts
+cd fonts
+./install.sh
+cd ~/
+rm -fr fonts
+
+cd ~/Downloads
+wget http://download.altera.com/akdlm/software/acdsinst/20.1std/711/ib_installers/QuartusLiteSetup-20.1.0.711-linux.run
+wget http://download.altera.com/akdlm/software/acdsinst/20.1std/711/ib_installers/ModelSimSetup-20.1.0.711-linux.run
+wget http://download.altera.com/akdlm/software/acdsinst/20.1std/711/ib_installers/cyclonev-20.1.0.711.qdz
+
+chmod +x QuartusLiteSetup-20.1.0.711-linux.run
+./QuartusLiteSetup-20.1.0.711-linux.run
 
 # Instalacao do ROS2 Humble Desktop
 sudo apt install -y ros-humble-desktop ros-dev-tools
@@ -39,6 +59,7 @@ sudo apt install -y ros-humble-turtlebot3
 echo '##################################################' >> ~/.bashrc
 echo '### Adicionado 3o Sem Comp 2024 - Lab 404 - INF ###' >> ~/.bashrc
 echo 'source ~/robotica.sh' >> ~/.bashrc
+echo 'source ~/elementos.sh' >> ~/.bashrc
 echo '##################################################' >> ~/.bashrc
 source ~/.bashrc
 
@@ -78,4 +99,20 @@ alias nr="nano ~/robotica.sh"
 alias cb="cd ~/colcon_ws && colcon build && source install/setup.bash"
 ###
 ###########################################
+EOF
+
+
+# Criacao do elementos.sh
+touch ~/elementos.sh
+cat <<EOF > ~/elementos.sh
+################################################################################
+export ALTERAPATH=$HOME/intelFPGA_lite/20.1
+export PATH=$PATH:${ALTERAPATH}/quartus/bin
+export PATH=$PATH:${ALTERAPATH}/modelsim_ase/linuxaloem/
+export PATH=$PATH:${ALTERAPATH}/modelsim_ase/lib32
+export VUNIT_MODELSIM_PATH=${ALTERAPATH}/modelsim_ase/linuxaloem/
+export VUNIT_SIMULATOR=modelsim
+export QSYS_ROOTDIR="$HOME/intelFPGA_lite/20.1/quartus/sopc_builder/bin"
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${ALTERAPATH}/modelsim_ase/lib32
+################################################################################
 EOF
