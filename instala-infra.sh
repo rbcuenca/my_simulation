@@ -20,6 +20,8 @@ sudo apt update && sudo apt install curl -y
 sudo apt install maven -y
 sudo apt install git -y 
 sudo apt-get install libcanberra-gtk-module -y
+sudo apt install -y ghdl
+pip install -U pytest
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
 # Instalacao do repositorio e chaves do ROS
