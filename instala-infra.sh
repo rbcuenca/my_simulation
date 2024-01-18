@@ -22,6 +22,7 @@ sudo apt install git -y
 sudo apt-get install libcanberra-gtk-module -y
 sudo apt install -y ghdl
 pip install -U pytest
+sudo apt install -y python3.10-venv
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
 # Instalacao do repositorio e chaves do ROS
