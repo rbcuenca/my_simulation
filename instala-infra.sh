@@ -60,6 +60,7 @@ sudo apt install -y ros-humble-dynamixel-sdk
 sudo apt install -y ros-humble-turtlebot3-msgs
 sudo apt install -y ros-humble-turtlebot3
 sudo apt install -y ros-humble-rqt-tf-tree
+sudo apt install -y ros-humble-compressed-image-*
 echo '##################################################' >> ~/.bashrc
 echo '### Adicionado 3o Sem Comp 2024 - Lab 404 - INF ###' >> ~/.bashrc
 echo 'source ~/robotica.sh' >> ~/.bashrc
