@@ -373,7 +373,7 @@
 <!-- início da implementação visual da garra -->
 
 
-    <link name="base_link_garra">
+    <!-- <link name="base_link_garra">
       <inertial>
         <pose>0.043 0.0022 0.093 0 0 -1.57</pose>
         <inertia>
@@ -618,14 +618,14 @@
       <axis>
         <xyz>0 0 1</xyz>
       </axis>
-    </joint>
+    </joint> -->
 
 
 
 <!-- este link da garra está "afundando" o robô se colocado em rotacao, mantendo fixo nao da problema
 verificar se ao colocar o link no urdf ira funcionar.... -->
 
-<link name="garra1garrabraco1">
+<!-- <link name="garra1garrabraco1">
       <inertial>
         <pose>0.083 -0.005 0.092 0 0 0</pose>
         <inertia>
@@ -666,7 +666,7 @@ verificar se ao colocar o link no urdf ira funcionar.... -->
       </axis>
     </joint>
 
-
+ -->
 
 
 
