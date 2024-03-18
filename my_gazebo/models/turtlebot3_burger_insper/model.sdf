@@ -37,6 +37,7 @@
             <scale>0.001 0.001 0.001</scale>
           </mesh>
         </geometry>
+        <ambient>0 0 0 1</ambient>
       </visual>
     </link>
 
@@ -124,10 +125,12 @@
         <geometry>
           <mesh>
             <!-- <uri>model://turtlebot3_common/meshes/lds.dae</uri> -->
-            <uri>model://insperbot/meshes/sensors/lds.stl</uri>
+            <!-- <uri>model://insperbot/meshes/sensors/lds.stl</uri> -->
+            <uri>model://insperbot/meshes/sensors/lds.dae</uri>
             <scale>0.001 0.001 0.001</scale>
           </mesh>
         </geometry>
+        <ambient>0 0 0 1</ambient>
       </visual>
 
       <sensor name="hls_lfcd_lds" type="ray">
@@ -218,10 +221,12 @@
         <geometry>
           <mesh>
             <!-- <uri>model://turtlebot3_common/meshes/tire.dae</uri> -->
-            <uri>model://insperbot/meshes/wheels/left_tire.stl</uri>
+            <uri>model://insperbot/meshes/wheels/left_tire.dae</uri>
+            <!-- <uri>model://insperbot/meshes/wheels/left_tire.stl</uri> -->
             <scale>0.001 0.001 0.001</scale>
           </mesh>
         </geometry>
+        <ambient>0 0 0 1</ambient>
       </visual>
     </link>
 
@@ -277,10 +282,12 @@
         <geometry>
           <mesh>
             <!-- <uri>model://turtlebot3_common/meshes/tire.dae</uri> -->
-            <uri>model://insperbot/meshes/wheels/right_tire.stl</uri>
+            <!-- <uri>model://insperbot/meshes/wheels/right_tire.stl</uri> -->
+            <uri>model://insperbot/meshes/wheels/right_tire.dae</uri>
             <scale>0.001 0.001 0.001</scale>
           </mesh>
         </geometry>
+        <ambient>0 0 0 1</ambient>
       </visual>
     </link>
 
@@ -333,7 +340,8 @@
       </inertial>
 
      <sensor name="camera" type="camera">
-        <pose>0.036 0 0.157 0 0 0</pose>
+        <pose>0.063 0.002 0.13 0 0 0</pose>
+        <!-- 0.043 0.002 0.13 0 0 0 -->
         <always_on>true</always_on>
         <visualize>false</visualize>
         <update_rate>30</update_rate>
@@ -373,7 +381,7 @@
 <!-- início da implementação visual da garra -->
 
 
-    <!-- <link name="base_link_garra">
+    <link name="base_link_garra">
       <inertial>
         <pose>0.043 0.0022 0.093 0 0 -1.57</pose>
         <inertia>
@@ -403,6 +411,7 @@
             <scale>0.001 0.001 0.001</scale>
           </mesh>
         </geometry>
+        <ambient>0 0 0 1</ambient>
       </visual>
     </link>
     <joint name="base_link_garra_joint" type="fixed">
@@ -538,7 +547,7 @@
       </axis>
     </joint>
 
-<link name="servo_garra1">
+  <link name="servo_garra1">
       <inertial>
         <pose>0.043 0.0015 0.092 0 0 -1.57</pose>
         <inertia>
@@ -618,7 +627,7 @@
       <axis>
         <xyz>0 0 1</xyz>
       </axis>
-    </joint> -->
+    </joint>
 
 
 
