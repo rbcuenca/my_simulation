@@ -25,19 +25,22 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
 
 
+
+
 def generate_launch_description():
     launch_file_dir = os.path.join(get_package_share_directory('my_gazebo'), 'launch')
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
-    x_pose = LaunchConfiguration('x_pose', default='-3.02')
-    y_pose = LaunchConfiguration('y_pose', default='-1.91')
-    yaw_pose = LaunchConfiguration('yaw_pose', default='1.58')
+    x_pose = LaunchConfiguration('x_pose', default='-2')
+    y_pose = LaunchConfiguration('y_pose', default='2.3')
+    yaw_pose = LaunchConfiguration('yaw_pose', default='0')
+    
 
     world = os.path.join(
         get_package_share_directory('my_gazebo'),
         'worlds',
-        'pista23-B.world'
+        'paredes.world'
     )
 
     gzserver_cmd = IncludeLaunchDescription(
@@ -62,7 +65,7 @@ def generate_launch_description():
 
     spawn_turtlebot_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            os.path.join(launch_file_dir, 'spawn_turtlebot3-teste.launch.py')
+            os.path.join(launch_file_dir, 'spawn_turtlebot3.launch.py')
         ),
         launch_arguments={
             'x_pose': x_pose,
