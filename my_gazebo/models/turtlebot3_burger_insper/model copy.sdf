@@ -10,14 +10,14 @@
       <inertial>
         <pose>-0.032 0 0.070 0 0 0</pose>
         <inertia>
-          <ixx>0.1</ixx>
-          <ixy>0</ixy>
-          <ixz>-0</ixz>
-          <iyy>0.1</iyy>
-          <iyz>0</iyz>
-          <izz>0.1</izz>
+          <ixx>7.2397393e-01</ixx>
+          <ixy>4.686399e-10</ixy>
+          <ixz>-1.09525703e-08</ixz>
+          <iyy>7.2397393e-01</iyy>
+          <iyz>2.8582649e-09</iyz>
+          <izz>6.53050163e-01</izz>
         </inertia>
-        <mass>0.5</mass>
+        <mass>8.2573504e-01</mass>
       </inertial>
 
       <collision name="base_collision">
