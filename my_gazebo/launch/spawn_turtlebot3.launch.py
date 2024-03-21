@@ -31,16 +31,29 @@ def generate_launch_description():
         'model.sdf'
     )
 
-# def generate_launch_description():
-#     # Get the urdf file
-#     TURTLEBOT3_MODEL = os.environ['TURTLEBOT3_MODEL']
-#     model_folder = 'turtlebot3_' + TURTLEBOT3_MODEL
-#     urdf_path = os.path.join(
-#         get_package_share_directory('my_gazebo'),
-#         'urdf',
-#         model_folder,
-#         'turtlebot3_burger_insper.urdf'
-#     )
+    bridge_params = os.path.join(
+        get_package_share_directory('my_gazebo'),
+        'params',
+        'turtlebot3_burger_insper_bridge.yaml'
+    )
+
+    start_gazebo_ros_bridge_cmd = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        arguments=[
+            '--ros-args',
+            '-p',
+            f'config_file:={bridge_params}',
+        ],
+        output='screen',
+    )
+    
+    start_gazebo_ros_image_bridge_cmd = Node(
+        package='ros_gz_image',
+        executable='image_bridge',
+        arguments=['/camera/image_raw'],
+        output='screen',
+    )
 
     # Launch configuration variables specific to simulation
     x_pose = LaunchConfiguration('x_pose', default='0.0')
@@ -61,22 +74,23 @@ def generate_launch_description():
         description='Specify namespace of the robot')
 
     start_gazebo_ros_spawner_cmd = Node(
-        package='gazebo_ros',
-        executable='spawn_entity.py',
+        package='ros_gz_sim',
+        executable='create',
         arguments=[
-            '-entity', TURTLEBOT3_MODEL,
+            '-name', TURTLEBOT3_MODEL,
             '-file', urdf_path,
             '-x', x_pose,
             '-y', y_pose,
-            '-z', '0.01',
-            '-Y', yaw_pose 
+            '-z', '0.01'
         ],
         output='screen',
-    )
+)
     
     ld = LaunchDescription()
 
     # Declare the launch options
+    ld.add_action(start_gazebo_ros_bridge_cmd)
+    ld.add_action(start_gazebo_ros_image_bridge_cmd)
     ld.add_action(declare_x_position_cmd)
     ld.add_action(declare_y_position_cmd)
     ld.add_action(declare_yaw_position_cmd)

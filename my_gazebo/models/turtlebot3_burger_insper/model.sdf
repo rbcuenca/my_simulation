@@ -339,32 +339,17 @@
         <mass>0.035</mass>
       </inertial>
 
-     <sensor name="camera" type="camera">
-        <pose>0.063 0.002 0.13 0 0 0</pose>
-        <!-- 0.043 0.002 0.13 0 0 0 -->
-        <always_on>true</always_on>
-        <visualize>false</visualize>
-        <update_rate>30</update_rate>
-        <camera name="picam">
-          <horizontal_fov>1.085595</horizontal_fov>
-          <image>
-              <width>640</width>
-              <height>480</height>
-              <format>R8G8B8</format>
-          </image>
-          <clip>
-              <near>0.03</near>
-              <far>100</far>
-          </clip>
-          <noise>
-            <type>gaussian</type>
-            <!-- Noise is sampled independently per pixel on each frame.
-                  That pixel's noise value is added to each of its color
-                  channels, which at that point lie in the range [0,1]. -->
-            <mean>0.0</mean>
-            <stddev>0.007</stddev>
-          </noise>
-        </camera>
+<sensor name="camera" type="camera">
+  <always_on>true</always_on>
+  <visualize>true</visualize>
+  <update_rate>30</update_rate>
+  <topic>camera/image_raw</topic>
+  <gz_frame_id>camera_rgb_frame</gz_frame_id>
+  <camera name="intel_realsense_r200">
+    <camera_info_topic>camera/camera_info</camera_info_topic>
+    ... <!-- all the content of <camera> from the original -->
+  </camera>
+</sensor>
           <plugin name="camera_driver" filename="libgazebo_ros_camera.so">
             <ros>
               <!-- <namespace>test_cam</namespace> -->
@@ -697,6 +682,9 @@ verificar se ao colocar o link no urdf ira funcionar.... -->
       <pose>0.0 0.08 0.023 -1.57 0 0</pose>
       <axis>
         <xyz>0 0 1</xyz>
+        <limit>
+          <effort>20</effort> <!-- from <wheel_torque> in libgazebo_ros_diff_drive.so.-->
+        </limit>
       </axis>
     </joint>
 
@@ -706,6 +694,9 @@ verificar se ao colocar o link no urdf ira funcionar.... -->
       <pose>0.0 -0.08 0.023 -1.57 0 0</pose>
       <axis>
         <xyz>0 0 1</xyz>
+        <limit>
+          <effort>20</effort> <!-- from <wheel_torque> in libgazebo_ros_diff_drive.so.-->
+        </limit>        
       </axis>
     </joint>
 
@@ -750,48 +741,36 @@ verificar se ao colocar o link no urdf ira funcionar.... -->
       </axis>
     </joint>
     
-    <plugin name="turtlebot3_diff_drive" filename="libgazebo_ros_diff_drive.so">
-
-      <ros>
-        <!-- <namespace>/tb3</namespace> -->
-      </ros>
-
-      <update_rate>30</update_rate>
+    <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
+      <!-- Remove <ros> tag. -->
 
       <!-- wheels -->
       <left_joint>wheel_left_joint</left_joint>
       <right_joint>wheel_right_joint</right_joint>
 
       <!-- kinematics -->
-      <wheel_separation>0.160</wheel_separation>
-      <wheel_diameter>0.066</wheel_diameter>
+      <wheel_separation>0.287</wheel_separation>
+      <wheel_radius>0.033</wheel_radius> <!-- computed from <wheel_diameter> in the original plugin-->
 
       <!-- limits -->
-      <max_wheel_torque>20</max_wheel_torque>
-      <max_wheel_acceleration>1.0</max_wheel_acceleration>
+      <max_linear_acceleration>0.033</max_linear_acceleration> <!-- computed from <max_linear_acceleration> in the original plugin-->
 
-      <command_topic>cmd_vel</command_topic>
+      <topic>cmd_vel</topic> <!-- from <commant_topic> -->
 
-      <!-- output -->
-      <publish_odom>true</publish_odom>
-      <publish_odom_tf>true</publish_odom_tf>
-      <publish_wheel_tf>false</publish_wheel_tf>
+      <odom_topic>odom</odom_topic> <!-- from <odometry_topic> -->
+      <frame_id>odom</frame_id> <!-- from <odometry_frame> -->
+      <child_frame_id>base_footprint</child_frame_id> <!-- from <robot_base_frame> -->
+      <odom_publisher_frequency>30</odom_publisher_frequency> <!-- from <update_rate>-->
 
-      <odometry_topic>odom</odometry_topic>
-      <odometry_frame>odom</odometry_frame>
-      <robot_base_frame>base_footprint</robot_base_frame>
+      <tf_topic>/tf</tf_topic> <!-- Short topic name for tf output -->
 
     </plugin>
 
-    <plugin name="turtlebot3_joint_state" filename="libgazebo_ros_joint_state_publisher.so">
-      <ros>
-        <!-- <namespace>/tb3</namespace> -->
-        <remapping>~/out:=joint_states</remapping>
-      </ros>
-      <update_rate>30</update_rate>
+    <plugin filename="gz-sim-joint-state-publisher-system"
+      name="gz::sim::systems::JointStatePublisher">
+      <topic>joint_states</topic> <!--from <ros><remapping> -->
       <joint_name>wheel_left_joint</joint_name>
       <joint_name>wheel_right_joint</joint_name>
-      <!-- <joint_name>garra1garrabraco1_joint</joint_name> -->
-    </plugin>      
+    </plugin>    
   </model>
 </sdf>
