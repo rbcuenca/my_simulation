@@ -146,6 +146,7 @@
           <contact_surface_layer>0.01000</contact_surface_layer>
         </constraints>
       </ode>
+      <max_contacts>20</max_contacts>
     </physics>
    
   <!-- posicao camera inicial -->  

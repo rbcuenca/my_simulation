@@ -3,9 +3,9 @@
   <model name='parede'>
     <link name='Wall_0'>
       <pose>-3.27591 -1.59026 0 0 -0 0</pose>
-      <self_collide>0</self_collide>
+      <self_collide>1</self_collide>
       <enable_wind>0</enable_wind>
-      <kinematic>0</kinematic>
+      <kinematic>1</kinematic>
       <inertial>
         <inertia>
           <ixx>0</ixx>
@@ -15,7 +15,7 @@
           <iyz>0</iyz>
           <izz>0</izz>
         </inertia>
-        <mass>0</mass>
+        <mass>100</mass>
         <pose>0 0 0 0 -0 0</pose>
       </inertial>
       <visual name='Wall_0_Visual'>
@@ -51,8 +51,8 @@
         <surface>
           <friction>
             <ode>
-              <mu>1</mu>
-              <mu2>1</mu2>
+              <mu>10.0</mu>
+              <mu2>10.0</mu2>
               <fdir1>0 0 0</fdir1>
               <slip1>0</slip1>
               <slip2>0</slip2>
@@ -68,7 +68,7 @@
             </torsional>
           </friction>
           <bounce>
-            <restitution_coefficient>0</restitution_coefficient>
+            <restitution_coefficient>0.01</restitution_coefficient>
             <threshold>1e+06</threshold>
           </bounce>
           <contact>
