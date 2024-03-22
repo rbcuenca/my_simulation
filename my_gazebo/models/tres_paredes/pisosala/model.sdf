@@ -30,8 +30,8 @@
 	      <material>
           <script>
             <!-- <uri>file://materials/scripts/floor.material</uri> -->
-            <uri>model://paredes/pisosala/materials/scripts</uri>
-            <uri>model://paredes/pisosala/materials/textures</uri>
+            <uri>model://tres_paredes/pisosala/materials/scripts</uri>
+            <uri>model://tres_paredes/pisosala/materials/textures</uri>
             <name>pisosala</name>
           </script>
         </material>
