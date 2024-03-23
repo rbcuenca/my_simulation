@@ -5,6 +5,7 @@
 
 # Preparacao para instalacao do ROS2 - Humble
 
+
 locale  # check for UTF-8
 
 sudo apt update && sudo apt install locales
