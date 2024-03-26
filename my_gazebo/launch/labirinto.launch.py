@@ -25,8 +25,18 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
 import random
 
-X = random.choice([3.04, -3.04])
-yaw = random.choice([0, 3.14])
+# random choose the starting position of the robot, but mantining the orientation
+A = random.choice([0, 1])
+if A == 0:
+    X = 3.04
+    yaw = 3.14
+else:
+    X = -3.04
+    yaw = 0
+
+# andom choose the starting position of the robot and the orientation
+# X = random.choice([3.04, -3.04])
+# yaw = random.choice([0, 3.14])
 
 def generate_launch_description():
     launch_file_dir = os.path.join(get_package_share_directory('my_gazebo'), 'launch')
