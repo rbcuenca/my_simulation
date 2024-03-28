@@ -41,7 +41,8 @@ else:
 def generate_launch_description():
     launch_file_dir = os.path.join(get_package_share_directory('my_gazebo'), 'launch')
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
-
+    gazebo_aux_dir = os.path.join(get_package_share_directory('gazebo_aux'), 'launch')  
+    
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
     x_pose = LaunchConfiguration('x_pose', default=X) # 3.04
     y_pose = LaunchConfiguration('y_pose', default='0.13')
@@ -83,6 +84,12 @@ def generate_launch_description():
             'yaw_pose': yaw_pose
         }.items()
     )
+    
+    overwatch_cmd = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(gazebo_aux_dir, 'overwatch.launch.py')
+        )
+    )
 
     ld = LaunchDescription()
 
@@ -91,5 +98,6 @@ def generate_launch_description():
     ld.add_action(gzclient_cmd)
     ld.add_action(robot_state_publisher_cmd)
     ld.add_action(spawn_turtlebot_cmd)
+    ld.add_action(overwatch_cmd)
 
     return ld
