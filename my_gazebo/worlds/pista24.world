@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<sdf version="1.4">
+  <world name="pista24">
+    <scene>
+      <ambient>0.8 0.8 0.8 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>true</shadows>
+    </scene>
+
+  <!-- A global light source  -->
+    <include>
+      <uri>model://sun</uri>
+      <pose> -2.0 2.0 2.0 0 0 0</pose>
+    </include>
+
+  <!-- Piso da sala - circuito -->
+    <include>
+      <uri>model://pista24/pisosala</uri>
+      <pose> 0 0 0 0 0 -1.57</pose>
+    </include>
+
+
+  <!-- parede -->
+    <include>
+      <uri>model://pista24/parede</uri>
+      <pose> -3.3596 0.982819 0 0 0 -3.139567</pose>
+    </include>
+
+
+  <!-- mesa_1 -->
+    <include>
+      <uri>model://pista24/mesa/mesa_1</uri>
+      <pose> -0.705064 -1.089411 0 0 0 3.130235</pose>
+    </include>
+
+  <!-- mesa_02 -->
+    <include>
+      <uri>model://pista24/mesa/mesa_02</uri>
+      <pose> -0.767724 0.465500 0 0 0 -0.002552</pose>
+    </include>
+
+
+  <!-- creeper_11_azul -->
+    <include>
+      <uri>model://pista24/creeper/creeper_11_azul</uri>
+      <pose> -3.115596 -2.174745 0 0 0 3.137215</pose>
+    </include>
+
+  <!-- creeper_21_azul -->
+    <include>
+      <uri>model://pista24/creeper/creeper_21_azul</uri>
+      <pose> -3.148468 -1.790815 0 0 0 3.137215</pose>
+    </include>
+
+  <!-- creeper_13_verde -->
+    <include>
+      <uri>model://pista24/creeper/creeper_13_verde</uri>
+      <pose> -3.329858 -1.957365 0 0 0 -0.013058</pose>
+    </include>
+
+  <!-- creeper_32_verde -->
+    <include>
+      <uri>model://pista24/creeper/creeper_32_verde</uri>
+      <pose> -3.324941 -1.541029 0 0 0 -0.013058</pose>
+    </include>
+
+
+  <!-- aruco_100 -->
+    <include>
+      <uri>model://pista24/creeper/aruco_100</uri>
+      <pose> 1.015783 -1.270479 0.246133 0.016642 0.705403 -3.1000450</pose>
+    </include>
+
+  <!-- aruco_150 -->
+    <include>
+      <uri>model://pista24/creeper/aruco_150</uri>
+      <pose> 0.045543 0.791178 0.275200 -0.035559 0.883626 -0.016281</pose>
+    </include>
+
+  <!-- aruco_250 -->
+    <include>
+      <uri>model://pista24/creeper/aruco_250</uri>
+      <pose> -1.388983 0.123646 0.235628 3.134130 -0.645214 -1.577540</pose>
+    </include>
+
+
+  <!-- bicicleta -->
+    <include>
+      <uri>model://pista24/objeto/bicycle</uri>
+      <pose> -0.731748 -0.732859 0.15 0 0 0</pose>
+    </include>
+
+  <!-- cat -->
+    <include>
+      <uri>model://pista24/objeto/cat</uri>
+      <pose> -0.736595 -1.498171 0.15 0 0 0</pose>
+    </include>
+
+  <!-- dog -->
+    <include>
+      <uri>model://pista24/objeto/dog</uri>
+      <pose> 0.965781 0.313777 0.15 0 0 0</pose>
+    </include>
+
+  <!-- cavalo -->
+    <include>
+      <uri>model://pista24/objeto/horse</uri>
+      <pose> -2.339688 0.784495 0.15 0 0 0</pose>
+    </include>
+
+  <!-- caixa_azul -->
+    <include>
+      <uri>model://pista24/objeto/caixa_azul</uri>
+      <pose> -0.697807 1.217787 0 0 0 0</pose>
+    </include>
+
+  <!-- caixa_vermelha_01 -->
+    <include>
+      <uri>model://pista24/objeto/caixa_vermelha_01</uri>
+      <pose> -0.093108 1.527090 0 0 0 0</pose>
+    </include>
+
+  <!-- caixa_vermelha_02 -->
+    <include>
+      <uri>model://pista24/objeto/caixa_vermelha_02</uri>
+      <pose> -1.261902 1.544692 0 0 0 0</pose>
+    </include>
+
+  <!-- fisica do mundo -->
+    <physics type="ode">
+      <real_time_update_rate>1000.0</real_time_update_rate>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <ode>
+        <solver>
+          <type>quick</type>
+          <iters>150</iters>
+          <precon_iters>0</precon_iters>
+          <sor>1.400000</sor>
+          <use_dynamic_moi_rescaling>1</use_dynamic_moi_rescaling>
+        </solver>
+        <constraints>
+          <cfm>0.00001</cfm>
+          <erp>0.2</erp>
+          <contact_max_correcting_vel>2000.000000</contact_max_correcting_vel>
+          <contact_surface_layer>0.01000</contact_surface_layer>
+        </constraints>
+      </ode>
+    </physics>
+   
+  <!-- posicao camera inicial -->  
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose frame=''>0.238775 -6.8831 10.8485 -0 0.979642 1.5602</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+
+  </world>
+
+</sdf>
