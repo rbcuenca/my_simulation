@@ -43,25 +43,25 @@
   <!-- creeper_11_azul -->
     <include>
       <uri>model://pista24/creeper/creeper_11_azul</uri>
-      <pose> -3.115596 -2.174745 0 0 0 3.137215</pose>
+      <pose> -0.684843 0.015186 0 0 0 -1.739250</pose>
     </include>
 
   <!-- creeper_21_azul -->
     <include>
       <uri>model://pista24/creeper/creeper_21_azul</uri>
-      <pose> -3.148468 -1.790815 0 0 0 3.137215</pose>
+      <pose> 0.858751 0.694939 0 0 0 3.137215</pose>
     </include>
 
   <!-- creeper_13_verde -->
     <include>
       <uri>model://pista24/creeper/creeper_13_verde</uri>
-      <pose> -3.329858 -1.957365 0 0 0 -0.013058</pose>
+      <pose> -0.625888 -1.578005 0 0 0 1.457789</pose>
     </include>
 
   <!-- creeper_32_verde -->
     <include>
       <uri>model://pista24/creeper/creeper_32_verde</uri>
-      <pose> -3.324941 -1.541029 0 0 0 -0.013058</pose>
+      <pose> -2.200214 0.343472 0 0 0 -0.013058</pose>
     </include>
 
 
@@ -87,26 +87,21 @@
   <!-- bicicleta -->
     <include>
       <uri>model://pista24/objeto/bicycle</uri>
-      <pose> -0.731748 -0.732859 0.15 0 0 0</pose>
+      <pose> -3.236597 -2.139417 0.15 0 0 0</pose>
     </include>
 
   <!-- cat -->
     <include>
       <uri>model://pista24/objeto/cat</uri>
-      <pose> -0.736595 -1.498171 0.15 0 0 0</pose>
+      <pose> -3.236597 -1.780378 0.15 0 0 0</pose>
     </include>
 
   <!-- dog -->
     <include>
       <uri>model://pista24/objeto/dog</uri>
-      <pose> 0.965781 0.313777 0.15 0 0 0</pose>
+      <pose> -3.236597 -1.391557 0.15 0 0 0</pose>
     </include>
 
-  <!-- cavalo -->
-    <include>
-      <uri>model://pista24/objeto/horse</uri>
-      <pose> -2.339688 0.784495 0.15 0 0 0</pose>
-    </include>
 
   <!-- caixa_azul -->
     <include>
