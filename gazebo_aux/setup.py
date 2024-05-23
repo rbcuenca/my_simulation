@@ -25,6 +25,7 @@ setup(
     entry_points={
         'console_scripts': [
             'overwatch = gazebo_aux.overwatch:main',
+            'handler = gazebo_aux.handler:main',
         ],
     },
 )
