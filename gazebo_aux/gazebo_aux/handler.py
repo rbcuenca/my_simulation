@@ -16,7 +16,7 @@ class HandlerNode(Node): # Mude o nome da classe
         # Publishers
         self.pub_comando = self.create_publisher(String, 'comando', 10)
 
-        self.alvos = ['comando', 'comando']
+        self.alvos = ['azul_10', 'verde_10', 'amarelo_10', 'azul_20', 'verde_20', 'amarelo_20']
         self.in_mission = False
     
     def callback_comando(self, msg):
