@@ -15,6 +15,7 @@ find_package(rosidl_default_generators REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "action/GoToPoint.action"
+  "action/SimpleStart.action"
   DEPENDENCIES geometry_msgs
 )
 

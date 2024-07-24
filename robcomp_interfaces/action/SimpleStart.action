@@ -1,4 +1,4 @@
-geometry_msgs/Point goal
+bool start
 ---
 bool success
 ---
