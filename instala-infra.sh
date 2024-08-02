@@ -2,8 +2,6 @@
 ### Script de instalacao da infra 2024-1 - Lab 404 ###
 ######################################################
 
-
-
 # Preparacao para instalacao do ROS2 - Humble
 
 
