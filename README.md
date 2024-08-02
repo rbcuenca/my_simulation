@@ -1,2 +1,2 @@
 # my_simulation
-lt1
+Este repositoirio contem as simulacoes das aulas de robotica do INSPER.
