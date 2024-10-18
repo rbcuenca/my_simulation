@@ -157,25 +157,6 @@
       <pose> -3.236597 -1.391557 0.15 0 0 0</pose>
     </include>
 
-
-  <!-- caixa_azul -->
-    <include>
-      <uri>model://pista24B/objeto/caixa_azul</uri>
-      <pose> -0.697807 1.217787 0 0 0 0</pose>
-    </include>
-
-  <!-- caixa_vermelha_01 -->
-    <include>
-      <uri>model://pista24B/objeto/caixa_vermelha_01</uri>
-      <pose> -0.093108 1.527090 0 0 0 0</pose>
-    </include>
-
-  <!-- caixa_vermelha_02 -->
-    <include>
-      <uri>model://pista24B/objeto/caixa_vermelha_02</uri>
-      <pose> -1.261902 1.544692 0 0 0 0</pose>
-    </include>
-
   <!-- fisica do mundo -->
     <physics type="ode">
       <real_time_update_rate>1000.0</real_time_update_rate>
