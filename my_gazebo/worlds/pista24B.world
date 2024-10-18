@@ -1,0 +1,212 @@
+<?xml version="1.0"?>
+<sdf version="1.4">
+  <world name="pista24B">
+    <scene>
+      <ambient>0.8 0.8 0.8 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>true</shadows>
+    </scene>
+
+  <!-- A global light source  -->
+    <include>
+      <uri>model://sun</uri>
+      <pose> -2.0 2.0 2.0 0 0 0</pose>
+    </include>
+
+  <!-- Piso da sala - circuito -->
+    <include>
+      <uri>model://pista24B/pisosala</uri>
+      <pose> 0 0 0 0 0 0</pose>
+    </include>
+
+
+  <!-- parede -->
+    <include>
+      <uri>model://pista24B/parede</uri>
+      <pose> -3.3596 0.982819 0 0 0 -3.139567</pose>
+    </include>
+
+  <!-- paredes do labirinto -->
+    <include>
+      <uri>model://pista24B/paredelabirinto/parede1</uri>
+      <pose> -2.38 1.4 0 0 0 0</pose>
+    </include>    
+  
+    <include>
+      <uri>model://pista24B/paredelabirinto/parede2</uri>
+      <pose> -2.98 1.4 0 0 0 0</pose>
+    </include>  
+  
+    <include>
+      <uri>model://pista24B/paredelabirinto/parede3</uri>
+      <pose> -3.2725 1.1 0 0 0 1.5697835</pose>
+    </include>
+
+    <include>
+      <uri>model://pista24B/paredelabirinto/parede4</uri>
+      <pose> -3.2725 0.5 0 0 0 1.5697835</pose>
+    </include>
+
+    <include>
+      <uri>model://pista24B/paredelabirinto/parede5</uri>
+      <pose> -3.2725 -0.1 0 0 0 1.5697835</pose>
+    </include>
+
+    <include>
+      <uri>model://pista24B/paredelabirinto/parede6</uri>
+      <pose> -2.98 -0.4 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://pista24B/paredelabirinto/parede7</uri>
+      <pose> -2.38 -0.4 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://pista24B/paredelabirinto/parede8</uri>
+      <pose> -2.0875 -0.1 0 0 0 1.5697835</pose>
+    </include>
+
+    <include>
+      <uri>model://pista24B/paredelabirinto/parede9</uri>
+      <pose> -2.0875 0.5 0 0 0 1.5697835</pose>
+    </include>
+
+    <include>
+      <uri>model://pista24B/paredelabirinto/parede10</uri>
+      <pose> -2.38 0.8 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://pista24B/paredelabirinto/parede11</uri>
+      <pose> -2.6725 0.5 0 0 0 1.5697835</pose>
+    </include>
+  
+  <!-- mesa_1 -->
+    <include>
+      <uri>model://pista24B/mesa/mesa_1</uri>
+      <pose> -0.705064 -1.089411 0 0 0 3.130235</pose>
+    </include>
+
+  <!-- mesa_02 -->
+    <include>
+      <uri>model://pista24B/mesa/mesa_02</uri>
+      <pose> -0.767724 0.465500 0 0 0 -0.002552</pose>
+    </include>
+
+
+  <!-- creeper_11_azul -->
+    <include>
+      <uri>model://pista24B/creeper/creeper_11_azul</uri>
+      <pose> -0.684843 0.015186 0 0 0 -1.739250</pose>
+    </include>
+
+  <!-- creeper_21_azul -->
+    <include>
+      <uri>model://pista24B/creeper/creeper_21_azul</uri>
+      <pose> 0.858751 0.694939 0 0 0 3.137215</pose>
+    </include>
+
+  <!-- creeper_13_verde -->
+    <include>
+      <uri>model://pista24B/creeper/creeper_13_verde</uri>
+      <pose> -0.625888 -1.578005 0 0 0 1.457789</pose>
+    </include>
+
+  <!-- creeper_32_verde -->
+    <include>
+      <uri>model://pista24B/creeper/creeper_32_verde</uri>
+      <pose> -2.397406 0.646352 0 0 0 -1.5697835</pose>
+    </include>
+
+
+  <!-- aruco_100 -->
+    <include>
+      <uri>model://pista24B/creeper/aruco_100</uri>
+      <pose> 1.015783 -1.270479 0.246133 0.016642 0.705403 -3.1000450</pose>
+    </include>
+
+  <!-- aruco_150 -->
+    <include>
+      <uri>model://pista24B/creeper/aruco_150</uri>
+      <pose> 0.045543 0.791178 0.275200 -0.035559 0.883626 -0.016281</pose>
+    </include>
+
+  <!-- aruco_250 -->
+    <include>
+      <uri>model://pista24B/creeper/aruco_250</uri>
+      <pose> -2.063668 1.572170 0.235774 3.134130 -0.645214 -1.577540</pose>
+    </include>
+
+
+  <!-- bicicleta -->
+    <include>
+      <uri>model://pista24B/objeto/bicycle</uri>
+      <pose> -3.236597 -2.139417 0.15 0 0 0</pose>
+    </include>
+
+  <!-- cat -->
+    <include>
+      <uri>model://pista24B/objeto/cat</uri>
+      <pose> -3.236597 -1.780378 0.15 0 0 0</pose>
+    </include>
+
+  <!-- dog -->
+    <include>
+      <uri>model://pista24B/objeto/dog</uri>
+      <pose> -3.236597 -1.391557 0.15 0 0 0</pose>
+    </include>
+
+
+  <!-- caixa_azul -->
+    <include>
+      <uri>model://pista24B/objeto/caixa_azul</uri>
+      <pose> -0.697807 1.217787 0 0 0 0</pose>
+    </include>
+
+  <!-- caixa_vermelha_01 -->
+    <include>
+      <uri>model://pista24B/objeto/caixa_vermelha_01</uri>
+      <pose> -0.093108 1.527090 0 0 0 0</pose>
+    </include>
+
+  <!-- caixa_vermelha_02 -->
+    <include>
+      <uri>model://pista24B/objeto/caixa_vermelha_02</uri>
+      <pose> -1.261902 1.544692 0 0 0 0</pose>
+    </include>
+
+  <!-- fisica do mundo -->
+    <physics type="ode">
+      <real_time_update_rate>1000.0</real_time_update_rate>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <ode>
+        <solver>
+          <type>quick</type>
+          <iters>150</iters>
+          <precon_iters>0</precon_iters>
+          <sor>1.400000</sor>
+          <use_dynamic_moi_rescaling>1</use_dynamic_moi_rescaling>
+        </solver>
+        <constraints>
+          <cfm>0.00001</cfm>
+          <erp>0.2</erp>
+          <contact_max_correcting_vel>2000.000000</contact_max_correcting_vel>
+          <contact_surface_layer>0.01000</contact_surface_layer>
+        </constraints>
+      </ode>
+    </physics>
+   
+  <!-- posicao camera inicial -->  
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose frame=''>0.238775 -6.8831 10.8485 -0 0.979642 1.5602</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+
+  </world>
+
+</sdf>
