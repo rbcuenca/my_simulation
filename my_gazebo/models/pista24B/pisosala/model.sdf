@@ -1,13 +1,13 @@
 <?xml version="1.0" ?>
 <sdf version="1.6">
-  <model name="pista24">
+  <model name="pista24B">
     <static>true</static>
     <link name="course_link">
       <collision name="course_collision">
         <geometry>
           <plane>
             <normal>0 0 1</normal>
-            <size>7 5</size>
+            <size>8 7</size>
           </plane>
         </geometry>
         <surface>
@@ -24,14 +24,14 @@
         <geometry>
 	        <plane>
             <normal>0 0 1</normal>
-            <size>7 5</size>
+            <size>8 7</size>
           </plane>
         </geometry>
 	      <material>
           <script>
             <!--uri>file://materials/scripts/floor.material</uri-->
-            <uri>model://pista24/pisosala/materials/scripts</uri>
-            <uri>model://pista24/pisosala/materials/textures</uri>
+            <uri>model://pista24B/pisosala/materials/scripts</uri>
+            <uri>model://pista24B/pisosala/materials/textures</uri>
             <name>pisosala</name>
           </script>
         </material>

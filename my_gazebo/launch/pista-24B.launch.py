@@ -30,9 +30,9 @@ def generate_launch_description():
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
-    x_pose = LaunchConfiguration('x_pose', default='2.918627')
-    y_pose = LaunchConfiguration('y_pose', default='-0.364959')
-    yaw_pose = LaunchConfiguration('yaw_pose', default='1.58')
+    x_pose = LaunchConfiguration('x_pose', default='2.9')
+    y_pose = LaunchConfiguration('y_pose', default='2.75')
+    yaw_pose = LaunchConfiguration('yaw_pose', default='1.5697835')
 
     world = os.path.join(
         get_package_share_directory('my_gazebo'),
