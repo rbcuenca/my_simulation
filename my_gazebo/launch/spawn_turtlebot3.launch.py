@@ -63,6 +63,21 @@ def generate_launch_description():
         ],
         output='screen',
     )
+
+#nova tentativa da garra - os proximos 2 spawns
+    spawn_controller = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["joint_state_broadcaster"],
+        output="screen",
+    )
+    
+    spawn_controller_traj = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["joint_trajectory_controller"],
+        output="screen",
+    )
     
     ld = LaunchDescription()
 
@@ -73,5 +88,7 @@ def generate_launch_description():
 
     # Add any conditioned actions
     ld.add_action(start_gazebo_ros_spawner_cmd)
+    ld.add_action(spawn_controller)
+    ld.add_action(spawn_controller_traj)
 
     return ld
