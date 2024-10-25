@@ -451,7 +451,7 @@
         <mass>0.001</mass>
       </inertial>
       <collision name="garra1garrabraco1">
-        <pose>0.043 0.0015 0.092 0 0 -1.57</pose>
+        <pose>0.02 0.0015 0.092 0 0 -1.57</pose>
         <geometry>
           <mesh>
             <uri>model://insperbot/meshes/garra/arm.stl</uri>
@@ -460,7 +460,7 @@
         </geometry>
       </collision>
       <visual name="garra1garrabraco1_visual">
-        <pose>0.043 0.0015 0.092 0 0 -1.57</pose>
+        <pose>0.02 0.0015 0.092 0 0 -1.57</pose>
         <geometry>
           <mesh>
             <uri>model://insperbot/meshes/garra/arm.stl</uri>
@@ -475,45 +475,17 @@
       <pose>0.043 0.0015 0.092 0 0 -1.57</pose>
       <axis>
         <xyz>1 0 0</xyz>
-        <limit>
-          <lower>-1.57</lower> <!-- Limite inferior em radianos -->
-          <upper>1.57</upper>  <!-- Limite superior em radianos -->
-          <effort>5.0</effort>  <!-- Limite de força aplicada -->
-          <velocity>0.4</velocity> <!-- Velocidade máxima -->
-        </limit>
-        <dynamics>
-          <damping>0.1</damping> <!-- Amortecimento do movimento -->
-          <friction>0.01</friction> <!-- Fricção -->
-        </dynamics>
       </axis>
     </joint>
 
-
-<!-- Position Config -->
-    <ros2_control name="GazeboSystem" type="system">
-      <hardware>
-        <plugin>gazebo_ros2_control/GazeboSystem</plugin>
-      </hardware>
-
-      <joint name="arm_joint">
-        <command_interface name="position">
-          <param name="min">-1.57</param>
-          <param name="max">1.57</param>
-        </command_interface>
-        <state_interface name="position"/>
-        <state_interface name="velocity"/>
-        <state_interface name="effort"/>
-      </joint>
-
-  </ros2_control>
-
-  <gazebo>
-    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
-      <parameters>$(find turtlebot3_burger_insper)/config/insperbot_controllers.yaml</parameters>
-      <robot_param_node>/arm_publisher_node</robot_param_node>
+    <plugin name="joint_control_plugin" filename="libgazebo_ros_control.so">
+      <robotNamespace>/turtlebot3_burger_insper</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
     </plugin>
-  </gazebo>
 
+    <plugin name="joint_state_publisher" filename="libJointStatePublisher.so">
+        <joint>arm_joint</joint>
+    </plugin>
 <!-- fim da implementação visual da garra -->
 
 
@@ -629,16 +601,5 @@
       <!-- <joint_name>garra1garrabraco1_joint</joint_name> -->
     </plugin>    
 
-    <plugin name="joint_controller" filename="libgazebo_ros_control.so">
-      <ros>
-        <!-- <namespace>/tb3</namespace> -->
-      </ros>
-
-      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
-
-      <update_rate>30</update_rate>      
-
-
-    </plugin>  
   </model>
 </sdf>

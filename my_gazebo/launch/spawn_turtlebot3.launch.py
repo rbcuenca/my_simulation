@@ -31,7 +31,16 @@ def generate_launch_description():
         model_folder,
         'model.sdf'
     )
-
+    
+    config_file = os.path.join(
+        get_package_share_directory('my_gazebo'),
+        'models',
+        model_folder,
+        'config',
+        'insperbot_controllers.yaml'
+    )
+    
+    
     # Launch configuration variables specific to simulation
     x_pose = LaunchConfiguration('x_pose', default='0.0')
     y_pose = LaunchConfiguration('y_pose', default='0.0')
@@ -64,19 +73,12 @@ def generate_launch_description():
         output='screen',
     )
 
-#nova tentativa da garra - os proximos 2 spawns
-    spawn_controller = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=["joint_state_broadcaster"],
-        output="screen",
-    )
-    
-    spawn_controller_traj = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=["joint_trajectory_controller"],
-        output="screen",
+#nova tentativa da garra
+    controller_manager_node = Node(
+        package='controller_manager',
+        executable='ros2_control_node',
+        parameters=[config_file],
+        output='screen'
     )
     
     ld = LaunchDescription()
@@ -88,7 +90,6 @@ def generate_launch_description():
 
     # Add any conditioned actions
     ld.add_action(start_gazebo_ros_spawner_cmd)
-    ld.add_action(spawn_controller)
-    ld.add_action(spawn_controller_traj)
+    ld.add_action(controller_manager_node)
 
     return ld
