@@ -453,7 +453,7 @@
       <collision name="garra1garrabraco1">
         <pose>0.02 0.0015 0.092 0 0 -1.57</pose>
         <geometry>
-          <mesh>
+          <mesh>  
             <uri>model://insperbot/meshes/garra/arm.stl</uri>
             <scale>0.001 0.001 0.001</scale>
           </mesh>
@@ -478,14 +478,15 @@
       </axis>
     </joint>
 
-    <plugin name="joint_control_plugin" filename="libgazebo_ros_control.so">
-      <robotNamespace>/turtlebot3_burger_insper</robotNamespace>
-      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    <plugin name="arm_joint_controller" filename="libgazebo_ros_joint_control.so">
+      <ros>
+        <namespace>/</namespace>
+        <remapping>joint/arm_joint</remapping>
+      </ros>
+      <joint_name>arm_joint</joint_name>
+      <pid>1.0 0.0 0.1</pid>
     </plugin>
 
-    <plugin name="joint_state_publisher" filename="libJointStatePublisher.so">
-        <joint>arm_joint</joint>
-    </plugin>
 <!-- fim da implementação visual da garra -->
 
 
