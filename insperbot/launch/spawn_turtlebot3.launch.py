@@ -31,6 +31,11 @@ def generate_launch_description():
         model_folder,
         'model.sdf'
     )
+    # urdf_path = os.path.join(
+    #     get_package_share_directory('insperbot'),
+    #     'urdf',
+    #     'turtlebot3_burger.urdf'
+    # )
 
     # Launch configuration variables specific to simulation
     x_pose = LaunchConfiguration('x_pose', default='0.0')
