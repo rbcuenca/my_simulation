@@ -19,7 +19,7 @@
     </include>
 
 
-  <!-- caixa_majenta -->
+  <!-- caixa invisivel -->
     <include>
       <uri>model://caixas/caixa</uri>
       <pose> -0.5 -0.5 0 0 0 0</pose>

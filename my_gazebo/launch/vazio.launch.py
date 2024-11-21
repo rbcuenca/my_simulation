@@ -28,10 +28,10 @@ from launch.substitutions import LaunchConfiguration
 # random choose the starting position of the robot, but mantining the orientation
 A = random.choice([0, 1])
 if A == 0:
-    X = 5
+    X = 2
     yaw = -1.566463
 else:
-    X = -5
+    X = -2
     yaw = -1.566463
 
 # andom choose the starting position of the robot and the orientation
