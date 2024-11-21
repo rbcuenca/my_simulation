@@ -194,6 +194,116 @@
   </link>
 
 
+<!--garra turtlebot3 insper-->
+
+    <link name="suportes">
+      <visual name="suportes_visual">
+        <pose>0.043 0.0022 0.093 0 0 -1.57</pose>
+        <geometry>
+          <mesh>
+            <uri>model://turtlebot3_common/meshes/suportes.dae</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <ambient>0 0 0 1</ambient>
+        <diffuse>1 1 1 1</diffuse>
+        <specular>0.2 0.2 0.2 1</specular>
+        <emissive>0 0 0 1</emissive>     
+      </visual>
+      <collision name="suportes_collision">
+        <pose>0.043 0.0022 0.093 0 0 -1.57</pose>
+        <geometry>
+          <mesh>
+            <uri>model://turtlebot3_common/meshes/suportes.dae</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>10.0</mu>
+              <mu2>10.0</mu2>
+            </ode>
+          </friction>
+          <bounce>
+            <restitution_coefficient>0</restitution_coefficient>
+            <threshold>1000</threshold>
+          </bounce>
+          <contact>
+            <collide_without_contact>0</collide_without_contact>
+            <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+            <collide_bitmask>1</collide_bitmask>
+            <ode>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>9000</kp>
+              <kd>2</kd>
+              <max_vel>0.01</max_vel>
+              <min_depth>0</min_depth>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+    </link>
+    <joint name="suportes_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>suportes</child>
+      <pose>0.043 0.0022 0.093 0 0 -1.57</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+
+    <link name="garra1garrabraco1">
+      <inertial>
+        <pose>0.083 -0.005 0.092 0 0 0</pose>
+        <inertia>
+          <ixx>1.1175580e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.1192413e-05</iyy>
+          <iyz>0</iyz>
+          <izz>2.0712558e-05</izz>
+        </inertia>
+        <mass>0.001</mass>
+      </inertial>
+      <collision name="garra1garrabraco1">
+        <pose>0.02 0.0015 0.092 0 0 -1.57</pose>
+        <geometry>
+          <mesh>  
+            <uri>model://turtlebot3_common/meshes/arm.dae</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="garra1garrabraco1_visual">
+        <pose>0.02 0.0015 0.092 0 0 -1.57</pose>
+        <geometry>
+          <mesh>
+            <uri>model://turtlebot3_common/meshes/arm.dae</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="arm_joint" type="revolute">
+      <parent>suportes</parent>
+      <child>garra1garrabraco1</child>
+      <pose>0.043 0.0015 0.092 0 0 -1.57</pose>
+      <axis>
+        <xyz>1 0 0</xyz>
+      </axis>
+    </joint>
+
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <ros>
+        <namespace>/</namespace>
+        <remapping>joint/arm_joint</remapping>
+      </ros>
+      <joint_name>arm_joint</joint_name>
+      <pid>1.0 0.0 0.1</pid>
+    </plugin>  
+
 
 
 </robot>

@@ -380,7 +380,7 @@
 
 <!-- início da implementação visual da garra -->
 
-    <link name="suportes">
+    <!-- <link name="suportes">
       <visual name="suportes_visual">
         <pose>0.043 0.0022 0.093 0 0 -1.57</pose>
         <geometry>
@@ -485,7 +485,7 @@
       </ros>
       <joint_name>arm_joint</joint_name>
       <pid>1.0 0.0 0.1</pid>
-    </plugin>
+    </plugin> -->
 
 <!-- fim da implementação visual da garra -->
 
