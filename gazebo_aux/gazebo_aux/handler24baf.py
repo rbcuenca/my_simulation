@@ -29,7 +29,7 @@ class HandlerNode(Node):
         
         # Processa as mensagens do robo
         if 'robo:' in message.lower():
-            if any(keyword in message.lower() for keyword in ['100', '150', '200']):
+            if any(keyword in message.lower() for keyword in ['100', '150', '200', '250']):
                 self.send_random_instruction()
             elif any(animal in message.lower() for animal in ['gato', 'cachorro', 'cavalo']):
                 self.send_instruction('Retorne ao ponto de partida!')
