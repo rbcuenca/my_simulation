@@ -75,7 +75,7 @@ def generate_launch_description():
 
     handler_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            os.path.join(gazebo_aux_dir, 'handler24baf.launch.py')
+            os.path.join(gazebo_aux_dir, 'handlerdiv2.launch.py')
         )
     )
 

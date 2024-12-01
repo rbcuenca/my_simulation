@@ -27,6 +27,7 @@ setup(
             'overwatch = gazebo_aux.overwatch:main',
             'handler = gazebo_aux.handler:main',
             'handler24baf = gazebo_aux.handler24baf:main',
+            'handlerdiv2 = gazebo_aux.handlerdiv2:main',
         ],
     },
 )
