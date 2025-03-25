@@ -18,6 +18,7 @@ set(msg_files
   "msg/Detection.msg"
   "msg/DetectionArray.msg"
   "msg/Conversation.msg"
+  "msg/GameStatus.msg"
 )
 
 set(action_files
