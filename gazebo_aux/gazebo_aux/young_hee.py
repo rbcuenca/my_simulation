@@ -78,7 +78,7 @@ class GameStateNode(Node):
         msg.player_name = "System"
         msg.start_time = self.start_time
         self.status_publisher.publish(msg)
-        self.get_logger().info(f'Palavra publicada: {word}')
+        # self.get_logger().info(f'Palavra publicada: {word}')
 
         if word == "3":
             self.robot_state = 'waiting'
@@ -117,7 +117,7 @@ class GameStateNode(Node):
         pass
 
     def control(self):
-        self.get_logger().info(f"[STATE] Estado atual: {self.robot_state}")
+        # self.get_logger().info(f"[STATE] Estado atual: {self.robot_state}")
         self.state_machine[self.robot_state]()
 
 def main(args=None):
