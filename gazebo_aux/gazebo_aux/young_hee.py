@@ -47,7 +47,7 @@ class GameStateNode(Node):
         self.create_subscription(Odometry, '/odom', self.odom_callback, qos_best_effort)
 
     def velocity_callback(self, msg):
-        self.is_moving = msg.linear.x != 0.0 or msg.angular.z != 0.0
+        self.is_moving = msg.linear.x >= 0.05 or msg.angular.z >= 0.05
 
     def status_callback(self, msg):
         self.msg = msg
@@ -58,14 +58,17 @@ class GameStateNode(Node):
             self.current_word_index = 0
 
     def odom_callback(self, msg):
-        if msg.pose.pose.position.y >= 10.0 and self.start_time is not None:
-            completion_time = time.time() - self.start_time
-            self.get_logger().info(f"Parabéns! Você completou o jogo em {completion_time:.2f} segundos.")
-            self.robot_state = 'finished'
+        self.x = msg.pose.pose.position.x
 
     def state_playing(self):
         if self.current_word_index >= len(self.words):
             self.current_word_index = 0
+            return
+        
+        if self.x <= -5.0 and self.start_time is not None:
+            completion_time = time.time() - self.start_time
+            self.get_logger().info(f"Parabéns! Você completou o jogo em {completion_time:.2f} segundos.")
+            self.robot_state = 'finished'
             return
 
         word = self.words[self.current_word_index]
