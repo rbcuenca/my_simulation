@@ -30,6 +30,10 @@ class GameStateNode(Node):
         self.lost_msg.current_word = "Você perdeu!"
         self.lost_msg.player_name = "System"
 
+        self.win_msg = GameStatus()
+        self.win_msg.status = "WON"
+        self.win_msg.player_name = "System"
+
         self.state_machine = {
             'waiting': self.state_waiting,
             'playing': self.state_playing,
@@ -67,8 +71,10 @@ class GameStateNode(Node):
         
         if self.x <= -5.0 and self.start_time is not None:
             completion_time = time.time() - self.start_time
-            self.get_logger().info(f"Parabéns! Você completou o jogo em {completion_time:.2f} segundos.")
             self.robot_state = 'finished'
+            self.get_logger().info(f"Parabéns! Você completou o jogo em {completion_time:.2f} segundos.")
+            self.win_msg.current_word = f"Parabéns! Você completou o jogo em {completion_time:.2f} segundos."
+            self.status_publisher.publish(self.win_msg)
             return
 
         word = self.words[self.current_word_index]
