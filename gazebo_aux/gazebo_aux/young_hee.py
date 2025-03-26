@@ -89,11 +89,11 @@ class GameStateNode(Node):
         if word == "3":
             self.robot_state = 'waiting'
             self.wait_start_time = time.time()
-            self.wait_duration = random.uniform(5.0, 10.0)
+            self.wait_duration = random.uniform(2.0, 4.0)
             return
         else:
             self.current_word_index += 1
-            time.sleep(random.uniform(0.5, 2.0))
+            time.sleep(random.uniform(0.5, 2))
 
     def state_waiting(self):
         if self.is_moving:
