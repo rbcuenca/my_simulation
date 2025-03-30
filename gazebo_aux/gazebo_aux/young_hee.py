@@ -19,7 +19,7 @@ class GameStateNode(Node):
         self.start_time = None
         self.current_word_index = 0
         self.current_lost_index = 0
-        self.words = ["bata", "ta", "tinha", "fri", "ta", "1", "2", "3"]
+        self.words = ["ba", "ta", "ti", "nha", "fri", "ta", "1", "2", "3"]
         self.msg = GameStatus()
         self.robot_state = 'finished'
         self.wait_start_time = None
@@ -89,7 +89,7 @@ class GameStateNode(Node):
         if word == "3":
             self.robot_state = 'waiting'
             self.wait_start_time = time.time()
-            self.wait_duration = random.uniform(2.0, 4.0)
+            self.wait_duration = random.uniform(2.0, 5.0)
             return
         else:
             self.current_word_index += 1
