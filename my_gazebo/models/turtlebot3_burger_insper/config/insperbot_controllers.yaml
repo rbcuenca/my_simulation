@@ -1,0 +1,19 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    arm_joint_position_controller:
+      type: position_controllers/JointPositionController
+      joint: 
+        - arm_joint
+      command_interfaces:
+        - position
+      constraints:
+          stopped_velocity_tolerance: 0.01
+          state_publish_rate: 50
+          action_monitor_rate: 20
+          allow_partial_joints_goal: true
+          interpolation_method: spline

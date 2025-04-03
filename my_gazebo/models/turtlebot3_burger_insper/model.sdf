@@ -17,7 +17,7 @@
           <iyz>2.8582649e-09</iyz>
           <izz>6.53050163e-01</izz>
         </inertia>
-        <mass>8.2573504e-01</mass>
+        <mass>1.0</mass>
       </inertial>
 
       <collision name="base_collision">
@@ -380,61 +380,37 @@
 
 <!-- início da implementação visual da garra -->
 
-
-    <link name="base_link_garra">
-      <inertial>
-        <pose>0.043 0.0022 0.093 0 0 -1.57</pose>
-        <inertia>
-          <ixx>0</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0</iyy>
-          <iyz>0</iyz>
-          <izz>0</izz>
-        </inertia>
-        <mass>0.001</mass>
-      </inertial>
-      <collision name="base_link_garra_collision">
+    <!-- <link name="suportes">
+      <visual name="suportes_visual">
         <pose>0.043 0.0022 0.093 0 0 -1.57</pose>
         <geometry>
           <mesh>
-            <uri>model://insperbot/meshes/garra/base_link_garra.stl</uri>
+            <uri>model://insperbot/meshes/garra/suportes.stl</uri>
             <scale>0.001 0.001 0.001</scale>
           </mesh>
         </geometry>
-      </collision>
-      <visual name="base_link_garra_visual">
+        <ambient>0 0 0 1</ambient>
+        <diffuse>1 1 1 1</diffuse>
+        <specular>0.2 0.2 0.2 1</specular>
+        <emissive>0 0 0 1</emissive>      </visual>
+      <collision name="suportes_collision">
         <pose>0.043 0.0022 0.093 0 0 -1.57</pose>
         <geometry>
           <mesh>
-            <uri>model://insperbot/meshes/garra/base_link_garra.stl</uri>
+            <uri>model://insperbot/meshes/garra/suportes.stl</uri>
             <scale>0.001 0.001 0.001</scale>
           </mesh>
-   
         </geometry>
-
         <surface>
           <friction>
             <ode>
               <mu>10.0</mu>
               <mu2>10.0</mu2>
-              <fdir1>0 0 0</fdir1>
-              <slip1>0</slip1>
-              <slip2>0</slip2>
             </ode>
-            <torsional>
-              <coefficient>1</coefficient>
-              <patch_radius>0</patch_radius>
-              <surface_radius>0</surface_radius>
-              <use_patch_radius>1</use_patch_radius>
-              <ode>
-                <slip>0</slip>
-              </ode>
-            </torsional>
           </friction>
           <bounce>
-            <restitution_coefficient>-1000</restitution_coefficient>
-            <threshold>1e+06</threshold>
+            <restitution_coefficient>0</restitution_coefficient>
+            <threshold>1000</threshold>
           </bounce>
           <contact>
             <collide_without_contact>0</collide_without_contact>
@@ -443,247 +419,25 @@
             <ode>
               <soft_cfm>0</soft_cfm>
               <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
+              <kp>9000</kp>
+              <kd>2</kd>
               <max_vel>0.01</max_vel>
               <min_depth>0</min_depth>
             </ode>
-            <bullet>
-              <split_impulse>1</split_impulse>
-              <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-            </bullet>
           </contact>
         </surface>
-
-
-        <ambient>0 0 0 1</ambient>
-      </visual>
+      </collision>
     </link>
-    <joint name="base_link_garra_joint" type="fixed">
+    <joint name="suportes_joint" type="fixed">
       <parent>base_link</parent>
-      <child>base_link_garra</child>
+      <child>suportes</child>
       <pose>0.043 0.0022 0.093 0 0 -1.57</pose>
       <axis>
         <xyz>0 0 1</xyz>
       </axis>
     </joint>
 
-    <link name="lat31">
-      <inertial>
-        <pose>0.045 0.042 0.092 0 0 0</pose>
-        <inertia>
-          <ixx>0</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0</iyy>
-          <iyz>0</iyz>
-          <izz>0</izz>
-        </inertia>
-        <mass>0.001</mass>
-      </inertial>
-      <collision name="lat31_collision">
-        <pose>0.045 0.042 0.092 0 0 0</pose>
-        <geometry>
-          <mesh>
-            <uri>model://insperbot/meshes/garra/lat31.stl</uri>
-            <scale>0.001 0.001 0.001</scale>
-          </mesh>
-        </geometry>
-      </collision>
-      <visual name="lat31_visual">
-        <pose>0.045 0.042 0.092 0 0 0</pose>
-        <geometry>
-          <mesh>
-            <uri>model://insperbot/meshes/garra/lat31.stl</uri>
-            <scale>0.001 0.001 0.001</scale>
-          </mesh>
-        </geometry>
-      </visual>
-    </link>
-    <joint name="lat31_joint" type="fixed">
-      <parent>base_link_garra</parent>
-      <child>lat31</child>
-      <pose>0.045 0.042 0.092 0 0 0</pose>
-      <axis>
-        <xyz>0 0 1</xyz>
-      </axis>
-    </joint>
-
-
-<link name="lat11">
-      <inertial>
-        <pose>0.083 -0.005 0.092 0 0 0</pose>
-        <inertia>
-          <ixx>0</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0</iyy>
-          <iyz>0</iyz>
-          <izz>0</izz>
-        </inertia>
-        <mass>0.001</mass>
-      </inertial>
-      <collision name="lat11_collision">
-        <pose>00.083 -0.005 0.092 0 0 0</pose>
-        <geometry>
-          <mesh>
-            <uri>model://insperbot/meshes/garra/lat11.stl</uri>
-            <scale>0.001 0.001 0.001</scale>
-          </mesh>
-        </geometry>
-      </collision>
-      <visual name="lat11_visual">
-        <pose>0.083 -0.005 0.092 0 0 0</pose>
-        <geometry>
-          <mesh>
-            <uri>model://insperbot/meshes/garra/lat11.stl</uri>
-            <scale>0.001 0.001 0.001</scale>
-          </mesh>
-        </geometry>
-      </visual>
-    </link>
-    <joint name="lat11_joint" type="fixed">
-      <parent>base_link_garra</parent>
-      <child>lat11</child>
-      <pose>0.083 -0.005 0.092 0 0 0</pose>
-      <axis>
-        <xyz>0 0 1</xyz>
-      </axis>
-    </joint>
-
-<link name="lat21">
-      <inertial>
-        <pose>0.083 -0.005 0.092 0 0 0</pose>
-        <inertia>
-          <ixx>0</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0</iyy>
-          <iyz>0</iyz>
-          <izz>0</izz>
-        </inertia>
-        <mass>0.001</mass>
-      </inertial>
-      <collision name="lat21_collision">
-        <pose>00.083 -0.005 0.092 0 0 0</pose>
-        <geometry>
-          <mesh>
-            <uri>model://insperbot/meshes/garra/lat21.stl</uri>
-            <scale>0.001 0.001 0.001</scale>
-          </mesh>
-        </geometry>
-      </collision>
-      <visual name="lat21_visual">
-        <pose>0.043 0 0.092 0 0 1.57</pose>
-        <geometry>
-          <mesh>
-            <uri>model://insperbot/meshes/garra/lat21.stl</uri>
-            <scale>0.001 0.001 0.001</scale>
-          </mesh>
-        </geometry>
-      </visual>
-    </link>
-    <joint name="lat21_joint" type="fixed">
-      <parent>base_link_garra</parent>
-      <child>lat21</child>
-      <pose>0.083 -0.005 0.092 0 0 0</pose>
-      <axis>
-        <xyz>0 0 1</xyz>
-      </axis>
-    </joint>
-
-  <link name="servo_garra1">
-      <inertial>
-        <pose>0.043 0.0015 0.092 0 0 -1.57</pose>
-        <inertia>
-          <ixx>0</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0</iyy>
-          <iyz>0</iyz>
-          <izz>0</izz>
-        </inertia>
-        <mass>0.001</mass>
-      </inertial>
-      <collision name="servo_garra1_collision">
-        <pose>0.043 0.0015 0.092 0 0 -1.57</pose>
-        <geometry>
-          <mesh>
-            <uri>model://insperbot/meshes/garra/servo_garra1.stl</uri>
-            <scale>0.001 0.001 0.001</scale>
-          </mesh>
-        </geometry>
-      </collision>
-      <visual name="servo_garra1_visual">
-        <pose>0.043 0.0015 0.092 0 0 -1.57</pose>
-        <geometry>
-          <mesh>
-            <uri>model://insperbot/meshes/garra/servo_garra1.stl</uri>
-            <scale>0.001 0.001 0.001</scale>
-          </mesh>
-        </geometry>
-      </visual>
-    </link>
-    <joint name="servo_garra1_joint" type="fixed">
-      <parent>base_link_garra</parent>
-      <child>servo_garra1</child>
-      <pose>0.083 -0.005 0.092 0 0 0</pose>
-      <axis>
-        <xyz>0 0 1</xyz>
-      </axis>
-    </joint>
-
-<link name="base_camera1">
-      <inertial>
-        <pose>0.083 -0.005 0.092 0 0 0</pose>
-        <inertia>
-          <ixx>0</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0</iyy>
-          <iyz>0</iyz>
-          <izz>0</izz>
-        </inertia>
-        <mass>0.001</mass>
-      </inertial>
-      <collision name="base_camera1">
-        <pose>00.083 -0.005 0.092 0 0 0</pose>
-        <geometry>
-          <mesh>
-            <uri>model://insperbot/meshes/garra/base_camera1.stl</uri>
-            <scale>0.001 0.001 0.001</scale>
-          </mesh>
-        </geometry>
-      </collision>
-      <visual name="base_camera1_visual">
-        <pose>0.043 0.0015 0.092 0 0 -1.57</pose>
-        <geometry>
-          <mesh>
-            <uri>model://insperbot/meshes/garra/base_camera1.stl</uri>
-            <scale>0.001 0.001 0.001</scale>
-          </mesh>
-        </geometry>
-      </visual>
-    </link>
-    <joint name="base_camera1_joint" type="fixed">
-      <parent>base_link_garra</parent>
-      <child>base_camera1</child>
-      <pose>0.083 -0.005 0.092 0 0 0</pose>
-      <axis>
-        <xyz>0 0 1</xyz>
-      </axis>
-    </joint>
-
-
-
-<!-- este link da garra está "afundando" o robô se colocado em rotacao, mantendo fixo nao da problema
-verificar se ao colocar o link no urdf ira funcionar.... -->
-
-<!-- <link name="garra1garrabraco1">
+    <link name="garra1garrabraco1">
       <inertial>
         <pose>0.083 -0.005 0.092 0 0 0</pose>
         <inertia>
@@ -697,16 +451,16 @@ verificar se ao colocar o link no urdf ira funcionar.... -->
         <mass>0.001</mass>
       </inertial>
       <collision name="garra1garrabraco1">
-        <pose>0.043 0.0015 0.092 0 0 -1.57</pose>
+        <pose>0.02 0.0015 0.092 0 0 -1.57</pose>
         <geometry>
-          <mesh>
+          <mesh>  
             <uri>model://insperbot/meshes/garra/arm.stl</uri>
             <scale>0.001 0.001 0.001</scale>
           </mesh>
         </geometry>
       </collision>
       <visual name="garra1garrabraco1_visual">
-        <pose>0.043 0.0015 0.092 0 0 -1.57</pose>
+        <pose>0.02 0.0015 0.092 0 0 -1.57</pose>
         <geometry>
           <mesh>
             <uri>model://insperbot/meshes/garra/arm.stl</uri>
@@ -715,8 +469,8 @@ verificar se ao colocar o link no urdf ira funcionar.... -->
         </geometry>
       </visual>
     </link>
-    <joint name="garra1garrabraco1_joint" type="fixed">
-      <parent>servo_garra1</parent>
+    <joint name="arm_joint" type="revolute">
+      <parent>suportes</parent>
       <child>garra1garrabraco1</child>
       <pose>0.043 0.0015 0.092 0 0 -1.57</pose>
       <axis>
@@ -724,9 +478,14 @@ verificar se ao colocar o link no urdf ira funcionar.... -->
       </axis>
     </joint>
 
- -->
-
-
+    <plugin name="arm_joint_controller" filename="libgazebo_ros_joint_control.so">
+      <ros>
+        <namespace>/</namespace>
+        <remapping>joint/arm_joint</remapping>
+      </ros>
+      <joint_name>arm_joint</joint_name>
+      <pid>1.0 0.0 0.1</pid>
+    </plugin> -->
 
 <!-- fim da implementação visual da garra -->
 
@@ -841,6 +600,7 @@ verificar se ao colocar o link no urdf ira funcionar.... -->
       <joint_name>wheel_left_joint</joint_name>
       <joint_name>wheel_right_joint</joint_name>
       <!-- <joint_name>garra1garrabraco1_joint</joint_name> -->
-    </plugin>      
+    </plugin>    
+
   </model>
 </sdf>
