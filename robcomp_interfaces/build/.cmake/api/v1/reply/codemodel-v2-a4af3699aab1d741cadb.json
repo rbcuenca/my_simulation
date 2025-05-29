@@ -1,0 +1,233 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-ac78d5ab96b143a0e634.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				},
+				{
+					"build" : "robcomp_interfaces__py",
+					"jsonFile" : "directory-robcomp_interfaces__py-Debug-05bec809a1839c9d2089.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "build/robcomp_interfaces__py",
+					"targetIndexes" : 
+					[
+						4
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "robcomp_interfaces",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_robcomp_interfaces_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_robcomp_interfaces_egg-Debug-877189d75b0b9c491054.json",
+					"name" : "ament_cmake_python_build_robcomp_interfaces_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_robcomp_interfaces::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_robcomp_interfaces-Debug-1e6959b4c27e1de63b68.json",
+					"name" : "ament_cmake_python_copy_robcomp_interfaces",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "robcomp_interfaces::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-robcomp_interfaces-Debug-3e3e9e364830ebba6175.json",
+					"name" : "robcomp_interfaces",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "robcomp_interfaces__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-robcomp_interfaces__cpp-Debug-9003619c580c50a4a61d.json",
+					"name" : "robcomp_interfaces__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "robcomp_interfaces__py::@f4e47451c037411fbed7",
+					"jsonFile" : "target-robcomp_interfaces__py-Debug-4de446a59105c62e560f.json",
+					"name" : "robcomp_interfaces__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "robcomp_interfaces__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-robcomp_interfaces__rosidl_generator_c-Debug-070d308e69345d514a58.json",
+					"name" : "robcomp_interfaces__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "robcomp_interfaces__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-robcomp_interfaces__rosidl_generator_py-Debug-1aca0c3a0b65df284e78.json",
+					"name" : "robcomp_interfaces__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "robcomp_interfaces__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-robcomp_interfaces__rosidl_typesupport_c-Debug-9bd7c7cbfe84a01c7771.json",
+					"name" : "robcomp_interfaces__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "robcomp_interfaces__rosidl_typesupport_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-robcomp_interfaces__rosidl_typesupport_c__pyext-Debug-b0baea2586117c4b20d9.json",
+					"name" : "robcomp_interfaces__rosidl_typesupport_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "robcomp_interfaces__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-robcomp_interfaces__rosidl_typesupport_cpp-Debug-e5bec7dc5aaf2ed4597a.json",
+					"name" : "robcomp_interfaces__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "robcomp_interfaces__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-robcomp_interfaces__rosidl_typesupport_fastrtps_c-Debug-d11ad9766e41a399d1b0.json",
+					"name" : "robcomp_interfaces__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "robcomp_interfaces__rosidl_typesupport_fastrtps_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-robcomp_interfaces__rosidl_typesupport_fastrtps_c__pyext-Debug-fe1017f6520bbeea2ce6.json",
+					"name" : "robcomp_interfaces__rosidl_typesupport_fastrtps_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "robcomp_interfaces__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-robcomp_interfaces__rosidl_typesupport_fastrtps_cpp-Debug-1675f68a9db3a9b38547.json",
+					"name" : "robcomp_interfaces__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "robcomp_interfaces__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-robcomp_interfaces__rosidl_typesupport_introspection_c-Debug-1220cbf1cde3a991185c.json",
+					"name" : "robcomp_interfaces__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "robcomp_interfaces__rosidl_typesupport_introspection_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-robcomp_interfaces__rosidl_typesupport_introspection_c__pyext-Debug-803b0edd7a4308f5a7bc.json",
+					"name" : "robcomp_interfaces__rosidl_typesupport_introspection_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "robcomp_interfaces__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-robcomp_interfaces__rosidl_typesupport_introspection_cpp-Debug-30b1dab41080084e8bda.json",
+					"name" : "robcomp_interfaces__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "robcomp_interfaces_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-robcomp_interfaces_uninstall-Debug-35c6627690955488f88c.json",
+					"name" : "robcomp_interfaces_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-Debug-319face562ca554aa3f0.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/cuenca/colcon_ws/src/my_simulation/robcomp_interfaces/build",
+		"source" : "/home/cuenca/colcon_ws/src/my_simulation/robcomp_interfaces"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

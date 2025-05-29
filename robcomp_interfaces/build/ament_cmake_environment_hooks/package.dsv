@@ -1,0 +1,4 @@
+source;share/robcomp_interfaces/local_setup.bash
+source;share/robcomp_interfaces/local_setup.dsv
+source;share/robcomp_interfaces/local_setup.sh
+source;share/robcomp_interfaces/local_setup.zsh

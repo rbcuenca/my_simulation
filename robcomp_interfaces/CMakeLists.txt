@@ -19,6 +19,8 @@ set(msg_files
   "msg/DetectionArray.msg"
   "msg/Conversation.msg"
   "msg/GameStatus.msg"
+  "msg/AprilTagInsper.msg"
+  "msg/YoloDetector.msg"
 )
 
 set(action_files

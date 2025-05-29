@@ -1,0 +1,41 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/robcomp_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robcomp_interfaces/action/detail/dds_fastrtps/go_to_point__type_support.cpp.o"
+  "CMakeFiles/robcomp_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robcomp_interfaces/action/detail/dds_fastrtps/go_to_point__type_support.cpp.o.d"
+  "CMakeFiles/robcomp_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robcomp_interfaces/action/detail/dds_fastrtps/simple_start__type_support.cpp.o"
+  "CMakeFiles/robcomp_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robcomp_interfaces/action/detail/dds_fastrtps/simple_start__type_support.cpp.o.d"
+  "CMakeFiles/robcomp_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robcomp_interfaces/msg/detail/dds_fastrtps/april_tag_insper__type_support.cpp.o"
+  "CMakeFiles/robcomp_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robcomp_interfaces/msg/detail/dds_fastrtps/april_tag_insper__type_support.cpp.o.d"
+  "CMakeFiles/robcomp_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robcomp_interfaces/msg/detail/dds_fastrtps/conversation__type_support.cpp.o"
+  "CMakeFiles/robcomp_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robcomp_interfaces/msg/detail/dds_fastrtps/conversation__type_support.cpp.o.d"
+  "CMakeFiles/robcomp_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robcomp_interfaces/msg/detail/dds_fastrtps/detection__type_support.cpp.o"
+  "CMakeFiles/robcomp_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robcomp_interfaces/msg/detail/dds_fastrtps/detection__type_support.cpp.o.d"
+  "CMakeFiles/robcomp_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robcomp_interfaces/msg/detail/dds_fastrtps/detection_array__type_support.cpp.o"
+  "CMakeFiles/robcomp_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robcomp_interfaces/msg/detail/dds_fastrtps/detection_array__type_support.cpp.o.d"
+  "CMakeFiles/robcomp_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robcomp_interfaces/msg/detail/dds_fastrtps/game_status__type_support.cpp.o"
+  "CMakeFiles/robcomp_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robcomp_interfaces/msg/detail/dds_fastrtps/game_status__type_support.cpp.o.d"
+  "CMakeFiles/robcomp_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robcomp_interfaces/msg/detail/dds_fastrtps/yolo_detector__type_support.cpp.o"
+  "CMakeFiles/robcomp_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robcomp_interfaces/msg/detail/dds_fastrtps/yolo_detector__type_support.cpp.o.d"
+  "librobcomp_interfaces__rosidl_typesupport_fastrtps_cpp.pdb"
+  "librobcomp_interfaces__rosidl_typesupport_fastrtps_cpp.so"
+  "rosidl_typesupport_fastrtps_cpp/robcomp_interfaces/action/detail/dds_fastrtps/go_to_point__type_support.cpp"
+  "rosidl_typesupport_fastrtps_cpp/robcomp_interfaces/action/detail/dds_fastrtps/simple_start__type_support.cpp"
+  "rosidl_typesupport_fastrtps_cpp/robcomp_interfaces/action/detail/go_to_point__rosidl_typesupport_fastrtps_cpp.hpp"
+  "rosidl_typesupport_fastrtps_cpp/robcomp_interfaces/action/detail/simple_start__rosidl_typesupport_fastrtps_cpp.hpp"
+  "rosidl_typesupport_fastrtps_cpp/robcomp_interfaces/msg/detail/april_tag_insper__rosidl_typesupport_fastrtps_cpp.hpp"
+  "rosidl_typesupport_fastrtps_cpp/robcomp_interfaces/msg/detail/conversation__rosidl_typesupport_fastrtps_cpp.hpp"
+  "rosidl_typesupport_fastrtps_cpp/robcomp_interfaces/msg/detail/dds_fastrtps/april_tag_insper__type_support.cpp"
+  "rosidl_typesupport_fastrtps_cpp/robcomp_interfaces/msg/detail/dds_fastrtps/conversation__type_support.cpp"
+  "rosidl_typesupport_fastrtps_cpp/robcomp_interfaces/msg/detail/dds_fastrtps/detection__type_support.cpp"
+  "rosidl_typesupport_fastrtps_cpp/robcomp_interfaces/msg/detail/dds_fastrtps/detection_array__type_support.cpp"
+  "rosidl_typesupport_fastrtps_cpp/robcomp_interfaces/msg/detail/dds_fastrtps/game_status__type_support.cpp"
+  "rosidl_typesupport_fastrtps_cpp/robcomp_interfaces/msg/detail/dds_fastrtps/yolo_detector__type_support.cpp"
+  "rosidl_typesupport_fastrtps_cpp/robcomp_interfaces/msg/detail/detection__rosidl_typesupport_fastrtps_cpp.hpp"
+  "rosidl_typesupport_fastrtps_cpp/robcomp_interfaces/msg/detail/detection_array__rosidl_typesupport_fastrtps_cpp.hpp"
+  "rosidl_typesupport_fastrtps_cpp/robcomp_interfaces/msg/detail/game_status__rosidl_typesupport_fastrtps_cpp.hpp"
+  "rosidl_typesupport_fastrtps_cpp/robcomp_interfaces/msg/detail/yolo_detector__rosidl_typesupport_fastrtps_cpp.hpp"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/robcomp_interfaces__rosidl_typesupport_fastrtps_cpp.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

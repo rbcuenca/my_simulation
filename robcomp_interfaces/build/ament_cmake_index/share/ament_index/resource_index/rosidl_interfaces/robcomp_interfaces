@@ -1,0 +1,16 @@
+action/GoToPoint.action
+action/GoToPoint.idl
+action/SimpleStart.action
+action/SimpleStart.idl
+msg/AprilTagInsper.idl
+msg/AprilTagInsper.msg
+msg/Conversation.idl
+msg/Conversation.msg
+msg/Detection.idl
+msg/Detection.msg
+msg/DetectionArray.idl
+msg/DetectionArray.msg
+msg/GameStatus.idl
+msg/GameStatus.msg
+msg/YoloDetector.idl
+msg/YoloDetector.msg

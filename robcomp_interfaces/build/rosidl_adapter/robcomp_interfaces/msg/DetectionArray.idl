@@ -1,0 +1,13 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from robcomp_interfaces/msg/DetectionArray.msg
+// generated code does not contain a copyright notice
+
+#include "robcomp_interfaces/msg/Detection.idl"
+
+module robcomp_interfaces {
+  module msg {
+    struct DetectionArray {
+      sequence<robcomp_interfaces::msg::Detection> deteccoes;
+    };
+  };
+};

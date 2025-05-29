@@ -1,0 +1,19 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from robcomp_interfaces/action/GoToPoint.action
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Point.idl"
+
+module robcomp_interfaces {
+  module action {
+    struct GoToPoint_Goal {
+      geometry_msgs::msg::Point goal;
+    };
+    struct GoToPoint_Result {
+      boolean success;
+    };
+    struct GoToPoint_Feedback {
+      string status;
+    };
+  };
+};

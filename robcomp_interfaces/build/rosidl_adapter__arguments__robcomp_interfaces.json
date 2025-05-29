@@ -1,0 +1,13 @@
+{
+  "package_name": "robcomp_interfaces",
+  "non_idl_tuples": [
+    "/home/cuenca/colcon_ws/src/my_simulation/robcomp_interfaces:msg/Detection.msg",
+    "/home/cuenca/colcon_ws/src/my_simulation/robcomp_interfaces:msg/DetectionArray.msg",
+    "/home/cuenca/colcon_ws/src/my_simulation/robcomp_interfaces:msg/Conversation.msg",
+    "/home/cuenca/colcon_ws/src/my_simulation/robcomp_interfaces:msg/GameStatus.msg",
+    "/home/cuenca/colcon_ws/src/my_simulation/robcomp_interfaces:msg/AprilTagInsper.msg",
+    "/home/cuenca/colcon_ws/src/my_simulation/robcomp_interfaces:msg/YoloDetector.msg",
+    "/home/cuenca/colcon_ws/src/my_simulation/robcomp_interfaces:action/GoToPoint.action",
+    "/home/cuenca/colcon_ws/src/my_simulation/robcomp_interfaces:action/SimpleStart.action"
+  ]
+}

@@ -1,0 +1,26 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from robcomp_interfaces/msg/GameStatus.msg
+// generated code does not contain a copyright notice
+
+
+module robcomp_interfaces {
+  module msg {
+    struct GameStatus {
+      @verbatim (language="comment", text=
+        "Estado do jogo (\"READY\", \"IN_PROGRESS\", \"LOST\", \"WIN\")")
+      string status;
+
+      @verbatim (language="comment", text=
+        "Palavra sendo publicada no momento")
+      string current_word;
+
+      @verbatim (language="comment", text=
+        "Nome do jogador que iniciou o jogo")
+      string player_name;
+
+      @verbatim (language="comment", text=
+        "Timestamp de quando o jogo começou")
+      double start_time;
+    };
+  };
+};

@@ -1,0 +1,8 @@
+/home/cuenca/colcon_ws/src/my_simulation/robcomp_interfaces/build/rosidl_adapter/robcomp_interfaces:msg/Detection.idl
+/home/cuenca/colcon_ws/src/my_simulation/robcomp_interfaces/build/rosidl_adapter/robcomp_interfaces:msg/DetectionArray.idl
+/home/cuenca/colcon_ws/src/my_simulation/robcomp_interfaces/build/rosidl_adapter/robcomp_interfaces:msg/Conversation.idl
+/home/cuenca/colcon_ws/src/my_simulation/robcomp_interfaces/build/rosidl_adapter/robcomp_interfaces:msg/GameStatus.idl
+/home/cuenca/colcon_ws/src/my_simulation/robcomp_interfaces/build/rosidl_adapter/robcomp_interfaces:msg/AprilTagInsper.idl
+/home/cuenca/colcon_ws/src/my_simulation/robcomp_interfaces/build/rosidl_adapter/robcomp_interfaces:msg/YoloDetector.idl
+/home/cuenca/colcon_ws/src/my_simulation/robcomp_interfaces/build/rosidl_adapter/robcomp_interfaces:action/GoToPoint.idl
+/home/cuenca/colcon_ws/src/my_simulation/robcomp_interfaces/build/rosidl_adapter/robcomp_interfaces:action/SimpleStart.idl

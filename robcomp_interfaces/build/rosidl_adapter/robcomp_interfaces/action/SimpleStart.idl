@@ -1,0 +1,18 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from robcomp_interfaces/action/SimpleStart.action
+// generated code does not contain a copyright notice
+
+
+module robcomp_interfaces {
+  module action {
+    struct SimpleStart_Goal {
+      boolean start;
+    };
+    struct SimpleStart_Result {
+      boolean success;
+    };
+    struct SimpleStart_Feedback {
+      string status;
+    };
+  };
+};
