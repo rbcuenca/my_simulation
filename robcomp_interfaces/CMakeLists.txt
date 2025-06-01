@@ -18,6 +18,7 @@ set(msg_files
   "msg/Detection.msg"
   "msg/DetectionArray.msg"
   "msg/Conversation.msg"
+  "msg/HandlerAF25a.msg"
 )
 
 set(action_files
