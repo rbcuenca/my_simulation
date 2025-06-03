@@ -18,13 +18,10 @@ set(msg_files
   "msg/Detection.msg"
   "msg/DetectionArray.msg"
   "msg/Conversation.msg"
-<<<<<<< HEAD
   "msg/GameStatus.msg"
   "msg/AprilTagInsper.msg"
   "msg/YoloDetector.msg"
-=======
   "msg/HandlerAF25a.msg"
->>>>>>> a469402 (fix)
 )
 
 set(action_files

@@ -26,13 +26,7 @@ setup(
         'console_scripts': [
             'overwatch = gazebo_aux.overwatch:main',
             'handler = gazebo_aux.handler:main',
-<<<<<<< HEAD
-            'handler24baf = gazebo_aux.handler24baf:main',
-            'handlerdiv2 = gazebo_aux.handlerdiv2:main',
-            'young_hee = gazebo_aux.young_hee:main',
-=======
             'handler_af25a = gazebo_aux.handler_af25a:main',
->>>>>>> a469402 (fix)
         ],
     },
 )
