@@ -26,18 +26,25 @@ class HandlerAF25aNode(Node):
 
     def handler_callback(self, msg: HandlerAF25a):
         print(f'Recebido: {msg.status} - {msg.command}')
+        if msg.command not in ['Iniciando', 'alterne', '']:
+            self.get_logger().warn(f'\n\n\nComando desconhecido: {msg.command}')
+            self.get_logger().warn(f'Apenas o Handler deve enviar comandos!!!\n\n\n')
+            return
         if msg.status == self.START and self.state == 'waiting':
-            self.get_logger().info('START recebido; enviando IN_PROGRESS')
+            self.get_logger().info('\nSTART recebido; enviando IN_PROGRESS')
             self.state = 'running'
             self.value = random.randint(0, self.random_max)
             self._send(status=self.IN_PROGRESS, command='Iniciando')
 
         elif msg.status == self.APPROACHING:
-            self.get_logger().info(f'Robô indo ao bloco {msg.command}')
-            self.state = 'approaching'
+            if msg.response == '':
+                self.get_logger().info(f'\nRobô não informou o bloco ao qual está indo!!!')
+            else:
+                self.get_logger().info(f'\nRobô indo ao bloco {msg.response}')
+                self.state = 'approaching'
 
         elif msg.status == self.IN_PROGRESS and msg.command != 'alterne':
-            self.get_logger().info('Robô Andando entre os Pontos')
+            self.get_logger().info('\nRobô andando..')
             self.value = random.randint(0, self.random_max)
             self.state = 'running'
         
@@ -48,7 +55,7 @@ class HandlerAF25aNode(Node):
         print("Estado atual:", self.state)
         if self.state == 'running':
             if random.randint(0, self.random_max) == self.value:
-                self.get_logger().info('Enviando comando alterne')
+                self.get_logger().info('\nEnviando comando alterne')
                 self._send(status=self.IN_PROGRESS, command='alterne')
                 self.state = 'waiting_approach'
 
