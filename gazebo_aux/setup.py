@@ -27,6 +27,7 @@ setup(
             'overwatch = gazebo_aux.overwatch:main',
             'handler = gazebo_aux.handler:main',
             'handler_af25a = gazebo_aux.handler_af25a:main',
+            "young_hee = gazebo_aux.young_hee:main",
         ],
     },
 )
