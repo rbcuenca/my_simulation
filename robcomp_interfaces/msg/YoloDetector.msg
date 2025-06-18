@@ -1,3 +1,3 @@
-string name
-float32[4] boxes   # xmin, ymin, xmax, ymax
+string classe
+float32[4] boxes
 float32 score

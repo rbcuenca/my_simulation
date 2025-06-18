@@ -27,6 +27,7 @@ from launch.substitutions import LaunchConfiguration
 
 def generate_launch_description():
     launch_file_dir = os.path.join(get_package_share_directory('my_gazebo'), 'launch')
+    gazebo_aux_cmd_dir = os.path.join(get_package_share_directory('gazebo_aux'), 'launch')
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
@@ -70,6 +71,13 @@ def generate_launch_description():
             'yaw_pose': yaw_pose
         }.items()
     )
+    
+    deteccoes = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(gazebo_aux_cmd_dir, 'deteccoes.launch.py')
+        ),
+        launch_arguments={'use_sim_time': use_sim_time}.items()
+    )
 
     ld = LaunchDescription()
 
@@ -78,5 +86,6 @@ def generate_launch_description():
     ld.add_action(gzclient_cmd)
     ld.add_action(robot_state_publisher_cmd)
     ld.add_action(spawn_turtlebot_cmd)
+    ld.add_action(deteccoes)
 
     return ld

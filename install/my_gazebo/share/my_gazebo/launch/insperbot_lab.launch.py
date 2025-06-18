@@ -1,0 +1,1 @@
+/home/cuenca/colcon_ws/src/my_simulation/my_gazebo/launch/insperbot_lab.launch.py

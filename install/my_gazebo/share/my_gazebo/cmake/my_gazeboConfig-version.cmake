@@ -1,0 +1,1 @@
+/home/cuenca/colcon_ws/src/my_simulation/build/my_gazebo/ament_cmake_core/my_gazeboConfig-version.cmake

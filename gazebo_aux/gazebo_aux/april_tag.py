@@ -1,45 +1,39 @@
 import rclpy
+from rclpy.node import Node
+from robcomp_interfaces.msg import Taginfo, TaginfoArray
+from geometry_msgs.msg import Point
+from apriltag_msgs.msg import AprilTagDetectionArray
 import numpy as np
 import cv2
-import json
-from rclpy.node import Node
-from rclpy.qos import ReliabilityPolicy, QoSProfile
-from apriltag_msgs.msg import AprilTagDetectionArray
-from std_msgs.msg import String
-from robcomp_interfaces.msg import AprilTagInsper
 
-
-class AprilTagDistancePublisher(Node):
+class TagPublisher(Node):
     def __init__(self):
-        super().__init__('april_tag_distance_publisher')
+        super().__init__('tag_publisher')
+        self.publisher_ = self.create_publisher(TaginfoArray, 'tag_list', 10)
         self.subscription = self.create_subscription(
             AprilTagDetectionArray,
             '/detections',
             self.listener_callback,
-            QoSProfile(depth=10, reliability=ReliabilityPolicy.RELIABLE))
-        self.publisher_ = self.create_publisher(AprilTagInsper, 'april_tag', 10)
-
-        # Parâmetros da câmera (exemplo, substitua pelos seus valores calibrados)
-        self.camera_matrix = np.array([[600, 0, 320],
-                                       [0, 600, 240],
+            10)
+        self.camera_matrix = np.array([[600, 0, 640],
+                                       [0, 600, 480],
                                        [0, 0, 1]], dtype=float)
         self.dist_coeffs = np.zeros((5, 1))  # Supondo sem distorção
-
-        # Tamanho do lado do marcador em metros (ajuste conforme seu marcador)
-        
-
-        # Pontos 3D do marcador no sistema do mundo (origem no centro do marcador)
-
-
+        self.smallTag = 0.045  # Tamanho do lado do marcador pequeno em metros
+        self.largeTag = 0.20  # Tamanho do lado do marcador grande em metros
+        self.LastSmallTag = 99 # Último tamanho do marcador pequeno
+    
     def listener_callback(self, msg):
+        tag_list = TaginfoArray()
         for detection in msg.detections:
             tag_id = detection.id
-            center_x = detection.centre.x
-            center_y = detection.centre.y
-            
-            if tag_id < 10: self.tag_size = 0.05
-            else: self.tag_size = 0.20
-            
+            center = Point()
+            center.x = detection.centre.x
+            center.y = detection.centre.y
+            center.z = 0.0
+
+            if tag_id <= self.LastSmallTag: self.tag_size = self.smallTag
+            else: self.tag_size = self.largeTag
             half_size = self.tag_size / 2.0
             self.object_points = np.array([
                 [-half_size,  half_size, 0],
@@ -69,25 +63,17 @@ class AprilTagDistancePublisher(Node):
             else:
                 distance = float('nan')
 
-            # info_dict = {
-            #     'ID': int(tag_id),
-            #     'CX': int(center_x),
-            #     'CY': int(center_y),
-            #     'DIST': distance
-            # }
-            # self.get_logger().info(json.dumps(info_dict))
 
-            msg_out = AprilTagInsper()
-            msg_out.id = tag_id
-            msg_out.cx = center_x
-            msg_out.cy = center_y
-            msg_out.dist = distance
-            print(msg_out)
-            self.publisher_.publish(msg_out)
+            tag_info = Taginfo()
+            tag_info.id = tag_id
+            tag_info.center = center
+            tag_info.distance = distance
+            tag_list.tags.append(tag_info)
+        self.publisher_.publish(tag_list)
 
 def main(args=None):
     rclpy.init(args=args)
-    node = AprilTagDistancePublisher()
+    node = TagPublisher()
     rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()
