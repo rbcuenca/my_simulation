@@ -10,88 +10,37 @@
   <!-- A global light source  -->
     <include>
       <uri>model://sun</uri>
-      <pose> -2.0 2.0 2.0 0 0 0</pose>
+      <pose> -1.0 2.0 1.0 0 0 0</pose>
     </include>
 
   <!-- Piso da sala - circuito -->
     <include>
-      <uri>model://pista24B/pisosala</uri>
+      <uri>model://Floors/Pista24B</uri>
       <pose> 0 0 0 0 0 0</pose>
     </include>
 
 
   <!-- parede -->
     <include>
-      <uri>model://pista24B/parede</uri>
+      <uri>model://Walls/paredes_sala</uri>
       <pose> 4 0 0 0 0 0</pose>
     </include>
 
   <!-- paredes do labirinto -->
     <include>
-      <uri>model://pista24B/paredelabirinto/parede1</uri>
-      <pose> -1.2 -1.6 0 0 0 1.5697835</pose>
-    </include>    
-  
-    <include>
-      <uri>model://pista24B/paredelabirinto/parede2</uri>
-      <pose> -1.2 -2.2 0 0 0 1.5697835</pose>
-    </include>  
-  
-    <include>
-      <uri>model://pista24B/paredelabirinto/parede3</uri>
-      <pose> -0.9 -2.5 0 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://pista24B/paredelabirinto/parede4</uri>
-      <pose> -0.3 -2.5 0 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://pista24B/paredelabirinto/parede5</uri>
-      <pose> 0.3 -2.5 0 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://pista24B/paredelabirinto/parede6</uri>
-      <pose> 0.6 -2.2 0 0 0 1.5697835</pose>
-    </include>
-
-    <include>
-      <uri>model://pista24B/paredelabirinto/parede7</uri>
-      <pose> 0.6 -1.6 0 0 0 1.5697835</pose>
-    </include>
-
-    <include>
-      <uri>model://pista24B/paredelabirinto/parede8</uri>
-      <pose> 0.3 -1.3 0 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://pista24B/paredelabirinto/parede9</uri>
-      <pose> -0.3 -1.3 0 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://pista24B/paredelabirinto/parede10</uri>
-      <pose> -0.6 -1.6 0 0 0 1.5697835</pose>
-    </include>
-
-    <include>
-      <uri>model://pista24B/paredelabirinto/parede11</uri>
-      <pose> -0.3 -1.9 0 0 0 0</pose>
+      <uri>model://Walls/maze</uri>
+      <pose>0 0 0 0 0 0</pose>
     </include>
   
   <!-- mesa_1 -->
     <include>
-      <uri>model://pista24B/mesa/mesa_1</uri>
+      <uri>model://Tables/table_01</uri>
       <pose> 0.1 -0.3 0 0 0 0</pose>
-      
     </include>
 
   <!-- mesa_02 -->
     <include>
-      <uri>model://pista24B/mesa/mesa_02</uri>
+      <uri>model://Tables/table_02</uri>
       <pose> 0.15 1.7 0 0 0 0</pose>
     </include>
 
@@ -124,39 +73,40 @@
   <!-- aruco_100 -->
     <include>
       <uri>model://Creepers/tag_100</uri>
-      <pose> -1.3 -1.3 0.25 0.016642 0.705403 -3.1000450</pose>
+      <pose> -1.3 -1.3 0.15 0 0 -3.1000450</pose>
     </include>
 
   <!-- aruco_150 -->
     <include>
       <uri>model://Creepers/tag_150</uri>
-      <pose> 1 1.3 0.25 0 0 0</pose>
+      <pose> 1 1.3 0.15 0 0 0</pose>
     </include>
 
   <!-- aruco_250 -->
     <include>
       <uri>model://Creepers/tag_250</uri>
-      <pose> -0.75 0.6 0.25 -0.020050 -0.922194 -2.274190</pose>
+      <pose> -0.75 0.6 0.15 0 0 -2.274190</pose>
     </include>
 
 
   <!-- bicicleta -->
     <include>
-      <uri>model://Objetos/bicycle</uri>
+      <uri>model://Yolo/bicycle</uri>
       <pose> -0.05 0.6 0 0 0 0</pose>
     </include>
 
   <!-- cat -->
     <include>
-      <uri>model://Objeto/bird</uri>
+      <uri>model://Yolo/cat</uri>
       <pose> 2 1.4 0 0 0 0</pose>
     </include>
 
   <!-- dog -->
     <include>
-      <uri>model://Objetos/dog</uri>
+      <uri>model://Yolo/horse</uri>
       <pose> 2 0.1 0 0 0 0</pose>
     </include>
+
 
   <!-- fisica do mundo -->
     <physics type="ode">
