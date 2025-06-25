@@ -194,6 +194,86 @@
   </link>
 
 
+  <!-- inicio da garra do insperbot -->
 
+  <!-- <link name="base_link_garra">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0005 -0.0001 0.002"/>
+      <mass value="0.0001"/>
+      <inertia ixx="1.9768356736455373e-06" ixy="3.3842609487814834e-07" ixz="3.3087224502121107e-23" iyy="2.1568932661454165e-06" iyz="-2.274746684520826e-23" izz="4.120108098287789e-06"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://insperbot/meshes/garra/base_link_garra.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <gazebo reference="base_link_garra">
+    </gazebo>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://insperbot/meshes/garra/base_link_garra.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="base_joint_garra" type="fixed">
+    <parent link="base_link"/>
+    <child link="base_link_garra"/>
+    <origin rpy="0 0 -1.57" xyz="0.044 0.005 0.108"/>
+  </joint>
+
+  <link name="servo_garra1_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0003331581426503209 0.00010673599128592421 0.010000547183940757"/>
+      <mass value="0.001"/>
+      <inertia ixx="6.084896121919108e-06" ixy="7.673237329744245e-10" ixz="2.6844653998574326e-10" iyy="5.525444825215397e-06" iyz="-4.006713086347275e-10" izz="9.353516497648977e-06"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.003609 5.8e-05 -0.004"/>
+      <geometry>
+        <mesh filename="package://insperbot/meshes/garra/servo_garra1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.003609 5.8e-05 -0.004"/>
+      <geometry>
+        <mesh filename="package://insperbot/meshes/garra/servo_garra1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="servo_garra1_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.003609 -5.8e-05 0.004"/>
+    <parent link="base_link_garra"/>
+    <child link="servo_garra1_link"/>
+  </joint>
+
+  <link name="garra1garrabraco1">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.0037506353032803787 0.05642585700103959 0.0018237999124817317"/>
+      <mass value="2.8498940e-03"/>
+      <inertia ixx="1.1175580e-05" ixy="0.0" ixz="0.0" iyy="1.1192413e-05" iyz="0.0" izz="2.0712558e-05"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.027109 -0.009942 -0.014"/>
+      <geometry>
+        <mesh filename="package://insperbot/meshes/garra/arm.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.027109 -0.009942 -0.014"/>
+      <geometry>
+        <mesh filename="package://insperbot/meshes/garra/arm.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint1" type="fixed">
+    <origin rpy="0 0 0" xyz="0.083 -0.005 0.092"/>
+    <!-- <limit effort="1" lower="-1.50" upper="1.5" velocity="0.1"/> -->
+    <limit lower="-1.50" upper="1.5" velocity="0.1"/>
+    <parent link="servo_garra1_link"/>
+    <child link="garra1garrabraco1"/>
+    <axis xyz="1.0 0.0 0.0"/>
+  </joint> -->
 
 </robot>

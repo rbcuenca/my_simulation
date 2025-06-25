@@ -96,66 +96,66 @@
     </include>
 
 
-  <!-- creeper_11_azul -->
+  <!-- creeper_verde_11 -->
     <include>
-      <uri>model://pista24B/creeper/creeper_11_azul</uri>
+      <uri>model://Creepers/creeper_verde_11</uri>
       <pose> -2.7 0.7 0 0 0 0</pose>
     </include>
 
-  <!-- creeper_21_azul -->
+  <!-- creeper_azul_11 -->
     <include>
-      <uri>model://pista24B/creeper/creeper_21_azul</uri>
+      <uri>model://Creepers/creeper_azul_11</uri>
       <pose> -2.7 1 0 0 0 0</pose>
     </include>
 
-  <!-- creeper_13_verde -->
+  <!-- creeper_vermelho_11 -->
     <include>
-      <uri>model://pista24B/creeper/creeper_13_verde</uri>
+      <uri>model://Creepers/creeper_vermelho_11</uri>
       <pose> -0.5 -1.5 0 0 0 0</pose>
     </include>
 
-  <!-- creeper_32_verde -->
+  <!-- creeper_verde_21-->
     <include>
-      <uri>model://pista24B/creeper/creeper_32_verde</uri>
+      <uri>model://Creepers/creeper_verde_21</uri>
       <pose> -2.7 1.25 0 0 0 0</pose>
     </include>
 
 
   <!-- aruco_100 -->
     <include>
-      <uri>model://pista24B/creeper/aruco_100</uri>
+      <uri>model://Creepers/tag_100</uri>
       <pose> -1.3 -1.3 0.25 0.016642 0.705403 -3.1000450</pose>
     </include>
 
   <!-- aruco_150 -->
     <include>
-      <uri>model://pista24B/creeper/aruco_150</uri>
+      <uri>model://Creepers/tag_150</uri>
       <pose> 1 1.3 0.25 0 0 0</pose>
     </include>
 
   <!-- aruco_250 -->
     <include>
-      <uri>model://pista24B/creeper/aruco_250</uri>
+      <uri>model://Creepers/tag_250</uri>
       <pose> -0.75 0.6 0.25 -0.020050 -0.922194 -2.274190</pose>
     </include>
 
 
   <!-- bicicleta -->
     <include>
-      <uri>model://pista24B/objeto/bicycle</uri>
-      <pose> -0.05 0.6 0.15 0 0 0</pose>
+      <uri>model://Objetos/bicycle</uri>
+      <pose> -0.05 0.6 0 0 0 0</pose>
     </include>
 
   <!-- cat -->
     <include>
-      <uri>model://pista24B/objeto/cat</uri>
-      <pose> 2 1.4 0.15 0 0 0</pose>
+      <uri>model://Objeto/bird</uri>
+      <pose> 2 1.4 0 0 0 0</pose>
     </include>
 
   <!-- dog -->
     <include>
-      <uri>model://pista24B/objeto/dog</uri>
-      <pose> 2 0.1 0.15 0 0 0</pose>
+      <uri>model://Objetos/dog</uri>
+      <pose> 2 0.1 0 0 0 0</pose>
     </include>
 
   <!-- fisica do mundo -->
