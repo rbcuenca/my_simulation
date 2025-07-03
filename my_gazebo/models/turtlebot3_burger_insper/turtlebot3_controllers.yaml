@@ -1,0 +1,14 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+    shoulder_controller:
+      type: position_controllers/JointPositionController
+      joint: joint1
+    # gripper_right_controller:
+    #   type: position_controllers/JointPositionController
+    #   joint: joint2
+    # gripper_left_controller:
+    #   type: position_controllers/JointPositionController
+    #   joint: joint3

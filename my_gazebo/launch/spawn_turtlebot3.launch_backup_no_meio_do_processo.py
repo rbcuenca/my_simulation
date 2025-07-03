@@ -13,6 +13,7 @@
 # limitations under the License.
 
 import os
+
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import ExecuteProcess
@@ -20,6 +21,7 @@ from launch.actions import DeclareLaunchArgument
 from launch.actions import TimerAction
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
+
 
 def generate_launch_description():
     # Get the urdf file
@@ -41,46 +43,65 @@ def generate_launch_description():
     x_pose = LaunchConfiguration('x_pose', default='0.0')
     y_pose = LaunchConfiguration('y_pose', default='0.0')
     yaw_pose = LaunchConfiguration('yaw_pose', default='0.0')
+
     # Declare the launch arguments
-    declare_x_position_cmd = DeclareLaunchArgument('x_pose', default_value='0.0', description='Specify namespace of the robot')
-    declare_y_position_cmd = DeclareLaunchArgument('y_pose', default_value='0.0', description='Specify namespace of the robot')
-    declare_yaw_position_cmd = DeclareLaunchArgument('yaw_pose', default_value='0.0', description='Specify namespace of the robot')
+    declare_x_position_cmd = DeclareLaunchArgument(
+        'x_pose', default_value='0.0',
+        description='Specify namespace of the robot')
+
+    declare_y_position_cmd = DeclareLaunchArgument(
+        'y_pose', default_value='0.0',
+        description='Specify namespace of the robot')
+    
+    declare_yaw_position_cmd = DeclareLaunchArgument(
+        'yaw_pose', default_value='0.0',
+        description='Specify namespace of the robot')
+    
+    
 
     start_gazebo_ros_spawner_cmd = Node(
         package='gazebo_ros',
         executable='spawn_entity.py',
         arguments=[
             '-entity', TURTLEBOT3_MODEL,
-            '-file', urdf_path, # o original era: '-file', urdf_path,
+            '-file', urdf, # o original era: '-file', urdf_path,
             '-x', x_pose,
             '-y', y_pose,
             '-z', '0.01',
             '-Y', yaw_pose 
         ],
         output='screen',
-    )
-    
-    controller_yaml = os.path.join(
-        get_package_share_directory('my_gazebo'),
-        'models',
-        model_folder,
-        'turtlebot3_controller.yaml'
-    )
-    
-    controller_manager_node = Node(
-        package='controller_manager',
-        executable='ros2_control_node',
-        parameters=[urdf, controller_yaml],
-        output='both',
-    )
+    # )
+    # load_joint1 = ExecuteProcess(
+    #     cmd=['ros2', 'control', 'load_controller', '--set-state', 'active', 'shoulder_controller'],
+    #     output='screen'
+    # )
+
+    # load_joint2 = ExecuteProcess(
+    #     cmd=['ros2', 'control', 'load_controller', '--set-state', 'active', 'gripper_right_controller'],
+    #     output='screen'
+    # )
+
+    # load_joint3 = ExecuteProcess(
+    #     cmd=['ros2', 'control', 'load_controller', '--set-state', 'active', 'gripper_left_controller'],
+    #     output='screen'
+    # )
     
     ld = LaunchDescription()
+
     # Declare the launch options
     ld.add_action(declare_x_position_cmd)
     ld.add_action(declare_y_position_cmd)
     ld.add_action(declare_yaw_position_cmd)
-    ld.add_action(controller_manager_node)
+
     # Add any conditioned actions
     ld.add_action(start_gazebo_ros_spawner_cmd)
     
+    # Delay de 5s para carregar controladores
+    # ld.add_action(TimerAction(
+    #     period=5.0,
+    #     actions=[load_joint1, load_joint2, load_joint3]
+    # ))
+
+
     return ld

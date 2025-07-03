@@ -13,14 +13,11 @@
       <pose> -1.0 2.0 1.0 0 0 0</pose>
     </include>
 
-  <!-- Piso da sala - circuito -->
+  <!-- Piso da sala - circuito  e Paredes da Sala -->
     <include>
       <uri>model://Floors/Pista24B</uri>
       <pose> 0 0 0 0 0 0</pose>
     </include>
-
-
-  <!-- parede -->
     <include>
       <uri>model://Walls/paredes_sala</uri>
       <pose> 4 0 0 0 0 0</pose>
