@@ -126,7 +126,7 @@
   </library_effects>
   <library_images>
     <image id="bicycle_png" name="bicycle_png">
-      <init_from>/home/cuenca/colcon_ws/src/my_simulation/my_gazebo/models/Objetos/bicycle/materials/textures/bicycle.png</init_from>
+      <init_from>bicycle.png</init_from>
     </image>
   </library_images>
   <library_materials>

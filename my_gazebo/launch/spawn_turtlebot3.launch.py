@@ -49,9 +49,17 @@ def generate_launch_description():
     start_gazebo_ros_spawner_cmd = Node(
         package='gazebo_ros',
         executable='spawn_entity.py',
+        # arguments=[
+        #     '-entity', TURTLEBOT3_MODEL,
+        #     '-file', urdf_path, # o original era: '-file', urdf_path,
+        #     '-x', x_pose,
+        #     '-y', y_pose,
+        #     '-z', '0.01',
+        #     '-Y', yaw_pose 
+        # ],
         arguments=[
             '-entity', TURTLEBOT3_MODEL,
-            '-file', urdf_path, # o original era: '-file', urdf_path,
+            '-topic', '/robot_description',
             '-x', x_pose,
             '-y', y_pose,
             '-z', '0.01',
@@ -79,7 +87,7 @@ def generate_launch_description():
     ld.add_action(declare_x_position_cmd)
     ld.add_action(declare_y_position_cmd)
     ld.add_action(declare_yaw_position_cmd)
-    ld.add_action(controller_manager_node)
+    # ld.add_action(controller_manager_node)
     # Add any conditioned actions
     ld.add_action(start_gazebo_ros_spawner_cmd)
     

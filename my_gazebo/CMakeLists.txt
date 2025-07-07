@@ -27,6 +27,8 @@ find_package(nav_msgs REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(tf2 REQUIRED)
+find_package(urdf REQUIRED)
+find_package(xacro REQUIRED)
 
 ################################################################################
 # Build
@@ -46,6 +48,9 @@ set(dependencies
   "rclcpp"
   "sensor_msgs"
   "tf2"
+  "urdf"
+  "xacro"
+  "gazebo_ros_pkgs"
 )
 
 set(EXEC_NAME "turtlebot3_drive")
@@ -77,6 +82,17 @@ install(DIRECTORY include/
   DESTINATION include/
 )
 
+install(
+  DIRECTORY
+    urdf
+    rviz
+    launch
+    models
+    worlds
+  DESTINATION
+    share/${PROJECT_NAME}/
+)
+
 ################################################################################
 # Macro for ament package
 ################################################################################
@@ -87,4 +103,6 @@ ament_export_dependencies(nav_msgs)
 ament_export_dependencies(rclcpp)
 ament_export_dependencies(sensor_msgs)
 ament_export_dependencies(tf2)
+ament_export_dependencies(urdf)
+ament_export_dependencies(xacro)
 ament_package()
