@@ -22,17 +22,14 @@ from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
-from launch.substitutions import PythonExpression
-from launch.substitutions import Command
 from launch_ros.actions import Node
 
 
 def generate_launch_description():
     TURTLEBOT3_MODEL = os.environ['TURTLEBOT3_MODEL']
 
-    use_sim_time = LaunchConfiguration('use_sim_time', default='true')
+    use_sim_time = LaunchConfiguration('use_sim_time', default='false')
     urdf_file_name = 'turtlebot3_' + TURTLEBOT3_MODEL + '.urdf'
-    frame_prefix = LaunchConfiguration('frame_prefix', default='')
 
     print('urdf_file_name : {}'.format(urdf_file_name))
 
@@ -44,45 +41,20 @@ def generate_launch_description():
     with open(urdf_path, 'r') as infp:
         robot_desc = infp.read()
 
-    robot_state_publisher_node = Node(
-        package='robot_state_publisher',
-        executable='robot_state_publisher',
-        name='robot_state_publisher',
-        emulate_tty=True,
-        output='screen',
-        parameters=[{
-            'use_sim_time': use_sim_time,
-            # 'robot_description': robot_desc, # This line is replaced by the next one
-            'robot_description': Command(['xacro ', urdf_path]),
-            'frame_prefix': PythonExpression(["'", frame_prefix, "/'"])
-        }],
-    )
-    robot_state_publisher_file_node = Node(
-        package='robot_state_publisher',
-        executable='robot_state_publisher',
-        name='robot_state_publisher_file',
-        emulate_tty=True,
-        output='screen',
-        parameters=[{
-            'use_sim_time': use_sim_time,
-            'robot_description': robot_desc, # This line is replaced by the next one
-            # 'robot_description': Command(['xacro ', urdf_path]),
-            'frame_prefix': PythonExpression(["'", frame_prefix, "/'"])
-        }],
-    )
-    
-    rviz_node = Node(
-        package='rviz2',
-        executable='rviz2',
-        output='screen',
-        name='rviz_node',
-        parameters=[{'use_sim_time': True}],
-        )
-    
-    return LaunchDescription(
-        [
-            # robot_state_publisher_node,
-            robot_state_publisher_file_node,
-            rviz_node
-        ]
-    )
+    return LaunchDescription([
+        DeclareLaunchArgument(
+            'use_sim_time',
+            default_value='false',
+            description='Use simulation (Gazebo) clock if true'),
+
+        Node(
+            package='robot_state_publisher',
+            executable='robot_state_publisher',
+            name='robot_state_publisher',
+            output='screen',
+            parameters=[{
+                'use_sim_time': use_sim_time,
+                'robot_description': robot_desc
+            }],
+        ),
+    ])

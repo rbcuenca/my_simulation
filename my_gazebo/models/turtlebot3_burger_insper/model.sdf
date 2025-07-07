@@ -339,39 +339,47 @@
         <mass>0.035</mass>
       </inertial>
 
-      <sensor name="camera" type="camera">
+     <sensor name="camera" type="camera">
         <pose>0.063 0.002 0.13 0 0 0</pose>
+        <!-- 0.043 0.002 0.13 0 0 0 -->
         <always_on>true</always_on>
         <visualize>false</visualize>
         <update_rate>30</update_rate>
         <camera name="picam">
           <horizontal_fov>1.085595</horizontal_fov>
           <image>
-            <width>640</width>
-            <height>480</height>
-            <format>R8G8B8</format>
+              <width>640</width>
+              <height>480</height>
+              <format>R8G8B8</format>
           </image>
           <clip>
-            <near>0.03</near>
-            <far>100</far>
+              <near>0.03</near>
+              <far>100</far>
           </clip>
           <noise>
             <type>gaussian</type>
+            <!-- Noise is sampled independently per pixel on each frame.
+                  That pixel's noise value is added to each of its color
+                  channels, which at that point lie in the range [0,1]. -->
             <mean>0.0</mean>
             <stddev>0.007</stddev>
           </noise>
         </camera>
-        <plugin name="camera_driver" filename="libgazebo_ros_camera.so">
-          <ros>
-            <remapping>image_raw:=/camera/image_raw</remapping>
-            <remapping>camera_info:=/camera/camera_info</remapping>
-          </ros>
-          <frame_name>camera_link</frame_name>
-        </plugin>
+          <plugin name="camera_driver" filename="libgazebo_ros_camera.so">
+            <ros>
+              <!-- <namespace>test_cam</namespace> -->
+              <!-- <remapping>image_raw:=image_demo</remapping> -->
+              <!-- <remapping>camera_info:=camera_info_demo</remapping> -->
+            </ros>
+            <!-- camera_name>omit so it defaults to sensor name</camera_name-->
+            <!-- frame_name>omit so it defaults to link name</frameName-->
+            <!-- <hack_baseline>0.07</hack_baseline> -->
+          </plugin>
       </sensor>
-    </link>
-  
+    </link>    
+
 <!-- início da implementação visual da garra -->
+
 
     <link name="base_link_garra">
       <inertial>
@@ -628,7 +636,6 @@
         <xyz>0 0 1</xyz>
       </axis>
     </joint>
-    
 
 <link name="base_camera1">
       <inertial>
@@ -671,156 +678,54 @@
       </axis>
     </joint>
 
-<!-- Links -->
-  <!-- Exemplo para garra1garrabraco1 -->
-  <link name="garra1garrabraco1">
-    <inertial>
-      <mass>0.00285</mass>
-      <inertia>
-        <ixx>1.1175580e-05</ixx>
-        <iyy>1.1192413e-05</iyy>
-        <izz>2.0712558e-05</izz>
-      </inertia>
-    </inertial>
-    <visual name="garra1garrabraco1_visual">
-      <pose>0.050 0.012 0.094 0 0 -1.57</pose>
-      <geometry>
-        <mesh>
-          <uri>model://insperbot/meshes/garra/arm.dae</uri>
-          <scale>0.001 0.001 0.001</scale>
-        </mesh>
-      </geometry>
-    </visual>
-    <collision name="garra1garrabraco1_collision">
-      <pose>0.050 0.012 0.094 0 0 -1.57</pose>
-      <geometry>
-        <mesh>
-          <uri>model://insperbot/meshes/garra/arm.dae</uri>
-          <scale>0.001 0.001 0.001</scale>
-        </mesh>
-      </geometry>
-    </collision>
-  </link>
-
-  <!-- Garra Direita -->
-  <!-- <link name="garra1garradireita1">
-    <inertial>
-      <mass>0.008</mass>
-      <inertia>
-        <ixx>1.1175580e-05</ixx>
-        <iyy>1.1192413e-05</iyy>
-        <izz>2.0712558e-05</izz>
-      </inertia>
-    </inertial>
-    <visual name="garra1garradireita1_visual">
-      <pose>-0.023009 -0.086931 -0.0205 0 0 0</pose>
-      <geometry>
-        <mesh>
-          <uri>model://insperbot/meshes/garra/direita.dae</uri>
-          <scale>0.001 0.001 0.001</scale>
-        </mesh>
-      </geometry>
-    </visual>
-    <collision name="garra1garradireita1_collision">
-      <pose>-0.023009 -0.086931 -0.0205 0 0 0</pose>
-      <geometry>
-        <mesh>
-          <uri>model://insperbot/meshes/garra/direita.dae</uri>
-          <scale>0.001 0.001 0.001</scale>
-        </mesh>
-      </geometry>
-    </collision>
-  </link> -->
-
-  <!-- Garra Esquerda -->
-  <!-- <link name="garra1garraesquerda1">
-    <inertial>
-      <mass>0.008</mass>
-      <inertia>
-        <ixx>1.1175580e-05</ixx>
-        <iyy>1.1192413e-05</iyy>
-        <izz>2.0712558e-05</izz>
-      </inertia>
-    </inertial>
-    <visual name="garra1garraesquerda1_visual">
-      <pose>-0.006109 -0.088614 -0.0205 0 0 0</pose>
-      <geometry>
-        <mesh>
-          <uri>model://insperbot/meshes/garra/esquerda.dae</uri>
-          <scale>0.001 0.001 0.001</scale>
-        </mesh>
-      </geometry>
-    </visual>
-    <collision name="garra1garraesquerda1_collision">
-      <pose>-0.006109 -0.088614 -0.0205 0 0 0</pose>
-      <geometry>
-        <mesh>
-          <uri>model://insperbot/meshes/garra/esquerda.dae</uri>
-          <scale>0.001 0.001 0.001</scale>
-        </mesh>
-      </geometry>
-    </collision>
-  </link> -->
-
-  <!-- Joints -->
-  <!-- Ombro -->
-  <joint name="joint1" type="fixed">
-    <parent>servo_garra1</parent>
-    <child>garra1garrabraco1</child>
-    <pose>0 0 0 0 0 0</pose>
-    <axis>
-      <xyz>1 0 0</xyz>
-      <limit>
-        <lower>-1.5</lower>
-        <upper>1.5</upper>
-      </limit>
-      <dynamics damping="0.1" friction="0.0"/>
-    </axis>
-  </joint>
 
 
-  <!-- Garra direita -->
-  <!-- <joint name="joint2" type="fixed">
-    <parent>garra1garrabraco1</parent>
-    <child>garra1garradireita1</child>
-    <pose>-0.0041 0.076989 0.0065 0 0 0</pose>
-    <axis>
-      <xyz>0 0 1</xyz>
-      <limit>
-        <lower>-1</lower>
-        <upper>0</upper>
-        <effort>1</effort>
-        <velocity>0.1</velocity>
-      </limit>
-      <dynamics>
-        <damping>0.02</damping>
-        <friction>0.0</friction>
-      </dynamics>
-    </axis>
-  </joint> -->
+<!-- este link da garra está "afundando" o robô se colocado em rotacao, mantendo fixo nao da problema
+verificar se ao colocar o link no urdf ira funcionar.... -->
 
-  <!-- Garra esquerda (mimic de joint2; controle via plugin/controller) -->
-  <!-- <joint name="joint3" type="fixed">
-    <parent>garra1garrabraco1</parent>
-    <child>garra1garraesquerda1</child>
-    <pose>-0.021 0.078672 0.0065 0 0 0</pose>
-    <axis>
-      <xyz>0 0 -1</xyz>
-      <limit>
-        <lower>-1</lower>
-        <upper>0</upper>
-        <effort>1</effort>
-        <velocity>0.1</velocity>
-      </limit>
-      <dynamics>
-        <damping>0.02</damping>
-        <friction>0.0</friction>
-      </dynamics>
-    </axis>
-  </joint> -->
+<!-- <link name="garra1garrabraco1">
+      <inertial>
+        <pose>0.083 -0.005 0.092 0 0 0</pose>
+        <inertia>
+          <ixx>1.1175580e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.1192413e-05</iyy>
+          <iyz>0</iyz>
+          <izz>2.0712558e-05</izz>
+        </inertia>
+        <mass>0.001</mass>
+      </inertial>
+      <collision name="garra1garrabraco1">
+        <pose>0.043 0.0015 0.092 0 0 -1.57</pose>
+        <geometry>
+          <mesh>
+            <uri>model://insperbot/meshes/garra/arm.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="garra1garrabraco1_visual">
+        <pose>0.043 0.0015 0.092 0 0 -1.57</pose>
+        <geometry>
+          <mesh>
+            <uri>model://insperbot/meshes/garra/arm.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="garra1garrabraco1_joint" type="fixed">
+      <parent>servo_garra1</parent>
+      <child>garra1garrabraco1</child>
+      <pose>0.043 0.0015 0.092 0 0 -1.57</pose>
+      <axis>
+        <xyz>1 0 0</xyz>
+      </axis>
+    </joint>
 
-  <!-- IMPORTANTE: O mimic não é nativo do SDF! -->
-  <!-- Para sincronizar joint2 e joint3, use um controlador ROS2 que publique o valor de joint2 também em joint3. -->
+ -->
+
 
 
 <!-- fim da implementação visual da garra -->
@@ -935,10 +840,7 @@
       <update_rate>30</update_rate>
       <joint_name>wheel_left_joint</joint_name>
       <joint_name>wheel_right_joint</joint_name>
-    </plugin>   
-
-    <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
-      <parameters>package://my_gazebo/models/turtlebot3_burger_insper/turtlebot3_controllers.yaml</parameters>
-    </plugin>   
+      <!-- <joint_name>garra1garrabraco1_joint</joint_name> -->
+    </plugin>      
   </model>
 </sdf>

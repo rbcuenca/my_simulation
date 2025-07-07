@@ -13,13 +13,13 @@
 # limitations under the License.
 
 import os
+
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import ExecuteProcess
 from launch.actions import DeclareLaunchArgument
-from launch.actions import TimerAction
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
+
 
 def generate_launch_description():
     # Get the urdf file
@@ -31,35 +31,31 @@ def generate_launch_description():
         model_folder,
         'model.sdf'
     )
-    urdf = os.path.join(
-        get_package_share_directory('my_gazebo'),
-        'urdf',
-        'turtlebot3_' + TURTLEBOT3_MODEL + '.urdf'
-    )
-    
+
     # Launch configuration variables specific to simulation
     x_pose = LaunchConfiguration('x_pose', default='0.0')
     y_pose = LaunchConfiguration('y_pose', default='0.0')
     yaw_pose = LaunchConfiguration('yaw_pose', default='0.0')
+
     # Declare the launch arguments
-    declare_x_position_cmd = DeclareLaunchArgument('x_pose', default_value='0.0', description='Specify namespace of the robot')
-    declare_y_position_cmd = DeclareLaunchArgument('y_pose', default_value='0.0', description='Specify namespace of the robot')
-    declare_yaw_position_cmd = DeclareLaunchArgument('yaw_pose', default_value='0.0', description='Specify namespace of the robot')
+    declare_x_position_cmd = DeclareLaunchArgument(
+        'x_pose', default_value='0.0',
+        description='Specify namespace of the robot')
+
+    declare_y_position_cmd = DeclareLaunchArgument(
+        'y_pose', default_value='0.0',
+        description='Specify namespace of the robot')
+    
+    declare_yaw_position_cmd = DeclareLaunchArgument(
+        'yaw_pose', default_value='0.0',
+        description='Specify namespace of the robot')
 
     start_gazebo_ros_spawner_cmd = Node(
         package='gazebo_ros',
         executable='spawn_entity.py',
-        # arguments=[
-        #     '-entity', TURTLEBOT3_MODEL,
-        #     '-file', urdf_path, # o original era: '-file', urdf_path,
-        #     '-x', x_pose,
-        #     '-y', y_pose,
-        #     '-z', '0.01',
-        #     '-Y', yaw_pose 
-        # ],
         arguments=[
             '-entity', TURTLEBOT3_MODEL,
-            '-topic', '/robot_description',
+            '-file', urdf_path,
             '-x', x_pose,
             '-y', y_pose,
             '-z', '0.01',
@@ -68,27 +64,14 @@ def generate_launch_description():
         output='screen',
     )
     
-    controller_yaml = os.path.join(
-        get_package_share_directory('my_gazebo'),
-        'models',
-        model_folder,
-        'turtlebot3_controller.yaml'
-    )
-    
-    controller_manager_node = Node(
-        package='controller_manager',
-        executable='ros2_control_node',
-        parameters=[urdf, controller_yaml],
-        output='both',
-    )
-    
     ld = LaunchDescription()
+
     # Declare the launch options
     ld.add_action(declare_x_position_cmd)
     ld.add_action(declare_y_position_cmd)
     ld.add_action(declare_yaw_position_cmd)
-    # ld.add_action(controller_manager_node)
+
     # Add any conditioned actions
     ld.add_action(start_gazebo_ros_spawner_cmd)
-    
+
     return ld
