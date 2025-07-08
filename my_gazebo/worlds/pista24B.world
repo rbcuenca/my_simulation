@@ -73,13 +73,13 @@
       <pose> -1.3 -1.3 0.15 0 0 -3.1000450</pose>
     </include>
 
-  <!-- aruco_150 -->
+  <!-- Tag_150 -->
     <include>
       <uri>model://Creepers/tag_150</uri>
       <pose> 1 1.3 0.15 0 0 0</pose>
     </include>
 
-  <!-- aruco_250 -->
+  <!-- Tag_250 -->
     <include>
       <uri>model://Creepers/tag_250</uri>
       <pose> -0.75 0.6 0.15 0 0 -2.274190</pose>

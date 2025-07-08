@@ -13,111 +13,108 @@
       <pose> -2.0 2.0 2.0 0 0 0</pose>
     </include>
 
-  <!-- Piso da sala - circuito -->
+  <!-- Piso da sala - circuito  e Paredes da Sala -->
     <include>
-      <uri>model://pista24/pisosala</uri>
-      <pose> 0 0 0 0 0 -1.57</pose>
+      <uri>model://Floors/Pista24</uri>
+      <pose> 0 0 0 0 0 0</pose>
     </include>
-
-
-  <!-- parede -->
     <include>
-      <uri>model://pista24/parede</uri>
-      <pose> -3.3596 0.982819 0 0 0 -3.139567</pose>
+      <uri>model://Walls/paredes_sala</uri>
+      <pose> 4 0 0 0 0 0</pose>
     </include>
 
 
   <!-- mesa_1 -->
     <include>
-      <uri>model://pista24/mesa/mesa_1</uri>
-      <pose> -0.705064 -1.089411 0 0 0 3.130235</pose>
+      <uri>model://Tables/table_01</uri>
+      <pose> -0.6 -1.0 0 0 0 0</pose>
     </include>
 
   <!-- mesa_02 -->
     <include>
-      <uri>model://pista24/mesa/mesa_02</uri>
-      <pose> -0.767724 0.465500 0 0 0 -0.002552</pose>
+      <uri>model://Tables/table_02</uri>
+      <pose> -0.6 0.45 0 0 0 0</pose>
     </include>
 
 
-  <!-- creeper_11_azul -->
+  <!-- creeper_azul_11 -->
     <include>
-      <uri>model://pista24/creeper/creeper_11_azul</uri>
+      <uri>model://Creepers/creeper_azul_11</uri>
       <pose> -0.684843 0.015186 0 0 0 -1.739250</pose>
     </include>
 
-  <!-- creeper_21_azul -->
+  <!-- creeper_azul_21 -->
     <include>
-      <uri>model://pista24/creeper/creeper_21_azul</uri>
+      <uri>model://Creepers/creeper_azul_21</uri>
       <pose> 0.858751 0.694939 0 0 0 3.137215</pose>
     </include>
 
-  <!-- creeper_13_verde -->
+  <!-- creeper_verde_13-->
     <include>
-      <uri>model://pista24/creeper/creeper_13_verde</uri>
+      <uri>model://Creepers/creeper_verde_13</uri>
       <pose> -0.625888 -1.578005 0 0 0 1.457789</pose>
     </include>
 
   <!-- creeper_32_verde -->
     <include>
-      <uri>model://pista24/creeper/creeper_32_verde</uri>
+      <uri>model://Creepers/creeper_verde_32</uri>
       <pose> -2.200214 0.343472 0 0 0 -0.013058</pose>
     </include>
 
 
-  <!-- aruco_100 -->
+  <!-- Tag_100 -->
     <include>
-      <uri>model://pista24/creeper/aruco_100</uri>
-      <pose> 1.015783 -1.270479 0.246133 0.016642 0.705403 -3.1000450</pose>
+      <uri>model://Creepers/tag_100</uri>
+      <pose> 1.015783 -1.270479 0.15 0 0 -3.1000450</pose>
     </include>
 
-  <!-- aruco_150 -->
+  <!-- Tag_150 -->
     <include>
-      <uri>model://pista24/creeper/aruco_150</uri>
-      <pose> 0.045543 0.791178 0.275200 -0.035559 0.883626 -0.016281</pose>
+      <uri>model://Creepers/tag_150</uri>
+      <pose> 0.045543 0.791178 0.15 0 0 -0.016281</pose>
     </include>
 
-  <!-- aruco_250 -->
+  <!-- Tag_250 -->
     <include>
-      <uri>model://pista24/creeper/aruco_250</uri>
-      <pose> -1.388983 0.123646 0.235628 3.134130 -0.645214 -1.577540</pose>
+      <uri>model://Creepers/tag_250</uri>
+      <pose> -1.388983 0.123646 0.15 0 0 -1.577540</pose>
     </include>
 
 
   <!-- bicicleta -->
     <include>
-      <uri>model://pista24/objeto/bicycle</uri>
-      <pose> -3.236597 -2.139417 0.15 0 0 0</pose>
+      <uri>model://Yolo/bicycle</uri>
+      <pose> -3.236597 -2.139417 0 0 0 0</pose>
     </include>
 
   <!-- cat -->
     <include>
-      <uri>model://pista24/objeto/cat</uri>
-      <pose> -3.236597 -1.780378 0.15 0 0 0</pose>
+      <uri>model://Yolo/cat</uri>
+      <pose> -3.236597 -1.780378 0 0 0 0</pose>
     </include>
 
   <!-- dog -->
     <include>
-      <uri>model://pista24/objeto/dog</uri>
-      <pose> -3.236597 -1.391557 0.15 0 0 0</pose>
+      <uri>model://Yolo/horse</uri>
+      <pose> -3.236597 -1.391557 0 0 0 0</pose>
     </include>
 
 
   <!-- caixa_azul -->
     <include>
-      <uri>model://pista24/objeto/caixa_azul</uri>
+      <uri>model://Boxes/box_blue</uri>
       <pose> -0.697807 1.217787 0 0 0 0</pose>
     </include>
 
   <!-- caixa_vermelha_01 -->
     <include>
-      <uri>model://pista24/objeto/caixa_vermelha_01</uri>
+      <uri>model://Boxes/box_red_01</uri>
       <pose> -0.093108 1.527090 0 0 0 0</pose>
     </include>
 
   <!-- caixa_vermelha_02 -->
     <include>
-      <uri>model://pista24/objeto/caixa_vermelha_02</uri>
+      <uri>model://Boxes/box_red_02</uri>
       <pose> -1.261902 1.544692 0 0 0 0</pose>
     </include>
 
