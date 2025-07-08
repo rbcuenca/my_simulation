@@ -1,3 +1,4 @@
 # Ignorar pasta do apriltag
 apriltag_ros/
-yolov8n.pt
+gazebo_aux/share/gazebo_aux/gazebo_aux/yolov8n.pt
+gazebo_aux/gazebo_aux/__pycache__/

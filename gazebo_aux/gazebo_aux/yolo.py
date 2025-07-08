@@ -1,16 +1,22 @@
 import rclpy
+import os
+import ros2_numpy
+from ament_index_python.packages import get_package_share_directory
 from rclpy.node import Node
+from rclpy.qos import ReliabilityPolicy, QoSProfile
 from std_msgs.msg import String, Bool
 from sensor_msgs.msg import Image
-from rclpy.qos import ReliabilityPolicy, QoSProfile
-import ros2_numpy
 from ultralytics import YOLO
 from robcomp_interfaces.msg import YoloDetector, YoloArray
 
 class YoloDetectorNode(Node):
     def __init__(self):
         super().__init__('yolo_detector')
-        self.detection_model = YOLO("yolov8n.pt")  # Substitua pelo modelo desejado
+        
+        yolo_dir = os.path.join(get_package_share_directory('gazebo_aux'), 'gazebo_aux/', 'yolov8n.pt')
+        print(yolo_dir)
+        
+        self.detection_model = YOLO(yolo_dir)  # Substitua pelo modelo desejado
         self.publisher_ = self.create_publisher(YoloArray, 'yolo_info', 10)
         self.detectar = False  # Flag de controle
 
