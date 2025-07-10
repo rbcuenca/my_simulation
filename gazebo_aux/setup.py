@@ -29,6 +29,7 @@ setup(
             'handler_af25a = gazebo_aux.handler_af25a:main',
             'april_tag = gazebo_aux.april_tag:main',
             'yolo = gazebo_aux.yolo:main',
+            'young_hee = gazebo_aux.young_hee:main',
         ],
     },
 )

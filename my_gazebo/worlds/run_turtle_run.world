@@ -1,4 +1,3 @@
-<?xml version="1.0" ?>
 <sdf version="1.6">
   <world name="corredor">
     <scene>
@@ -7,15 +6,15 @@
       <shadows>true</shadows>
     </scene>
 
-    <!-- A global light source  -->
+  
     <include>
       <uri>model://sun</uri>
-      <pose> -2.0 2.0 2.0 0 0 0</pose>
+      <pose> -1.0 2.0 1.0 0 0 0</pose>
     </include>
 
-    <!-- Plano de Fundo Cinza Claro com Margens -->
+    
     <model name="corredor_fundo">
-      <pose frame=''>0 0 0 0 0 0</pose>
+      <pose frame="">0 0 0 0 0 0</pose>
       <static>true</static>
       <link name="corredor_link">
         <inertial>
@@ -52,9 +51,9 @@
       </link>
     </model>
 
-    <!-- Pista Central -->
+    
     <model name="pista_central">
-      <pose frame=''>0 0 0 0 0 0</pose>
+      <pose frame="">0 0 0 0 0 0</pose>
       <static>true</static>
       <link name="pista_central_link">
         <inertial>
@@ -91,9 +90,9 @@
       </link>
     </model>
 
-    <!-- Linha de Início -->
+    
     <model name="linha_inicio">
-      <pose frame=''>-5 0 0.005 0 0 0</pose>
+      <pose frame="">-5 0 0.005 0 0 0</pose>
       <static>true</static>
       <link name="linha_inicio_link">
         <inertial>
@@ -131,9 +130,9 @@
     </model>
 
     
-    <!-- Linha de Fim -->
+    
     <model name="linha_fim">
-      <pose frame=''>5 0 0.005 0 0 0</pose>
+      <pose frame="">5 0 0.005 0 0 0</pose>
       <static>true</static>
       <link name="linha_fim_link">
         <inertial>
@@ -171,9 +170,9 @@
     </model>
 
 
-    <!-- Caixa na lateral esquerda da pista -->
+    
     <model name="caixa_lateral_esquerda">
-      <pose frame=''>0 -1.5 0.25 0 0 0</pose> <!-- Posição: centro da pista, lateral esquerda -->
+      <pose frame="">0.2397381869721853 -2 0.25 0 0 0</pose> 
       <static>true</static>
       <link name="caixa_link">
         <inertial>
@@ -190,30 +189,30 @@
         <visual name="caixa_visual">
           <geometry>
             <box>
-              <size>0.15 2 0.5</size> <!-- Dimensões: comprimento x largura x altura -->
+              <size>0.15 2 0.5</size> 
             </box>
           </geometry>
           <material>
             <script>
               <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Blue</name> <!-- Cor azul para visualização clara -->
+              <name>Gazebo/Blue</name> 
             </script>
           </material>
         </visual>
         <collision name="caixa_collision">
           <geometry>
             <box>
-              <size>0.15 2 0.5</size> <!-- Dimensões: comprimento x largura x altura -->
+              <size>0.15 2 0.5</size> 
             </box>
           </geometry>
         </collision>
       </link>
     </model>
 
-    <!-- posicao camera inicial -->  
-    <gui fullscreen='0'>
-      <camera name='user_camera'>
-        <pose frame=''>3 -7 10 -0 0.979642 2</pose>
+      
+    <gui fullscreen="0">
+      <camera name="user_camera">
+        <pose frame="">3 -7 10 -0 0.979642 2</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>

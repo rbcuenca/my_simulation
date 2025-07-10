@@ -78,7 +78,14 @@ def generate_launch_description():
             os.path.join(gazebo_aux_dir, 'handler.launch.py')
         )
     )
-
+    
+    # pacote relativo a deteccoes - AprilTag e Yolo
+    deteccoes = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(gazebo_aux_dir, 'deteccoes.launch.py')
+        ),
+        launch_arguments={'use_sim_time': use_sim_time}.items()
+    )
     ld = LaunchDescription()
 
     # Add the commands to the launch description
@@ -86,6 +93,11 @@ def generate_launch_description():
     ld.add_action(gzclient_cmd)
     ld.add_action(robot_state_publisher_cmd)
     ld.add_action(spawn_turtlebot_cmd)
+    
+    # Handler Prof. Diego
     ld.add_action(handler_cmd)
+
+    # launchdescription do deteccoes - AprilTag e Yolo
+    ld.add_action(deteccoes)
 
     return ld

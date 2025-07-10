@@ -34,7 +34,7 @@ for model in root.findall('.//model'):
 tree.write(world)
 
 try:
-    command = f"cb"
+    command = f"cb my_gazebo"
     result = subprocess.run(command, shell=True, capture_output=True, text=True)
 
     command = f"ros2 launch my_gazebo run_turtle.launch.py"

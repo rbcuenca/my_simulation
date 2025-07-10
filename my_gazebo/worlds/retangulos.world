@@ -6,42 +6,39 @@
       <shadows>true</shadows>
     </scene>
 
-    <!-- A global light source -->
+  <!-- A global light source  -->
     <include>
       <uri>model://sun</uri>
-      <pose> -2.0 2.0 2.0 0 0 0</pose>
+      <pose> -1.0 2.0 1.0 0 0 0</pose>
     </include>
 
-  <!-- Piso da sala - circuito -->
+  <!-- Piso da sala - circuito  e Paredes da Sala -->
     <include>
-      <uri>model://retangulos/pisosala</uri>
-      <pose> 0 0 0 0 0 -1.57</pose>
+      <uri>model://Floors/retangulos</uri>
+      <pose> 0 0 0 0 0 0</pose>
     </include>
-
-
-  <!-- Parede da sala - circuito -->
     <include>
-      <uri>model://retangulos/parede</uri>
+      <uri>model://Walls/parede_13x12</uri>
       <pose> 0 0 0 0 0 0</pose>
     </include>
 
 
   <!-- gato -->
     <include>
-      <uri>model://retangulos/objeto/cat</uri>
+      <uri>model://Yolo/cat</uri>
       <pose> 2.66 0.25 0.25 0 0 0.56</pose>
     </include>
 
   <!-- cachorro -->
     <include>
-      <uri>model://retangulos/objeto/dog</uri>
+      <uri>model://Yolo/dog</uri>
       <pose> -0.22 2.96 0.25 0 0 0.615</pose>
     </include>
 
 
   <!-- cavalo -->
     <include>
-      <uri>model://retangulos/objeto/horse</uri>
+      <uri>model://Yolo/horse</uri>
       <pose> -0.43 -2.90 0.25 0 0 -0.73</pose>
     </include>
 

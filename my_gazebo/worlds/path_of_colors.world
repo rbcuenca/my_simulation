@@ -10,13 +10,17 @@
     <!-- A global light source  -->
     <include>
       <uri>model://sun</uri>
-      <pose> -2.0 2.0 2.0 0 0 0</pose>
+      <pose> -1.0 2.0 1.0 0 0 0</pose>
     </include>
 
-     <!-- Piso da sala - circuito -->
+  <!-- Piso da sala - circuito  e Paredes da Sala -->
     <include>
-      <uri>model://path_of_colors/pisosala</uri>
+      <uri>model://Floors/path_of_colors</uri>
       <pose> 0 0 0 0 0 -1.57</pose>
+    </include>
+    <include>
+      <uri>model://Walls/paredes_sala</uri>
+      <pose> 0 -4 0 0 0 -1.57</pose>
     </include>
 
     <!-- Cilindro Cinza -->

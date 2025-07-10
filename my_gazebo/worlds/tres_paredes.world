@@ -13,37 +13,35 @@
       <pose> -2.0 2.0 2.0 0 0 0</pose>
     </include>
 
-  <!-- Piso da sala -->
+  <!-- Piso da sala e paredes-->
     <include>
-      <uri>model://tres_paredes/pisosala</uri>
-      <pose> 0 0 0 0 0 -1.6</pose>
+      <uri>model://Floors/tres_paredes</uri>
+      <pose> 0 0 0 0 0 -1.57</pose>
     </include>
-
-  <!-- parede -->
     <include>
-      <uri>model://tres_paredes/parede</uri>
-      <pose> 0 0 0 0 0 -1.6</pose>
+      <uri>model://Walls/parede_aberta</uri>
+      <pose> 0 0 0 0 0 -1.57</pose>
     </include>
 
   <!-- parede de separacao -->
     <include>
-      <uri>model://tres_paredes/parede_5m5</uri>
+      <uri>model://Walls/parede_5m5</uri>
       <pose> 0.5 0.5 0.25 0 0 0</pose>
     </include>
 
     <include>
-      <uri>model://tres_paredes/parede_5m5_01</uri>
+      <uri>model://Walls/parede_5m5_01</uri>
       <pose> 1.5 0.5 0.25 0 0 0</pose>
     </include>
 
     <include>
-      <uri>model://tres_paredes/parede_5m5_02</uri>
+      <uri>model://Walls/parede_5m5_02</uri>
       <pose> -0.5 0.5 0.25 0 0 0</pose>
     </include>
 
   <!-- parede invisivel-->
     <include>
-      <uri>model://tres_paredes/parede_5m5_03</uri>
+      <uri>model://Walls/parede_5m5_03_invisivel</uri>
       <pose> 1 -0.5 0.25 0 0 -1.58</pose>
     </include>
 
