@@ -15,6 +15,7 @@ find_package(rosidl_default_generators REQUIRED)
 
 # Listar todos os arquivos de mensagens e ações
 set(msg_files
+  "msg/PubSubAPS.msg"
   "msg/Detection.msg"
   "msg/DetectionArray.msg"
   "msg/Conversation.msg"
