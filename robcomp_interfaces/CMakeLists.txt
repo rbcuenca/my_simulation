@@ -22,6 +22,7 @@ set(msg_files
   "msg/TaginfoArray.msg"
   "msg/YoloDetector.msg"
   "msg/YoloArray.msg"
+  "msg/PubSubAPS.msg"
 )
 
 set(action_files
