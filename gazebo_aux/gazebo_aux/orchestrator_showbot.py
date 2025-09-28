@@ -179,7 +179,7 @@ class Orchestrator(Node, Odom):
     # --------------------------------------------------
     # Loop de controle (timer)
     def control(self):
-        self.get_logger().info(f"Estado Atual: {self.robot_state}")
+        # self.get_logger().info(f"Estado Atual: {self.robot_state}")
         self.state_machine[self.robot_state]()
 
 # --------------------------------------------------
