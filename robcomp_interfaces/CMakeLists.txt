@@ -23,6 +23,7 @@ set(msg_files
   "msg/YoloDetector.msg"
   "msg/YoloArray.msg"
   "msg/PubSubAPS.msg"
+  "msg/OrquestratorMSG.msg"
 )
 
 set(action_files
