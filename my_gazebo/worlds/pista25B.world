@@ -59,6 +59,18 @@
       <uri>model://Creepers/creeper_vermelho_11</uri>
       <pose> -0.5 -1.5 0 0 0 0</pose>
     </include> -->
+  <!-- caixa_red_01 -->
+    <include>
+      <uri>model://Boxes/box_red_01</uri>
+      <pose> 0.5 -0.9 0 0 0 0</pose>
+    </include>
+
+  <!-- caixa_blue -->
+    <include>
+      <uri>model://Boxes/box_blue</uri>
+      <pose> -0.23 -1.13 0 0 0 0</pose>
+    </include>
+    
 
   <!-- creeper_verde_21-->
     <include>
@@ -94,7 +106,7 @@
   <!-- bicicleta -->
     <include>
       <uri>model://Yolo/bicycle</uri>
-      <pose> -0.75 -1.4 0 0 0 1.563530</pose>
+      <pose> 0.2 -1.4 0 0 0 1.563530</pose>
     </include>
 
   <!-- cat -->
@@ -104,10 +116,10 @@
     </include>
 
   <!-- dog -->
-    <include>
+    <!-- <include>
       <uri>model://Yolo/dog</uri>
       <pose> 0.95 -1.4 0 0 0 1.563530</pose>
-    </include>
+    </include> -->
 
   <!-- bird -->
     <include>
