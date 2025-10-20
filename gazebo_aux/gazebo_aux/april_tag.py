@@ -20,7 +20,7 @@ class TagPublisher(Node):
                                        [0, 0, 1]], dtype=float)
         self.dist_coeffs = np.zeros((5, 1))  # Supondo sem distorção
         self.smallTag = 0.045  # Tamanho do lado do marcador pequeno em metros
-        self.largeTag = 0.20  # Tamanho do lado do marcador grande em metros
+        self.largeTag = 0.07  # Tamanho do lado do marcador grande em metros
         self.LastSmallTag = 99 # Último tamanho do marcador pequeno
     
     def listener_callback(self, msg):
