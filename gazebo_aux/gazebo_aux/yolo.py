@@ -1,3 +1,6 @@
+# yolo.py
+import threading
+import time
 import rclpy
 import os
 import ros2_numpy
@@ -35,33 +38,45 @@ class YoloDetectorNode(Node):
             self.yolo_callback,
             QoSProfile(depth=10, reliability=ReliabilityPolicy.RELIABLE)
         )
+        self.last_time = time.time()
 
     def detectar_callback(self, msg):
         self.detectar = msg.data
         self.get_logger().info(f"Detecção YOLO {'ATIVADA' if self.detectar else 'DESATIVADA'}")
 
+
     def yolo_callback(self, data):
-        yolo_list = YoloArray()
+        self.last_time = getattr(self, 'last_time', 0)
+        if time.time() - self.last_time < 0.3:  # 3 FPS
+            return
+        self.last_time = time.time()
         if not self.detectar:
-            return  # Não processa se flag estiver False
-        array = ros2_numpy.numpify(data)
-        det_results = self.detection_model(array)
-        if self.publisher_.get_subscription_count() > 0:
+            return
+        # Copia a imagem pra thread paralela
+        threading.Thread(target=self.processa_imagem, args=(data,)).start()
+
+    def processa_imagem(self, data):
+        try:
+            array = ros2_numpy.numpify(data)
+            det_results = self.detection_model(array)
+
+            yolo_list = YoloArray()
             for det_result in det_results:
                 classes_int = det_result.boxes.cls.cpu().numpy().astype(int)
                 names = [det_result.names[i] for i in classes_int]
-                boxes = det_result.boxes.xyxy.cpu().numpy()  # shape: (N, 4)
-                scores = det_result.boxes.conf.cpu().numpy()  # shape: (N,)
+                boxes = det_result.boxes.xyxy.cpu().numpy()
+                scores = det_result.boxes.conf.cpu().numpy()
+
                 for name, box, score in zip(names, boxes, scores):
                     msg = YoloDetector()
                     msg.classe = name
                     msg.boxes = [float(box[0]), float(box[1]), float(box[2]), float(box[3])]
                     msg.score = float(score)
                     yolo_list.yolos.append(msg)
-                    # self.get_logger().info(
-                    #         f"Publicado: {msg.classe}, boxes: {msg.boxes}, score: {msg.score:.2f}"
-                    #     )
-        self.publisher_.publish(yolo_list)
+            self.publisher_.publish(yolo_list)
+        except Exception as e:
+            self.get_logger().error(f"Erro no YOLO: {e}")
+
 
             
 def main(args=None):
@@ -73,3 +88,4 @@ def main(args=None):
 
 if __name__ == '__main__':
     main()
+	
