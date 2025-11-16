@@ -1,13 +1,13 @@
 <?xml version="1.0" ?>
 <sdf version="1.6">
-  <model name="pista_circulos">
+  <model name="pistaOval">
     <static>true</static>
     <link name="course_link">
       <collision name="course_collision">
         <geometry>
           <plane>
             <normal>0 0 1</normal>
-            <size>7 5</size>
+            <size>8 7</size>
           </plane>
         </geometry>
         <surface>
@@ -20,18 +20,18 @@
         </surface>
       </collision>
       <visual name="course_visual">
-        <cast_shadows>false</cast_shadows>
+        <cast_shadows>true</cast_shadows>
         <geometry>
 	        <plane>
             <normal>0 0 1</normal>
-            <size>7 5</size>
+            <size>8 7</size>
           </plane>
         </geometry>
 	      <material>
           <script>
             <!--uri>file://materials/scripts/floor.material</uri-->
-            <uri>model://Floors/pista_circulos/materials/scripts</uri>
-            <uri>model://Floors/pista_circulos/materials/textures</uri>
+            <uri>model://Floors/PistaOval/materials/scripts</uri>
+            <uri>model://Floors/PistaOval/materials/textures</uri>
             <name>pisosala</name>
           </script>
         </material>
