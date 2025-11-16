@@ -79,6 +79,12 @@ def generate_launch_description():
         launch_arguments={'use_sim_time': use_sim_time}.items()
     )
 
+    orquestrador_cmd = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(gazebo_aux_cmd_dir, 'orquestrador.launch.py')
+        )
+    )
+
     ld = LaunchDescription()
 
     # Add the commands to the launch description
@@ -89,5 +95,8 @@ def generate_launch_description():
     
     # launchdescription do deteccoes - AprilTag e Yolo
     ld.add_action(deteccoes)
+
+    # handler Prof. Diego
+    ld.add_action(orquestrador_cmd)
     
     return ld

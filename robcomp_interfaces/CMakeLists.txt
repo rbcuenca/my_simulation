@@ -24,6 +24,8 @@ set(msg_files
   "msg/YoloArray.msg"
   "msg/PubSubAPS.msg"
   "msg/OrquestratorMSG.msg"
+  "msg/MudaPista.msg"
+
 )
 
 set(action_files

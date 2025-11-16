@@ -31,6 +31,7 @@ setup(
             'yolo = gazebo_aux.yolo:main',
             'young_hee = gazebo_aux.young_hee:main',
             'orchestrator_showbot = gazebo_aux.orchestrator_showbot:main',
+            'orquestrador = gazebo_aux.orquestrador:main',
         ],
     },
 )
