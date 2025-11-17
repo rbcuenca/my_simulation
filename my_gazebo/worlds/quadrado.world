@@ -14,10 +14,6 @@
 
 
   <!-- Piso da sala - circuito  e Paredes da Sala -->
-    <!-- <include>
-      <uri>model://Floors/Pista24B</uri>
-      <pose> 0 0 0 0 0 0</pose>
-    </include> -->
     <include>
       <uri>model://ground_plane</uri> <!-- Piso plano sem nada - padrao do gazebo -->
     </include>
@@ -25,6 +21,14 @@
       <uri>model://Walls/paredes_sala</uri>
       <pose> 4 0 0 0 0 0</pose>
     </include>
+
+
+  <!-- caixa - ja foi usada como visivel e invisivel. Para invisivel basta editar o modelo de caixa e tirar o visible -->
+    <include>
+      <uri>model://Boxes/caixa</uri>
+      <pose> 0 0 0 0 0 0</pose>
+    </include>
+
 
     <physics type="ode">
       <real_time_update_rate>1000.0</real_time_update_rate>
