@@ -32,6 +32,7 @@ setup(
             'young_hee = gazebo_aux.young_hee:main',
             'orchestrator_showbot = gazebo_aux.orchestrator_showbot:main',
             'orquestrador = gazebo_aux.orquestrador:main',
+            'gamemaster = gazebo_aux.gamemaster:main',
         ],
     },
 )

@@ -25,6 +25,7 @@ set(msg_files
   "msg/PubSubAPS.msg"
   "msg/OrquestratorMSG.msg"
   "msg/MudaPista.msg"
+  "msg/GameMaster.msg"
 
 )
 
