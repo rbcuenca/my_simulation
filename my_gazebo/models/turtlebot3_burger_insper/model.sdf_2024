@@ -1,0 +1,846 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="turtlebot3_burger_insper">
+    <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+
+    <link name="base_footprint"/>
+
+    <link name="base_link">
+
+      <inertial>
+        <pose>-0.032 0 0.070 0 0 0</pose>
+        <inertia>
+          <ixx>7.2397393e-01</ixx>
+          <ixy>4.686399e-10</ixy>
+          <ixz>-1.09525703e-08</ixz>
+          <iyy>7.2397393e-01</iyy>
+          <iyz>2.8582649e-09</iyz>
+          <izz>6.53050163e-01</izz>
+        </inertia>
+        <mass>8.2573504e-01</mass>
+      </inertial>
+
+      <collision name="base_collision">
+        <pose>-0.032 0 0.070 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.140 0.140 0.140</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="base_visual">
+        <pose>-0.032 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://turtlebot3_common/meshes/burger_base.dae</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <ambient>0 0 0 1</ambient>
+      </visual>
+    </link>
+
+    <link name="imu_link">
+      <sensor name="tb3_imu" type="imu">
+        <always_on>true</always_on>
+        <update_rate>200</update_rate>
+        <imu>
+          <angular_velocity>
+            <x>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>2e-4</stddev>
+              </noise>
+            </x>
+            <y>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>2e-4</stddev>
+              </noise>
+            </y>
+            <z>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>2e-4</stddev>
+              </noise>
+            </z>
+          </angular_velocity>
+          <linear_acceleration>
+            <x>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>1.7e-2</stddev>
+              </noise>
+            </x>
+            <y>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>1.7e-2</stddev>
+              </noise>
+            </y>
+            <z>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>1.7e-2</stddev>
+              </noise>
+            </z>
+          </linear_acceleration>
+        </imu>
+        <plugin name="turtlebot3_imu" filename="libgazebo_ros_imu_sensor.so">
+          <ros>
+            <!-- <namespace>/tb3</namespace> -->
+            <remapping>~/out:=imu</remapping>
+          </ros>
+        </plugin>
+      </sensor>
+    </link>
+
+    <link name="base_scan">
+      <inertial>
+        <pose>-0.020 0 0.161 0 0 0</pose>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0.000</ixy>
+          <ixz>0.000</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0.000</iyz>
+          <izz>0.001</izz>
+        </inertia>
+        <mass>0.114</mass>
+      </inertial>
+
+      <collision name="lidar_sensor_collision">
+        <pose>-0.020 0 0.161 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0508</radius>
+            <length>0.055</length>
+          </cylinder>
+        </geometry>
+      </collision>
+
+      <visual name="lidar_sensor_visual">
+        <pose>-0.032 0 0.171 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <!-- <uri>model://turtlebot3_common/meshes/lds.dae</uri> -->
+            <!-- <uri>model://insperbot/meshes/sensors/lds.stl</uri> -->
+            <uri>model://insperbot/meshes/sensors/lds.dae</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <ambient>0 0 0 1</ambient>
+      </visual>
+
+      <sensor name="hls_lfcd_lds" type="ray">
+        <always_on>true</always_on>
+        <visualize>false</visualize>
+        <pose>-0.032 0 0.171 0 0 0</pose>
+        <update_rate>5</update_rate>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>360</samples>
+              <resolution>1.000000</resolution>
+              <min_angle>0.000000</min_angle>
+              <max_angle>6.280000</max_angle>
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.120000</min>
+            <max>3.5</max>
+            <resolution>0.015000</resolution>
+          </range>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.01</stddev>
+          </noise>
+        </ray>
+        <plugin name="turtlebot3_laserscan" filename="libgazebo_ros_ray_sensor.so">
+          <ros>
+            <!-- <namespace>/tb3</namespace> -->
+            <remapping>~/out:=scan</remapping>
+          </ros>
+          <output_type>sensor_msgs/LaserScan</output_type>
+          <frame_name>base_scan</frame_name>
+        </plugin>
+      </sensor>
+    </link>
+
+    <link name="wheel_left_link">
+
+      <inertial>
+        <pose>0 0.08 0.023 -1.57 0 0</pose>
+        <inertia>
+          <ixx>1.8158194e-03</ixx>
+          <ixy>-9.3392e-12</ixy>
+          <ixz>1.04909e-11</ixz>
+          <iyy>3.2922126e-03</iyy>
+          <iyz>5.75694e-11</iyz>
+          <izz>1.8158194e-03</izz>
+        </inertia>
+        <mass>2.8498940e-02</mass>
+      </inertial>
+
+      <collision name="wheel_left_collision">
+        <pose>0 0.08 0.023 -1.57 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.033</radius>
+            <length>0.018</length>
+          </cylinder>
+        </geometry>
+        <surface>
+          <!-- This friction pamareter don't contain reliable data!! -->
+          <friction>
+            <ode>
+              <mu>100000.0</mu>
+              <mu2>100000.0</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0.0</slip1>
+              <slip2>0.0</slip2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+5</kp>
+              <kd>1</kd>
+              <max_vel>0.01</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+
+      <visual name="wheel_left_visual">
+        <pose>0 0.08 0.023 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <!-- <uri>model://turtlebot3_common/meshes/tire.dae</uri> -->
+            <uri>model://insperbot/meshes/wheels/left_tire.dae</uri>
+            <!-- <uri>model://insperbot/meshes/wheels/left_tire.stl</uri> -->
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <ambient>0 0 0 1</ambient>
+      </visual>
+    </link>
+
+    <link name="wheel_right_link">
+
+      <inertial>
+        <pose>0.0 -0.08 0.023 -1.57 0 0</pose>
+        <inertia>
+          <ixx>1.8158194e-03</ixx>
+          <ixy>-9.3392e-12</ixy>
+          <ixz>1.04909e-11</ixz>
+          <iyy>3.2922126e-03</iyy>
+          <iyz>5.75694e-11</iyz>
+          <izz>1.8158194e-03</izz>
+        </inertia>
+        <mass>2.8498940e-02</mass>
+      </inertial>
+
+      <collision name="wheel_right_collision">
+        <pose>0.0 -0.08 0.023 -1.57 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.033</radius>
+            <length>0.018</length>
+          </cylinder>
+        </geometry>
+        <surface>
+          <!-- This friction pamareter don't contain reliable data!! -->
+          <friction>
+            <ode>
+              <mu>100000.0</mu>
+              <mu2>100000.0</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0.0</slip1>
+              <slip2>0.0</slip2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+5</kp>
+              <kd>1</kd>
+              <max_vel>0.01</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+
+      <visual name="wheel_right_visual">
+        <pose>0.0 -0.08 0.023 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <!-- <uri>model://turtlebot3_common/meshes/tire.dae</uri> -->
+            <!-- <uri>model://insperbot/meshes/wheels/right_tire.stl</uri> -->
+            <uri>model://insperbot/meshes/wheels/right_tire.dae</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <ambient>0 0 0 1</ambient>
+      </visual>
+    </link>
+
+    <link name='caster_back_link'>
+      <pose>-0.081 0 -0.004 -1.57 0 0</pose>
+      <inertial>
+        <mass>0.005</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0.000</ixy>
+          <ixz>0.000</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0.000</iyz>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+      <collision name='collision'>
+        <geometry>
+          <sphere>
+            <radius>0.005000</radius>
+          </sphere>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+5</kp>
+              <kd>1</kd>
+              <max_vel>0.01</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+    </link>
+
+    <link name="camera_link"/>
+    <link name="camera_rgb_optical_frame">
+      <inertial>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0.000</ixy>
+          <ixz>0.000</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0.000</iyz>
+          <izz>0.001</izz>
+        </inertia>
+        <mass>0.035</mass>
+      </inertial>
+
+     <sensor name="camera" type="camera">
+        <pose>0.063 0.002 0.13 0 0 0</pose>
+        <!-- 0.043 0.002 0.13 0 0 0 -->
+        <always_on>true</always_on>
+        <visualize>false</visualize>
+        <update_rate>30</update_rate>
+        <camera name="picam">
+          <horizontal_fov>1.085595</horizontal_fov>
+          <image>
+              <width>640</width>
+              <height>480</height>
+              <format>R8G8B8</format>
+          </image>
+          <clip>
+              <near>0.03</near>
+              <far>100</far>
+          </clip>
+          <noise>
+            <type>gaussian</type>
+            <!-- Noise is sampled independently per pixel on each frame.
+                  That pixel's noise value is added to each of its color
+                  channels, which at that point lie in the range [0,1]. -->
+            <mean>0.0</mean>
+            <stddev>0.007</stddev>
+          </noise>
+        </camera>
+          <plugin name="camera_driver" filename="libgazebo_ros_camera.so">
+            <ros>
+              <!-- <namespace>test_cam</namespace> -->
+              <!-- <remapping>image_raw:=image_demo</remapping> -->
+              <!-- <remapping>camera_info:=camera_info_demo</remapping> -->
+            </ros>
+            <!-- camera_name>omit so it defaults to sensor name</camera_name-->
+            <!-- frame_name>omit so it defaults to link name</frameName-->
+            <!-- <hack_baseline>0.07</hack_baseline> -->
+          </plugin>
+      </sensor>
+    </link>    
+
+<!-- início da implementação visual da garra -->
+
+
+    <link name="base_link_garra">
+      <inertial>
+        <pose>0.043 0.0022 0.093 0 0 -1.57</pose>
+        <inertia>
+          <ixx>0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0</izz>
+        </inertia>
+        <mass>0.001</mass>
+      </inertial>
+      <collision name="base_link_garra_collision">
+        <pose>0.043 0.0022 0.093 0 0 -1.57</pose>
+        <geometry>
+          <mesh>
+            <uri>model://insperbot/meshes/garra/base_link_garra.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="base_link_garra_visual">
+        <pose>0.043 0.0022 0.093 0 0 -1.57</pose>
+        <geometry>
+          <mesh>
+            <uri>model://insperbot/meshes/garra/base_link_garra.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+   
+        </geometry>
+
+        <surface>
+          <friction>
+            <ode>
+              <mu>10.0</mu>
+              <mu2>10.0</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
+            </ode>
+            <torsional>
+              <coefficient>1</coefficient>
+              <patch_radius>0</patch_radius>
+              <surface_radius>0</surface_radius>
+              <use_patch_radius>1</use_patch_radius>
+              <ode>
+                <slip>0</slip>
+              </ode>
+            </torsional>
+          </friction>
+          <bounce>
+            <restitution_coefficient>-1000</restitution_coefficient>
+            <threshold>1e+06</threshold>
+          </bounce>
+          <contact>
+            <collide_without_contact>0</collide_without_contact>
+            <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+            <collide_bitmask>1</collide_bitmask>
+            <ode>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+13</kp>
+              <kd>1</kd>
+              <max_vel>0.01</max_vel>
+              <min_depth>0</min_depth>
+            </ode>
+            <bullet>
+              <split_impulse>1</split_impulse>
+              <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+13</kp>
+              <kd>1</kd>
+            </bullet>
+          </contact>
+        </surface>
+
+
+        <ambient>0 0 0 1</ambient>
+      </visual>
+    </link>
+    <joint name="base_link_garra_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>base_link_garra</child>
+      <pose>0.043 0.0022 0.093 0 0 -1.57</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+
+    <link name="lat31">
+      <inertial>
+        <pose>0.045 0.042 0.092 0 0 0</pose>
+        <inertia>
+          <ixx>0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0</izz>
+        </inertia>
+        <mass>0.001</mass>
+      </inertial>
+      <collision name="lat31_collision">
+        <pose>0.045 0.042 0.092 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://insperbot/meshes/garra/lat31.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="lat31_visual">
+        <pose>0.045 0.042 0.092 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://insperbot/meshes/garra/lat31.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="lat31_joint" type="fixed">
+      <parent>base_link_garra</parent>
+      <child>lat31</child>
+      <pose>0.045 0.042 0.092 0 0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+
+
+<link name="lat11">
+      <inertial>
+        <pose>0.083 -0.005 0.092 0 0 0</pose>
+        <inertia>
+          <ixx>0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0</izz>
+        </inertia>
+        <mass>0.001</mass>
+      </inertial>
+      <collision name="lat11_collision">
+        <pose>00.083 -0.005 0.092 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://insperbot/meshes/garra/lat11.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="lat11_visual">
+        <pose>0.083 -0.005 0.092 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://insperbot/meshes/garra/lat11.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="lat11_joint" type="fixed">
+      <parent>base_link_garra</parent>
+      <child>lat11</child>
+      <pose>0.083 -0.005 0.092 0 0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+
+<link name="lat21">
+      <inertial>
+        <pose>0.083 -0.005 0.092 0 0 0</pose>
+        <inertia>
+          <ixx>0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0</izz>
+        </inertia>
+        <mass>0.001</mass>
+      </inertial>
+      <collision name="lat21_collision">
+        <pose>00.083 -0.005 0.092 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://insperbot/meshes/garra/lat21.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="lat21_visual">
+        <pose>0.043 0 0.092 0 0 1.57</pose>
+        <geometry>
+          <mesh>
+            <uri>model://insperbot/meshes/garra/lat21.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="lat21_joint" type="fixed">
+      <parent>base_link_garra</parent>
+      <child>lat21</child>
+      <pose>0.083 -0.005 0.092 0 0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+
+  <link name="servo_garra1">
+      <inertial>
+        <pose>0.043 0.0015 0.092 0 0 -1.57</pose>
+        <inertia>
+          <ixx>0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0</izz>
+        </inertia>
+        <mass>0.001</mass>
+      </inertial>
+      <collision name="servo_garra1_collision">
+        <pose>0.043 0.0015 0.092 0 0 -1.57</pose>
+        <geometry>
+          <mesh>
+            <uri>model://insperbot/meshes/garra/servo_garra1.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="servo_garra1_visual">
+        <pose>0.043 0.0015 0.092 0 0 -1.57</pose>
+        <geometry>
+          <mesh>
+            <uri>model://insperbot/meshes/garra/servo_garra1.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="servo_garra1_joint" type="fixed">
+      <parent>base_link_garra</parent>
+      <child>servo_garra1</child>
+      <pose>0.083 -0.005 0.092 0 0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+
+<link name="base_camera1">
+      <inertial>
+        <pose>0.083 -0.005 0.092 0 0 0</pose>
+        <inertia>
+          <ixx>0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0</izz>
+        </inertia>
+        <mass>0.001</mass>
+      </inertial>
+      <collision name="base_camera1">
+        <pose>00.083 -0.005 0.092 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://insperbot/meshes/garra/base_camera1.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="base_camera1_visual">
+        <pose>0.043 0.0015 0.092 0 0 -1.57</pose>
+        <geometry>
+          <mesh>
+            <uri>model://insperbot/meshes/garra/base_camera1.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="base_camera1_joint" type="fixed">
+      <parent>base_link_garra</parent>
+      <child>base_camera1</child>
+      <pose>0.083 -0.005 0.092 0 0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+
+
+
+<!-- este link da garra está "afundando" o robô se colocado em rotacao, mantendo fixo nao da problema
+verificar se ao colocar o link no urdf ira funcionar.... -->
+
+<!-- <link name="garra1garrabraco1">
+      <inertial>
+        <pose>0.083 -0.005 0.092 0 0 0</pose>
+        <inertia>
+          <ixx>1.1175580e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.1192413e-05</iyy>
+          <iyz>0</iyz>
+          <izz>2.0712558e-05</izz>
+        </inertia>
+        <mass>0.001</mass>
+      </inertial>
+      <collision name="garra1garrabraco1">
+        <pose>0.043 0.0015 0.092 0 0 -1.57</pose>
+        <geometry>
+          <mesh>
+            <uri>model://insperbot/meshes/garra/arm.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="garra1garrabraco1_visual">
+        <pose>0.043 0.0015 0.092 0 0 -1.57</pose>
+        <geometry>
+          <mesh>
+            <uri>model://insperbot/meshes/garra/arm.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="garra1garrabraco1_joint" type="fixed">
+      <parent>servo_garra1</parent>
+      <child>garra1garrabraco1</child>
+      <pose>0.043 0.0015 0.092 0 0 -1.57</pose>
+      <axis>
+        <xyz>1 0 0</xyz>
+      </axis>
+    </joint>
+
+ -->
+
+
+
+<!-- fim da implementação visual da garra -->
+
+
+
+
+
+    <joint name="base_joint" type="fixed">
+      <parent>base_footprint</parent>
+      <child>base_link</child>
+      <pose>0.0 0.0 0.0 0 0 0</pose>
+    </joint>
+
+    <joint name="wheel_left_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>wheel_left_link</child>
+      <pose>0.0 0.08 0.023 -1.57 0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+
+    <joint name="wheel_right_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>wheel_right_link</child>
+      <pose>0.0 -0.08 0.023 -1.57 0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+
+    <joint name='caster_back_joint' type='ball'>
+      <parent>base_link</parent>
+      <child>caster_back_link</child>
+    </joint>
+
+    <joint name="imu_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>imu_link</child>
+      <pose>-0.032 0 0.068 0 0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+
+    <joint name="lidar_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>base_scan</child>
+      <pose>-0.032 0 0.171 0 0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    
+    <joint name="camera_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>camera_link</child>
+      <pose>0.073 -0.011 0.084 0 0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+
+    <joint name="camera_rgb_joint" type="fixed">
+      <parent>camera_link</parent>
+      <child>camera_rgb_optical_frame</child>
+      <pose>0.003 0.011 0.009 0 0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    
+    <plugin name="turtlebot3_diff_drive" filename="libgazebo_ros_diff_drive.so">
+
+      <ros>
+        <!-- <namespace>/tb3</namespace> -->
+      </ros>
+
+      <update_rate>30</update_rate>
+
+      <!-- wheels -->
+      <left_joint>wheel_left_joint</left_joint>
+      <right_joint>wheel_right_joint</right_joint>
+
+      <!-- kinematics -->
+      <wheel_separation>0.160</wheel_separation>
+      <wheel_diameter>0.066</wheel_diameter>
+
+      <!-- limits -->
+      <max_wheel_torque>20</max_wheel_torque>
+      <max_wheel_acceleration>1.0</max_wheel_acceleration>
+
+      <command_topic>cmd_vel</command_topic>
+
+      <!-- output -->
+      <publish_odom>true</publish_odom>
+      <publish_odom_tf>true</publish_odom_tf>
+      <publish_wheel_tf>false</publish_wheel_tf>
+
+      <odometry_topic>odom</odometry_topic>
+      <odometry_frame>odom</odometry_frame>
+      <robot_base_frame>base_footprint</robot_base_frame>
+
+    </plugin>
+
+    <plugin name="turtlebot3_joint_state" filename="libgazebo_ros_joint_state_publisher.so">
+      <ros>
+        <!-- <namespace>/tb3</namespace> -->
+        <remapping>~/out:=joint_states</remapping>
+      </ros>
+      <update_rate>30</update_rate>
+      <joint_name>wheel_left_joint</joint_name>
+      <joint_name>wheel_right_joint</joint_name>
+      <!-- <joint_name>garra1garrabraco1_joint</joint_name> -->
+    </plugin>      
+  </model>
+</sdf>

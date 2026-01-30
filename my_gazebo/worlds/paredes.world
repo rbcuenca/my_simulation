@@ -7,37 +7,35 @@
       <shadows>true</shadows>
     </scene>
 
+
   <!-- A global light source  -->
     <include>
       <uri>model://sun</uri>
       <pose> -2.0 2.0 2.0 0 0 0</pose>
     </include>
 
-  <!-- Piso da sala -->
+  <!-- Piso da sala e paredes-->
     <include>
-      <uri>model://paredes/pisosala</uri>
-      <pose> 0 0 0 0 0 -1.6</pose>
+      <uri>model://Floors/tres_paredes</uri>
+      <pose> 0 0 0 0 0 -1.57</pose>
+    </include>
+    <include>
+      <uri>model://Walls/parede_aberta</uri>
+      <pose> 0 0 0 0 0 -1.57</pose>
     </include>
 
-  <!-- parede -->
-    <include>
-      <uri>model://paredes/parede</uri>
-      <pose> 0 0 0 0 0 -1.6</pose>
-    </include>
 
   <!-- parede de separacao -->
     <include>
-      <uri>model://paredes/parede_2m</uri>
+      <uri>model://Walls/parede_2m</uri>
       <pose> 0 2 0.25 0 0 0</pose>
     </include>
-
     <include>
-      <uri>model://paredes/parede_1m_01</uri>
+      <uri>model://Walls/parede_1m_01</uri>
       <pose> 0 0.2 0.25 0 0 0</pose>
     </include>
-
     <include>
-      <uri>model://paredes/parede_1m_02</uri>
+      <uri>model://Walls/parede_1m_02</uri>
       <pose> 0 -1.1 0.25 0 0 0</pose>
     </include>
 

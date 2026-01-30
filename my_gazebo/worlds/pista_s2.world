@@ -6,139 +6,116 @@
       <shadows>true</shadows>
     </scene>
 
-    <!-- A global light source -->
+  <!-- A global light source  -->
     <include>
       <uri>model://sun</uri>
-      <pose> -2.0 2.0 2.0 0 0 0</pose>
+      <pose> -1.0 2.0 1.0 0 0 0</pose>
     </include>
 
-  <!-- Piso da sala - circuito -->
+  <!-- Piso da sala - circuito  e Paredes da Sala -->
     <include>
-      <uri>model://pista_s/pisosala</uri>
-      <pose> 0 0 0 0 0 -1.57</pose>
+      <uri>model://Floors/pista_s</uri>
+      <pose> 0 0 0 0 0 0</pose>
     </include>
-
+    <include>
+      <uri>model://Walls/parede_13x12</uri>
+      <pose> 0 0 0 0 0 0</pose>
+    </include>
 
  <!-- cat -->
     <include>
-      <uri>model://pista_s/objeto/cat</uri>
-      <pose> 4.46 1.611 0.251305 0 0 0</pose>
+      <uri>model://Yolo/cat</uri>
+      <pose> 4.50 1.60 0 0 0 1.57</pose>
     </include>
- 
  <!-- bird -->
     <include>
-      <uri>model://pista_s/objeto/bird</uri>
-      <pose> -1.33 1.52 0.251305 0 0 0</pose>
+      <uri>model://Yolo/bird</uri>
+      <pose> -1.30 1.50 0 0 0 1.57</pose>
     </include>
-
  <!-- bicycle -->
     <include>
-      <uri>model://pista_s/objeto/bicycle</uri>
-      <pose> 3.62 -3.60 0.251305 0 0 0</pose>
+      <uri>model://Yolo/bicycle</uri>
+      <pose> 3.60 -3.60 0 0 0 1.57</pose>
     </include>
-
 <!-- dog -->
     <include>
-      <uri>model://pista_s/objeto/dog</uri>
-      <pose> -5.41 -3.65 0.251305 0 0 0</pose>
+      <uri>model://Yolo/dog</uri>
+      <pose> -5.40 -3.60 0 0 0 1.57</pose>
     </include>
-
 
 <!-- caixa_vermelha -->
     <include>
-      <uri>model://pista_s/objeto/cubo_vermelho</uri>
-      <pose> -0.20 3.28 0.100 0 0 0</pose>
+      <uri>model://Boxes/box_red_01</uri>
+      <pose> -0.20 3.30 0 0 0 1.57</pose>
     </include>
 
-
-
- <!-- creeper_11 -->
+ <!-- creeper_11 vermelho -->
     <include>
-      <uri>model://pista_s/creepers/creeper_11</uri>
-       <pose> -4.5 -0.48 0 0 0 1.599950</pose>
+      <uri>model://Creepers/creeper_vermelho_11</uri>
+       <pose> -4.5 -0.48 0 0 0 1.57</pose>
     </include>
-
  <!-- creeper_11_rosa -->
     <include>
-      <uri>model://pista_s/creepers/creeper_11_rosa</uri>
-       <pose> -5.7 -0.48 0 0 0 1.599950</pose>
+      <uri>model://Creepers/creeper_rosa_11</uri>
+       <pose> -5.7 -0.48 0 0 0 1.57</pose>
     </include>
-
- <!-- creeper_12 -->
+ <!-- creeper_12 azul -->
     <include>
-      <uri>model://pista_s/creepers/creeper_12</uri>
-      <pose> -1 -1.8 0 0 0 1.549944</pose>
+      <uri>model://Creepers/creeper_azul_12</uri>
+      <pose> -1 -1.8 0 0 0 1.57</pose>
     </include>
-
   <!-- creeper_12_rosa -->
     <include>
-      <uri>model://pista_s/creepers/creeper_12_rosa</uri>
-      <pose> 0.42 -1.8 0 0 0 1.549944</pose>
+      <uri>model://Creepers/creeper_rosa_12</uri>
+      <pose> 0.42 -1.8 0 0 0 1.57</pose>
     </include>
-
- <!-- creeper_13 -->
+ <!-- creeper_13 rosa -->
     <include>
-      <uri>model://pista_s/creepers/creeper_13</uri>
-      <pose> 4.15 -1.5 0 0 0 -1.63</pose>
+      <uri>model://Creepers/creeper_rosa_13</uri>
+      <pose> 4.15 -1.5 0 0 0 -1.57</pose>
     </include>
-
-
- <!-- creeper_21 -->
+ <!-- creeper_21 azul-->
     <include>
-      <uri>model://pista_s/creepers/creeper_21</uri>
+      <uri>model://Creepers/creeper_azul_21</uri>
       <pose> 5 0 0 0 0 0</pose>
     </include>
-
-  <!-- creeper_21_laranja -->
+  <!-- creeper_21_ vermelho -->
     <include>
-      <uri>model://pista_s/creepers/creeper_21_laranja</uri>
+      <uri>model://Creepers/creeper_vermelho_21</uri>
       <pose> 3.5 0 0 0 0 0</pose>
     </include>
-
- <!-- creeper_22 -->
+ <!-- creeper_22 azul   -->
     <include>
-      <uri>model://pista_s/creepers/creeper_22</uri>
-      <pose> 0.5 2 0 0 0 1.549952</pose>    
-     
+      <uri>model://Creepers/creeper_azul_22</uri>
+      <pose> 0.5 2 0 0 0 1.57</pose>    
     </include>
- <!-- creeper_23 -->
+ <!-- creeper_23 rosa -->
     <include>
-      <uri>model://pista_s/creepers/creeper_23</uri>
+      <uri>model://Creepers/creeper_rosa_23</uri>
       <pose> -3 -2.8 0 0 0 0</pose>
     </include>
 
- <!-- creeper_50 -->
+  <!-- Tag_100 -->
     <include>
-      <uri>model://pista_s/creepers/creeper_50</uri>
-      <pose> -5.06 1.30 0.3 0 0.82 0</pose>
+      <uri>model://Creepers/tag_100</uri>
+      <pose> -0.11 4.70 0.15 0 0 0</pose>
+    </include>
+  <!-- Tag_150 -->
+    <include>
+      <uri>model://Creepers/tag_150</uri>
+      <pose> 4.68 -2.5 0.15 0 0 -3.15</pose>
+    </include>
+  <!-- Tag_200 -->
+    <include>
+      <uri>model://Creepers/tag_200</uri>
+      <pose> -5.06 1.30 0.15 0 0 0</pose>
+    </include>
+  <!-- Tag_250 -->
+    <include>
+      <uri>model://Creepers/tag_250</uri>
+      <pose> -0.92 0.12 0.15 0 -0 1.6</pose>
     </include>
 
-
- <!-- creeper_100 -->
-    <include>
-      <uri>model://pista_s/creepers/creeper_100</uri>
-      <pose> -0.11 4.70 0.3 0 0.65 0</pose>
-    </include>
-
- <!-- creeper_150 -->
-    <include>
-      <uri>model://pista_s/creepers/creeper_150</uri>
-      <pose> 4.68 -2.5 0.3 0 0.72 -3.15</pose>
-    </include>
-
-
- <!-- creeper_200 -->
-    <include>
-      <uri>model://pista_s/creepers/creeper_200</uri>
-      <pose> -0.92 0.12 0.3 0 -0.8 1.6</pose>
-    </include>
-
-
-<!-- mapa sala -->
-    <include>
-      <uri>model://pista_s/parede</uri>
-      <pose> 0 0 0 0 0 0</pose>
-    </include>
 
     <physics type="ode">
       <real_time_update_rate>1000.0</real_time_update_rate>

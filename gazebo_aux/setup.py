@@ -27,7 +27,12 @@ setup(
             'overwatch = gazebo_aux.overwatch:main',
             'handler = gazebo_aux.handler:main',
             'handler_af25a = gazebo_aux.handler_af25a:main',
-            "young_hee = gazebo_aux.young_hee:main",
+            'april_tag = gazebo_aux.april_tag:main',
+            'yolo = gazebo_aux.yolo:main',
+            'young_hee = gazebo_aux.young_hee:main',
+            'orchestrator_showbot = gazebo_aux.orchestrator_showbot:main',
+            'orquestrador = gazebo_aux.orquestrador:main',
+            'gamemaster = gazebo_aux.gamemaster:main',
         ],
     },
 )

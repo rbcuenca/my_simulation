@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# Authors: Joep Tool
+# Authors: Joep Tool 
 
 import os
 
@@ -70,6 +70,14 @@ def generate_launch_description():
             'yaw_pose': yaw_pose
         }.items()
     )
+    # pacote relativo a deteccoes - AprilTag e Yolo
+    gazebo_aux_cmd_dir = os.path.join(get_package_share_directory('gazebo_aux'), 'launch')
+    deteccoes = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(gazebo_aux_cmd_dir, 'deteccoes.launch.py')
+        ),
+        launch_arguments={'use_sim_time': use_sim_time}.items()
+    )
 
     ld = LaunchDescription()
 
@@ -78,5 +86,8 @@ def generate_launch_description():
     ld.add_action(gzclient_cmd)
     ld.add_action(robot_state_publisher_cmd)
     ld.add_action(spawn_turtlebot_cmd)
+    
+    # launchdescription do deteccoes - AprilTag e Yolo
+    ld.add_action(deteccoes)
 
     return ld

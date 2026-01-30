@@ -3,62 +3,65 @@
     <scene>
       <ambient>0.8 0.8 0.8 1</ambient>
       <background>0.7 0.7 0.7 1</background>
-      <shadows>true</shadows>
+      <shadows>true</shadows> 
     </scene>
 
-    <!-- A global light source -->
+  <!-- A global light source  -->
     <include>
       <uri>model://sun</uri>
-      <pose> -2.0 2.0 2.0 0 0 0</pose>
+      <pose> -1.0 2.0 1.0 0 0 0</pose>
     </include>
 
-
-    <!-- A ground plane -->
+  <!-- Piso da sala - circuito  e Paredes da Sala -->
     <include>
       <uri>model://ground_plane</uri>
+    </include>
+    <include>
+      <uri>model://Walls/paredes_sala</uri>
+      <pose> 4 0 0 0 0 0</pose>
     </include>
 
 
  <!-- creeper_10_azul -->
     <include>
-      <uri>model://reuniao/creepers/creeper_10_azul</uri>
-      <pose> -1.5 1.5 0.75 0 0 2.0</pose>
+      <uri>model://Creepers/creeper_azul_10</uri>
+      <pose> -1.5 1.5 0 0 0 2.0</pose>
     </include>
 
 
  <!-- creeper_10_verde -->
     <include>
-      <uri>model://reuniao/creepers/creeper_10_verde</uri>
-      <pose> 0 1.58 0.75 0 0 1.65</pose>
+      <uri>model://Creepers/creeper_verde_10</uri>
+      <pose> 0 1.58 0 0 0 1.65</pose>
     </include>
 
 
  <!-- creeper_10_amarelo -->
     <include>
-      <uri>model://reuniao/creepers/creeper_10_amarelo</uri>
-      <pose> -1.5 0 0.75 0 0 0</pose>
+      <uri>model://Creepers/creeper_amarelo_10</uri>
+      <pose> -1.5 0 0 0 0 0</pose>
     </include>
 
 
 
  <!-- creeper_20_azul -->
     <include>
-      <uri>model://reuniao/creepers/creeper_20_azul</uri>
-      <pose> 1.5 -0 0.75 0 0 0</pose>
+      <uri>model://Creepers/creeper_azul_20</uri>
+      <pose> 1.5 -0 0 0 0 0</pose>
     </include>
 
 
  <!-- creeper_20_verde -->
     <include>
-      <uri>model://reuniao/creepers/creeper_20_verde</uri>
-      <pose>  0 -1.49 0.75 0 0 1.7</pose>
+      <uri>model://Creepers/creeper_verde_20</uri>
+      <pose>  0 -1.49 0 0 0 1.7</pose>
     </include>
 
 
  <!-- creeper_20_amarelo -->
     <include>
-      <uri>model://reuniao/creepers/creeper_20_amarelo</uri>
-      <pose> 1.4 1.67  0.75 0 0 0.9</pose>
+      <uri>model://Creepers/creeper_amarelo_20</uri>
+      <pose> 1.4 1.67  0 0 0 0.9</pose>
     </include>
 
 
