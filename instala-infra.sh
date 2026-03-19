@@ -1,5 +1,5 @@
 ############################################################################
-###  Script de instalacao da infra 2024-1 - Lab 404                       ###
+### Script de instalacao da infra 2024-1 - Lab 404                       ###
 ### De preferencia por acessar a pagina da disciplina e atualizar por la ###
 ###########################################################################
 
