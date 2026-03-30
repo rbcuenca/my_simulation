@@ -50,7 +50,7 @@ class Simon(Node, Odom, Laser):
         self.reaction_deadline = None
         self.min_linear_move = 0.03
         self.min_angular_move = math.radians(8.0)
-        self.max_reaction_time = 4.0
+        self.max_reaction_time = 8.0
         self.last_lost_pub = None
         self.has_ever_tried_to_trick = False
 
@@ -59,6 +59,26 @@ class Simon(Node, Odom, Laser):
 
         self.timer = self.create_timer(0.05, self.control)
         self.get_logger().info('Simon iniciado. Aguardando READY...')
+
+    def _reset_game_state(self, keep_student_name=True):
+        current_name = self.student_name if keep_student_name else ''
+        self.student_name = current_name
+        self.game_mode = 'aleatorio'
+        self.ready_time = None
+        self.last_robot_options = None
+        self.pending_deadline = None
+        self.post_trick_deadline = None
+        self.pending_command_text = ''
+        self.pending_turn_side = None
+        self.last_command_was_valid = False
+        self.waiting_robot_reaction = False
+        self.pre_command_x = None
+        self.pre_command_y = None
+        self.pre_command_yaw = None
+        self.reaction_deadline = None
+        self.has_ever_tried_to_trick = False
+        self.deterministic_index = 0
+        self.last_lost_pub = None
 
     def _now_float(self):
         t = self.get_clock().now().to_msg()
@@ -81,7 +101,7 @@ class Simon(Node, Odom, Laser):
         dx = float(self.x) - self.pre_command_x
         dy = float(self.y) - self.pre_command_y
         dlin = math.hypot(dx, dy)
-        dyaw = abs(self._normalize_angle(float(self.yaw_2pi) - self.pre_command_yaw))
+        dyaw = abs(self._normalize_angle(float(self.yaw) - self.pre_command_yaw))
         return dlin >= self.min_linear_move or dyaw >= self.min_angular_move
 
     def _publish(self, status='', lados='', comando='', modo_de_jogo=''):
@@ -130,12 +150,15 @@ class Simon(Node, Odom, Laser):
             return ['esquerda']
         return []
 
-    def _should_trick_now(self):
+    def _should_trick_now(self): # Ajustar a probabilidade de pegadinha conforme o histórico
         p = 0.10 if self.has_ever_tried_to_trick else 0.40
         return random.random() < p
 
     def _response_delay(self):
         return random.uniform(0.5, 1.5)
+
+    def _post_invalid_command_delay(self):
+        return random.uniform(2.0, 4.0)
 
     def _build_invalid_command_for(self, valid_choices):
         side = random.choice(valid_choices) if valid_choices else 'direita'
@@ -169,17 +192,9 @@ class Simon(Node, Odom, Laser):
             self.student_name = msg.student_name
 
         if text == 'simon, eu estou pronto' or msg.status.strip().upper() == 'READY':
+            self._reset_game_state()
             self.game_mode = 'deterministico' if msg.modo_de_jogo.strip().lower() == 'deterministico' else 'aleatorio'
             self.ready_time = self._now_float()
-            self.last_robot_options = None
-            self.pending_deadline = None
-            self.post_trick_deadline = None
-            self.pending_command_text = ''
-            self.pending_turn_side = None
-            self.last_command_was_valid = False
-            self.waiting_robot_reaction = False
-            self.deterministic_index = 0
-            self.has_ever_tried_to_trick = False
             self.robot_state = 'aguarda_opcoes'
             self.get_logger().info(f'READY recebido de {self.student_name}. Modo={self.game_mode}')
             return
@@ -236,7 +251,7 @@ class Simon(Node, Odom, Laser):
             self.pending_turn_side = None
             self.last_command_was_valid = False
             self.has_ever_tried_to_trick = True
-            self.post_trick_deadline = self.get_clock().now() + Duration(seconds=self._response_delay())
+            self.post_trick_deadline = None
             self.robot_state = 'envia_comando'
             return
 
@@ -260,10 +275,22 @@ class Simon(Node, Odom, Laser):
 
         self.pre_command_x = float(self.x)
         self.pre_command_y = float(self.y)
-        self.pre_command_yaw = float(self.yaw_2pi)
+        self.pre_command_yaw = float(self.yaw)
         self.reaction_deadline = self.get_clock().now() + Duration(seconds=self.max_reaction_time)
-        self.waiting_robot_reaction = True
+
+        if self.last_command_was_valid:
+            self.waiting_robot_reaction = True
+        else:
+            self.waiting_robot_reaction = True
+            self.post_trick_deadline = self.get_clock().now() + Duration(seconds=self._post_invalid_command_delay())
+
         self.robot_state = 'aguarda_execucao'
+
+    def _seconds_until(self, deadline):
+        if deadline is None:
+            return 0.0
+        remaining = deadline - self.get_clock().now()
+        return max(0.0, remaining.nanoseconds / 1e9)
 
     def aguarda_execucao(self):
         if not self.waiting_robot_reaction:
@@ -279,7 +306,7 @@ class Simon(Node, Odom, Laser):
                 return
 
             if self.post_trick_deadline is None:
-                self.post_trick_deadline = self.get_clock().now() + Duration(seconds=self._response_delay())
+                self.post_trick_deadline = self.get_clock().now() + Duration(seconds=self._post_invalid_command_delay())
                 return
 
             if self.get_clock().now() >= self.post_trick_deadline:
@@ -288,7 +315,7 @@ class Simon(Node, Odom, Laser):
                 self.pending_turn_side = None
                 self.last_command_was_valid = False
                 self.post_trick_deadline = None
-                self.pending_deadline = self.get_clock().now()
+                self.pending_deadline = self.get_clock().now() + Duration(seconds=self._response_delay())
                 self.robot_state = 'espera_antes_responder'
             return
 
@@ -311,7 +338,9 @@ class Simon(Node, Odom, Laser):
         if self.last_lost_pub is None or (now - self.last_lost_pub) >= Duration(seconds=1.0):
             self._publish(status='LOST', comando='voce perdeu')
             self.last_lost_pub = now
-        self.robot_state = 'fim'
+        self._reset_game_state()
+        self.robot_state = 'aguarda_ready'
+        self.get_logger().info('Aguardando novo READY para reiniciar o jogo.')
 
     def publica_win(self):
         elapsed = 0.0 if self.ready_time is None else self._now_float() - self.ready_time
