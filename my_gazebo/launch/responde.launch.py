@@ -76,9 +76,9 @@ def generate_launch_description():
         }.items()
     )
 
-    handler_cmd = IncludeLaunchDescription(
+    simon_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            os.path.join(gazebo_aux_dir, 'handler.launch.py')
+            os.path.join(gazebo_aux_dir, 'simon.launch.py')
         )
     )
 
@@ -89,6 +89,6 @@ def generate_launch_description():
     ld.add_action(gzclient_cmd)
     ld.add_action(robot_state_publisher_cmd)
     ld.add_action(spawn_turtlebot_cmd)
-    ld.add_action(handler_cmd)
+    ld.add_action(simon_cmd)
 
     return ld

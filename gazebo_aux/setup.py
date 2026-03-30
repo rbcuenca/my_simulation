@@ -29,6 +29,7 @@ setup(
             'handler24baf = gazebo_aux.handler24baf:main',
             'handlerdiv2 = gazebo_aux.handlerdiv2:main',
             'young_hee = gazebo_aux.young_hee:main',
+            'simon = gazebo_aux.simon:main',
         ],
     },
 )
