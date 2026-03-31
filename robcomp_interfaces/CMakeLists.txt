@@ -27,6 +27,7 @@ set(msg_files
   "msg/OrquestratorMSG.msg"
   "msg/MudaPista.msg"
   "msg/GameMaster.msg"
+  "msg/SimonSaysMSG.msg"
 
 
 )
