@@ -33,6 +33,7 @@ setup(
             'orchestrator_showbot = gazebo_aux.orchestrator_showbot:main',
             'orquestrador = gazebo_aux.orquestrador:main',
             'gamemaster = gazebo_aux.gamemaster:main',
+            'simon = gazebo_aux.simon:main',
         ],
     },
 )
