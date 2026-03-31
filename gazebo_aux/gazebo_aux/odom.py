@@ -37,3 +37,9 @@ class Odom():
         self.x = msg.pose.pose.position.x
         self.y = msg.pose.pose.position.y
         self.yaw = self.euler_from_quaternion(msg.pose.pose.orientation)[-1]
+
+        # velocidade linear
+        self.vx = msg.twist.twist.linear.x
+
+        # velocidade angular
+        self.vw = msg.twist.twist.angular.z
