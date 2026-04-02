@@ -17,9 +17,14 @@ find_package(rosidl_default_generators REQUIRED)
 set(msg_files
   "msg/Detection.msg"
   "msg/DetectionArray.msg"
+  "msg/Taginfo.msg"
+  "msg/TaginfoArray.msg"
   "msg/Conversation.msg"
   "msg/GameStatus.msg"
   "msg/SimonSaysMSG.msg"
+  "msg/YoloDetector.msg"
+  "msg/YoloArray.msg"
+  "msg/YoloDetectorArray.msg"
 )
 
 set(action_files
