@@ -27,7 +27,7 @@ def generate_launch_description():
                 '/camera/image_raw@sensor_msgs/msg/Image@gz.msgs.Image',
                 '--ros-args', '--param', 'use_multithreaded_executor:=true'
             ],
-            parameters=[{'queue_size': 10},{'use_sim_time': True}],
+            parameters=[{'queue_size': 30},{'use_sim_time': True}],
         ),
         Node(
             package='ros_gz_bridge',
@@ -37,16 +37,18 @@ def generate_launch_description():
                 '/camera/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo',
                 '--ros-args', '--param', 'use_multithreaded_executor:=true'
             ],
-            parameters=[{'queue_size': 10},{'use_sim_time': True}],
+            parameters=[{'queue_size': 30},{'use_sim_time': True}],
         ),
         Node(
             package='gazebo_aux',
             executable='april_tag',
             name='april_tag',
+            parameters=[{'use_sim_time': True}]
         ),
         Node(
             package='gazebo_aux',
             executable='yolo',
             name='yolo_detector',
+            parameters=[{'use_sim_time': True}]
         )
     ])
