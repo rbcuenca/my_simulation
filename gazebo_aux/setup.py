@@ -34,6 +34,7 @@ setup(
             'orquestrador = gazebo_aux.orquestrador:main',
             'gamemaster = gazebo_aux.gamemaster:main',
             'simon = gazebo_aux.simon:main',
+            'marcador_quadrilha = gazebo_aux.marcador_quadrilha:main',
         ],
     },
 )
