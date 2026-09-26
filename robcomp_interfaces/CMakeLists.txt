@@ -17,6 +17,7 @@ find_package(rosidl_default_generators REQUIRED)
 set(msg_files
   "msg/Detection.msg"
   "msg/DetectionArray.msg"
+  "msg/PubSubAPS.msg"
   "msg/Taginfo.msg"
   "msg/TaginfoArray.msg"
   "msg/Conversation.msg"
