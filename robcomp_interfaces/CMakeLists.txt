@@ -27,6 +27,8 @@ set(msg_files
   "msg/YoloArray.msg"
   "msg/YoloDetectorArray.msg"
   "msg/Quadrilha.msg"
+  "msg/ComandanteMSG.msg"
+  "msg/RoboMSG.msg"
 )
 
 set(action_files
