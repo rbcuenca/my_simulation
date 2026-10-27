@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="entorno26B">
+    <static>true</static>
+    <link name="entorno_norte">
+      <pose>0 3.425 0.375 0 0 0</pose>
+      <collision name="entorno_norte_collision">
+        <geometry>
+          <box>
+            <size>8.12 0.12 0.75</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="entorno_norte_visual">
+        <geometry>
+          <box>
+            <size>8.12 0.12 0.75</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.35 0.35 0.35 1</ambient>
+          <diffuse>0.35 0.35 0.35 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <link name="entorno_sul">
+      <pose>0 -5.6 0.375 0 0 0</pose>
+      <collision name="entorno_sul_collision">
+        <geometry>
+          <box>
+            <size>8.12 0.12 0.75</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="entorno_sul_visual">
+        <geometry>
+          <box>
+            <size>8.12 0.12 0.75</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.35 0.35 0.35 1</ambient>
+          <diffuse>0.35 0.35 0.35 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <link name="entorno_oeste">
+      <pose>-4 -1.0875 0.375 0 0 0</pose>
+      <collision name="entorno_oeste_collision">
+        <geometry>
+          <box>
+            <size>0.12 9.145 0.75</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="entorno_oeste_visual">
+        <geometry>
+          <box>
+            <size>0.12 9.145 0.75</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.35 0.35 0.35 1</ambient>
+          <diffuse>0.35 0.35 0.35 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <link name="entorno_leste">
+      <pose>4 -1.0875 0.375 0 0 0</pose>
+      <collision name="entorno_leste_collision">
+        <geometry>
+          <box>
+            <size>0.12 9.145 0.75</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="entorno_leste_visual">
+        <geometry>
+          <box>
+            <size>0.12 9.145 0.75</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.35 0.35 0.35 1</ambient>
+          <diffuse>0.35 0.35 0.35 1</diffuse>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

@@ -1,0 +1,351 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="casa26B">
+    <static>true</static>
+    <!--
+    Mesma area da casa original: centros do entorno x=[-1.8,2], y=[-5.1,-0.55].
+    Malha 4 x 5: passos 0.95 x 0.91 m, paredes de 0.15 m.
+    Corredores livres: 0.80 m em x e 0.76 m em y, como no mapa labirinto.
+    A/B/C/D = colunas de oeste para leste; 0..4 = linhas de norte para sul.
+    Entrada A0, saida D0. Salas: A1+B1, A3+B3+A4+B4 (creeper), C1+D1+C2+D2.
+    Percurso: A0-A1-A2-B2-B3-B4-C4-D4-D3-C3-C2-C1-C0-D0.
+    Ramificacao de busca A1-B1-B0; sala leste com alternativas C1/D1/C2/D2.
+-->
+    <link name="lateral_oeste">
+      <pose>-1.8 -2.825 0.375 0 0 0</pose>
+      <collision name="lateral_oeste_collision">
+        <geometry>
+          <box>
+            <size>0.15 4.7 0.75</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="lateral_oeste_visual">
+        <geometry>
+          <box>
+            <size>0.15 4.7 0.75</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.78 0.75 0.67 1</ambient>
+          <diffuse>0.78 0.75 0.67 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <link name="lateral_leste">
+      <pose>2 -2.825 0.375 0 0 0</pose>
+      <collision name="lateral_leste_collision">
+        <geometry>
+          <box>
+            <size>0.15 4.7 0.75</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="lateral_leste_visual">
+        <geometry>
+          <box>
+            <size>0.15 4.7 0.75</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.78 0.75 0.67 1</ambient>
+          <diffuse>0.78 0.75 0.67 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <link name="fundos">
+      <pose>0.1 -5.1 0.375 0 0 0</pose>
+      <collision name="fundos_collision">
+        <geometry>
+          <box>
+            <size>3.95 0.15 0.75</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="fundos_visual">
+        <geometry>
+          <box>
+            <size>3.95 0.15 0.75</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.78 0.75 0.67 1</ambient>
+          <diffuse>0.78 0.75 0.67 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <link name="fachada_central">
+      <pose>0.1 -0.55 0.375 0 0 0</pose>
+      <collision name="fachada_central_collision">
+        <geometry>
+          <box>
+            <size>2.05 0.15 0.75</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="fachada_central_visual">
+        <geometry>
+          <box>
+            <size>2.05 0.15 0.75</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.78 0.75 0.67 1</ambient>
+          <diffuse>0.78 0.75 0.67 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <link name="divisoria_A0_B0">
+      <pose>-0.85 -1.005 0.375 0 0 0</pose>
+      <collision name="divisoria_A0_B0_collision">
+        <geometry>
+          <box>
+            <size>0.15 1.06 0.75</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="divisoria_A0_B0_visual">
+        <geometry>
+          <box>
+            <size>0.15 1.06 0.75</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.78 0.75 0.67 1</ambient>
+          <diffuse>0.78 0.75 0.67 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <link name="divisoria_B0_C0">
+      <pose>0.1 -1.005 0.375 0 0 0</pose>
+      <collision name="divisoria_B0_C0_collision">
+        <geometry>
+          <box>
+            <size>0.15 1.06 0.75</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="divisoria_B0_C0_visual">
+        <geometry>
+          <box>
+            <size>0.15 1.06 0.75</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.78 0.75 0.67 1</ambient>
+          <diffuse>0.78 0.75 0.67 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <link name="divisoria_B1_C1">
+      <pose>0.1 -1.915 0.375 0 0 0</pose>
+      <collision name="divisoria_B1_C1_collision">
+        <geometry>
+          <box>
+            <size>0.15 1.06 0.75</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="divisoria_B1_C1_visual">
+        <geometry>
+          <box>
+            <size>0.15 1.06 0.75</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.78 0.75 0.67 1</ambient>
+          <diffuse>0.78 0.75 0.67 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <link name="divisoria_B2_C2">
+      <pose>0.1 -2.825 0.375 0 0 0</pose>
+      <collision name="divisoria_B2_C2_collision">
+        <geometry>
+          <box>
+            <size>0.15 1.06 0.75</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="divisoria_B2_C2_visual">
+        <geometry>
+          <box>
+            <size>0.15 1.06 0.75</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.78 0.75 0.67 1</ambient>
+          <diffuse>0.78 0.75 0.67 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <link name="divisoria_B3_C3">
+      <pose>0.1 -3.735 0.375 0 0 0</pose>
+      <collision name="divisoria_B3_C3_collision">
+        <geometry>
+          <box>
+            <size>0.15 1.06 0.75</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="divisoria_B3_C3_visual">
+        <geometry>
+          <box>
+            <size>0.15 1.06 0.75</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.78 0.75 0.67 1</ambient>
+          <diffuse>0.78 0.75 0.67 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <link name="divisoria_A2_A3">
+      <pose>-1.325 -3.28 0.375 0 0 0</pose>
+      <collision name="divisoria_A2_A3_collision">
+        <geometry>
+          <box>
+            <size>1.1 0.15 0.75</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="divisoria_A2_A3_visual">
+        <geometry>
+          <box>
+            <size>1.1 0.15 0.75</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.78 0.75 0.67 1</ambient>
+          <diffuse>0.78 0.75 0.67 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <link name="divisoria_B1_B2">
+      <pose>-0.375 -2.37 0.375 0 0 0</pose>
+      <collision name="divisoria_B1_B2_collision">
+        <geometry>
+          <box>
+            <size>1.1 0.15 0.75</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="divisoria_B1_B2_visual">
+        <geometry>
+          <box>
+            <size>1.1 0.15 0.75</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.78 0.75 0.67 1</ambient>
+          <diffuse>0.78 0.75 0.67 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <link name="divisoria_C3_C4">
+      <pose>0.575 -4.19 0.375 0 0 0</pose>
+      <collision name="divisoria_C3_C4_collision">
+        <geometry>
+          <box>
+            <size>1.1 0.15 0.75</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="divisoria_C3_C4_visual">
+        <geometry>
+          <box>
+            <size>1.1 0.15 0.75</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.78 0.75 0.67 1</ambient>
+          <diffuse>0.78 0.75 0.67 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <link name="divisoria_D0_D1">
+      <pose>1.525 -1.46 0.375 0 0 0</pose>
+      <collision name="divisoria_D0_D1_collision">
+        <geometry>
+          <box>
+            <size>1.1 0.15 0.75</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="divisoria_D0_D1_visual">
+        <geometry>
+          <box>
+            <size>1.1 0.15 0.75</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.78 0.75 0.67 1</ambient>
+          <diffuse>0.78 0.75 0.67 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <link name="divisoria_D2_D3">
+      <pose>1.525 -3.28 0.375 0 0 0</pose>
+      <collision name="divisoria_D2_D3_collision">
+        <geometry>
+          <box>
+            <size>1.1 0.15 0.75</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="divisoria_D2_D3_visual">
+        <geometry>
+          <box>
+            <size>1.1 0.15 0.75</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.78 0.75 0.67 1</ambient>
+          <diffuse>0.78 0.75 0.67 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <link name="piso_casa">
+      <pose>0.1 -2.825 -0.008 0 0 0</pose>
+      <collision name="piso_casa_collision">
+        <geometry>
+          <box>
+            <size>3.8 4.55 0.02</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="piso_casa_visual">
+        <geometry>
+          <box>
+            <size>3.8 4.55 0.02</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.62 0.55 0.43 1</ambient>
+          <diffuse>0.62 0.55 0.43 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <link name="extensao_piso">
+      <pose>0 -4.55 -0.05 0 0 0</pose>
+      <collision name="extensao_piso_collision">
+        <geometry>
+          <box>
+            <size>8 2.1 0.1</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="extensao_piso_visual">
+        <geometry>
+          <box>
+            <size>8 2.1 0.1</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.62 0.55 0.43 1</ambient>
+          <diffuse>0.62 0.55 0.43 1</diffuse>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>
